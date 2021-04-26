@@ -9,23 +9,25 @@ namespace ASPNETCore.Context
 {
     public class MyContext: DbContext
     {
-        public MyContext(DbContextOptions<DbContext> options)
+        public MyContext(DbContextOptions<MyContext> options)
             :base(options)
         {
 
         }
 
-        public DbSet<EmployeeRole> employeeRoles { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<EmployeeRole> EmployeeRoles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<EmployeeRole>()
-                .HasMany(c => c.Employee)
-                .WithOne(e => e.EmployeeRoles);
-            
+                .HasOne(EmployeeRole => EmployeeRole.Employee)
+                .WithMany(Employee => Employee.EmployeeRoles);
+
             modelBuilder.Entity<EmployeeRole>()
-                .HasMany(c => c.Role)
-                .WithOne(e => e.EmployeeRoless);
+                .HasOne(EmployeeRole => EmployeeRole.Role)
+                .WithMany(Role => Role.EmployeeRoles);
         }
     }
 }
