@@ -14,10 +14,7 @@ namespace ASPNETCore.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string ZipCode { get; set; }
-        public int SubDistrict_Id { get; set; }
-        [ForeignKey("SubDistrict_Id")] 
-        public SubDistrict subDistrict { get; set; }
-        //public ICollection<Address> addresses { get; set; }
+        public ICollection<Address> Address { get; set; }
 
     }
 }
