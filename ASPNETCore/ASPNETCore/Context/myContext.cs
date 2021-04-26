@@ -14,7 +14,11 @@ namespace ASPNETCore.Context
 
         }
 
-        public DbSet<Education> Education { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Education> Educations { get; set; }
+        public DbSet<EmployeeRole> EmployeeRoles { get; set; }
         public DbSet<Major> Major { get; set; }
         public DbSet<University> University { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,7 +30,21 @@ namespace ASPNETCore.Context
             modelBuilder.Entity<Education>()
                 .HasOne(education => education.Major)
                 .WithMany(major => major.Educations);
+
+            modelBuilder.Entity<Employee>()
+                .HasOne(employee => employee.Contact)
+                .WithOne(contact => contact.Employee)
+                .HasForeignKey<Contact>(contact => contact.Id);
+            
+            modelBuilder.Entity<Employee>()
+                .HasOne(employee => employee.Address)
+                .WithOne(address => address.Employee)
+                .HasForeignKey<Address>(address => address.Id);
+            
+            modelBuilder.Entity<Employee>()
+                .HasOne(employee => employee.Education)
+                .WithOne(education => education.Employee)
+                .HasForeignKey<Education>(education => education.Id);
         }
-          
     }
 }
