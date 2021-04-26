@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {}
+    "D:\\Visual Studio Source\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {}
   },
   "projects": {
-    "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {
+    "D:\\Visual Studio Source\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+        "projectUniqueName": "D:\\Visual Studio Source\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
         "projectName": "ASPNETCore",
-        "projectPath": "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+        "projectPath": "D:\\Visual Studio Source\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
+        "outputPath": "D:\\Visual Studio Source\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4ks3n09FeVBCDHxVf30Z0+aOTEgjUwivbhGlsQI7Hg/uNID8E+IPwT6+QOhrAUZHUVBU8/VVN58UjWIG6WoHHA==",
+  "dgSpecHash": "lYo0GI0s3h6L8UX0c5LaG/b2tezkR/vjRzlPraRHTYPNOL6WTz4vGs8cp08ewmwT54IRjFJUlsNWmsotk4jtTQ==",
   "success": true,
-  "projectFilePath": "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+  "projectFilePath": "D:\\Visual Studio Source\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
