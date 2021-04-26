@@ -11,7 +11,7 @@ namespace ASPNETCore.Models
     public class Education
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Degree { get; set; }
         public int MajorId { get; set; }
         [ForeignKey("MajorId")]
