@@ -13,7 +13,7 @@ namespace ASPNETCore.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<EmployeeRole> employeeRoles { get; set; }
+        public ICollection<EmployeeRole> EmployeeRoles { get; set; }
     }
 
 
