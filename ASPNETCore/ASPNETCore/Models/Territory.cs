@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Models
 {
-    [Table("TB_M_Role")]
-    public class Role
+    [Table("TB_M_Territory")]
+    public class Territory
     {
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<EmployeeRole> EmployeeRoles { get; set; }
+        public string ZipCode { get; set; }
+        public int SubDistrict_Id { get; set; }
+        [ForeignKey("SubDistrict_Id")] 
+        public SubDistrict subDistrict { get; set; }
+        //public ICollection<Address> addresses { get; set; }
+
     }
-
-
-
-
 }

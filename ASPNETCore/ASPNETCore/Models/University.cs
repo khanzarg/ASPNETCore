@@ -7,16 +7,12 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Models
 {
-    [Table("TB_M_Role")]
-    public class Role
+    [Table("TB_M_University")]
+    public class University
     {
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<EmployeeRole> EmployeeRoles { get; set; }
+        public int Counter { get; set; }
     }
-
-
-
-
 }
