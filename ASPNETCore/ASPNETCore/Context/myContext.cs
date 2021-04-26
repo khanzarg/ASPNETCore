@@ -18,6 +18,7 @@ namespace ASPNETCore.Context
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Territory
             modelBuilder.Entity<Territory>()
                 .HasOne(territory => territory.SubDistrict)
                 .WithMany(subdistrict => subdistrict.Territory);
