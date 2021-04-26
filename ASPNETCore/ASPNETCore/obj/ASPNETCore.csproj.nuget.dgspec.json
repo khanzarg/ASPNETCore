@@ -1,20 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {}
+    "E:\\Kerjaan\\Tugas\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {}
   },
   "projects": {
-    "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {
+    "E:\\Kerjaan\\Tugas\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+        "projectUniqueName": "E:\\Kerjaan\\Tugas\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
         "projectName": "ASPNETCore",
-        "projectPath": "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
-        "packagesPath": "C:\\Users\\siaha\\.nuget\\packages\\",
-        "outputPath": "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
+        "projectPath": "E:\\Kerjaan\\Tugas\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+        "packagesPath": "C:\\Users\\ilpra\\.nuget\\packages\\",
+        "outputPath": "E:\\Kerjaan\\Tugas\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\siaha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ilpra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +56,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

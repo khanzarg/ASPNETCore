@@ -1,0 +1,5 @@
+E:\Kerjaan\Tugas\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csprojAssemblyReference.cache
+E:\Kerjaan\Tugas\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.AssemblyInfoInputs.cache
+E:\Kerjaan\Tugas\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.AssemblyInfo.cs
+E:\Kerjaan\Tugas\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csproj.CoreCompileInputs.cache
+E:\Kerjaan\Tugas\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.MvcApplicationPartsAssemblyInfo.cache
