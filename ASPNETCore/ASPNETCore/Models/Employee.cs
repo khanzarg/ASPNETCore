@@ -29,11 +29,5 @@ namespace ASPNETCore.Models
         public int Contact_Id { get; set; }
         [ForeignKey("Contact_Id")]
         public Contact Contact { get; set;}
-
-        //public ICollection<EmployeeRole> EmployeeRoles { get; set; }
-
-        //public int role { get; set; }
-        //[ForeignKey("role")]
-        //public EmployeeRole EmployeeRole
     }
 }
