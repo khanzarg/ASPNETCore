@@ -9,6 +9,12 @@ namespace ASPNETCore.Context
 {
     public class MyContext : DbContext
     {
+        public MyContext(DbContextOptions<MyContext> options) : base(options)
+        {
 
+        }
+
+        public DbSet<EmployeeRole> EmployeeRoles { get; set; }
+        public DbSet<Role> Roles { get; set; }
     }
 }
