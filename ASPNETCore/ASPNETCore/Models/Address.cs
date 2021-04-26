@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ASPNETCore.Controllers.Models
+namespace ASPNETCore.Models
 {
     [Table("TB_M_Address")]
     public class Address
