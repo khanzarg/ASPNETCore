@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Context
 {
-    public class myContext : DbContext
+    public class MyContext : DbContext
     {
-        public myContext() : base("myConnection") { }
+        public MyContext() : base("myConnection") { }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<District> Districts { get; set; }
