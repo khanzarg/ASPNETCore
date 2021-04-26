@@ -14,7 +14,7 @@ namespace ASPNETCore.Models
         public int Id { get; set; }
         public string StreetAddress1 { get; set; }
         public string StreetAddress2 { get; set; }
-        [ForeignKey("Territory_Id")]
+        [ForeignKey("Territory_id")]
         public int Territory_id { get; set; }
         public Territory Territory { get; set; }
       
