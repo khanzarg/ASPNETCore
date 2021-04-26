@@ -1,11 +1,14 @@
-﻿using System;
+﻿using ASPNETCore.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ASPNETCore.Context
 {
-    public class myContext
+    public class MyContext : DbContext
     {
+
     }
 }
