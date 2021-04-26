@@ -18,15 +18,13 @@ namespace ASPNETCore.Models
         public string Gender { get; set; }
         public string Email { get; set; }
 
+        public Address Address { get; set; }
+      
+        public Education Education { get; set; }
+
+        public Contact Contact { get; set;}
+
         public ICollection<EmployeeRole> EmployeeRoles { get; set; }
-        //public EmployeeRole EmployeeRoles { get; set; }
-
-        //public Address Address { get; set; }
-
-
-        //public Education Education { get; set; }
-
-        //public Contact Contact { get; set;}
 
     }
 }

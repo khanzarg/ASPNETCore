@@ -5,6 +5,7 @@
   </PropertyGroup>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   <ItemGroup>
     <Compile Remove="Migrations\20210426114623_RelationEmployee.cs" />
     <Compile Remove="Migrations\20210426114623_RelationEmployee.Designer.cs" />
@@ -35,6 +36,18 @@
     <Folder Include="Controllers\" />
     <Folder Include="Migrations\" />
 =======
+=======
+  <ItemGroup>
+    <Compile Remove="Models\District.cs" />
+    <Compile Remove="Models\Major.cs" />
+    <Compile Remove="Models\Province.cs" />
+    <Compile Remove="Models\Role.cs" />
+    <Compile Remove="Models\SubDistrict.cs" />
+    <Compile Remove="Models\Territory.cs" />
+    <Compile Remove="Models\University.cs" />
+  </ItemGroup>
+
+>>>>>>> Arsya
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
@@ -46,7 +59,10 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+<<<<<<< HEAD
 >>>>>>> main
+=======
+>>>>>>> Arsya
   </ItemGroup>
 
 

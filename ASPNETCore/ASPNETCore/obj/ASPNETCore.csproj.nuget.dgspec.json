@@ -91,6 +91,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\aden\\Documents\\GitHub\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {}
   },
   "projects": {
@@ -109,6 +110,25 @@
         ],
         "configFilePaths": [
           "C:\\Users\\aden\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+        "projectName": "ASPNETCore",
+        "projectPath": "C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+        "packagesPath": "C:\\Users\\alfat\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\alfat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Arsya
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

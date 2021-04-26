@@ -1,9 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 //using ASPNETCore.Context;
 using ASPNETCore.Context;
 =======
 using ASPNETCore.Context;
 >>>>>>> main
+=======
+using ASPNETCore.Context;
+>>>>>>> Arsya
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -35,9 +39,12 @@ namespace ASPNETCore
         {
             services.AddControllers();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> main
+=======
+>>>>>>> Arsya
             services.AddDbContext<MyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
         }
