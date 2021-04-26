@@ -12,11 +12,13 @@ namespace ASPNETCore.Models
     {
         [Key]
         public int Id { get; set; }
-        public int Employee_Id { get; set; }
-        [ForeignKey("Id")]
-        //public Employee Employee { get; set; }
-        public int Role_Id { get; set; }
-        [ForeignKey("Id")]
-        public Role Role { get; set; }
+
+        //public ICollection<Employee> Employees { get; set; }
+        //public int Employee_Id { get; set; }
+        //[ForeignKey("Id")]
+        public Employee Employee { get; set; }
+        //public int Role_Id { get; set; }
+        //[ForeignKey("Id")]
+        //public Role Role { get; set; }
     }
 }
