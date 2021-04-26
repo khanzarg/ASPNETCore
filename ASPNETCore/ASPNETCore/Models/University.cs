@@ -14,5 +14,6 @@ namespace ASPNETCore.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int Counter { get; set; }
+        public ICollection<Education> Education { get; set; }
     }
 }
