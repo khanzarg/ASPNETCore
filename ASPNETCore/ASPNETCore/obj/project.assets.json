@@ -4952,23 +4952,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lenovo\\.nuget\\packages\\": {},
+    "C:\\Users\\alfat\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+      "projectUniqueName": "C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
       "projectName": "ASPNETCore",
-      "projectPath": "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
-      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
+      "projectPath": "C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+      "packagesPath": "C:\\Users\\alfat\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alfat\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
