@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20210426114623_RelationEmployee.cs" />
-    <Compile Remove="Migrations\20210426114623_RelationEmployee.Designer.cs" />
-    <Compile Remove="Migrations\20210426114855_RelationEmployee.cs" />
-    <Compile Remove="Migrations\20210426114855_RelationEmployee.Designer.cs" />
     <Compile Remove="Models\Address.cs" />
     <Compile Remove="Models\Contact.cs" />
     <Compile Remove="Models\District.cs" />
@@ -32,7 +28,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 

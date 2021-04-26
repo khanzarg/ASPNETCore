@@ -41,3 +41,46 @@ E:\Kerjaan\Tugas\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNET
 E:\Kerjaan\Tugas\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.dll
 E:\Kerjaan\Tugas\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.pdb
 E:\Kerjaan\Tugas\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.genruntimeconfig.cache
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\appsettings.json
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\ASPNETCore.exe
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\ASPNETCore.deps.json
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\ASPNETCore.runtimeconfig.json
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\ASPNETCore.runtimeconfig.dev.json
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\ASPNETCore.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\ASPNETCore.pdb
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Google.Apis.Core.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csprojAssemblyReference.cache
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.AssemblyInfoInputs.cache
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.AssemblyInfo.cs
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csproj.CoreCompileInputs.cache
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.MvcApplicationPartsAssemblyInfo.cache
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\staticwebassets\ASPNETCore.StaticWebAssets.Manifest.cache
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\staticwebassets\ASPNETCore.StaticWebAssets.xml
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\scopedcss\bundle\ASPNETCore.styles.css
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.RazorTargetAssemblyInfo.cache
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csproj.CopyComplete
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.dll
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.pdb
+D:\BOOTCAMP\.NET\ASP NET Core\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.genruntimeconfig.cache
