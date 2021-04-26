@@ -17,9 +17,9 @@ namespace ASPNETCore.Models
 
         public string Linkedin { get; set; }
 
-        public int EmployeeId { get; set; }
-        [ForeignKey("EmployeeId")]
+        //public int EmployeeId { get; set; }
+        //[ForeignKey("EmployeeId")]
 
-        public Employee Employee { get; set; }
+        //public Employee Employee { get; set; }
     }
 }
