@@ -9,7 +9,7 @@ namespace ASPNETCore.GenericRepository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private myContext _context = null;
+        private myContext _context = null; //private readonly myContext _context;
         private DbSet<T> table = null;
         public GenericRepository()
         {
