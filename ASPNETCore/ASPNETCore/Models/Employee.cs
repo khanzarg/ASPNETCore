@@ -18,22 +18,14 @@ namespace ASPNETCore.Models
         public string Gender { get; set; }
         public string Email { get; set; }
 
-        public int Address_Id { get; set; }
-        [ForeignKey("Address_Id")]
-        public Address Address { get; set; }
+        public EmployeeRole EmployeeRoles { get; set; }
 
-        public int Education_Id { get; set; }
-        [ForeignKey("Education_Id")]
-        public Education Education { get; set; }
+        //public Address Address { get; set; }
 
-        public int Contact_Id { get; set; }
-        [ForeignKey("Contact_Id")]
-        public Contact Contact { get; set;}
 
-        //public ICollection<EmployeeRole> EmployeeRoles { get; set; }
+        //public Education Education { get; set; }
 
-        //public int role { get; set; }
-        //[ForeignKey("role")]
-        //public EmployeeRole EmployeeRole
+        //public Contact Contact { get; set;}
+
     }
 }
