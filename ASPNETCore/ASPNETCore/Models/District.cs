@@ -15,12 +15,13 @@ namespace ASPNETCore.Models
 
         public string Name { get; set; }
 
-        public int ProvinceId { get; set; }
+        //public int ProvinceId { get; set; }
 
-        [ForeignKey ("ProvinceId")]
+        //[ForeignKey ("ProvinceId")]
 
         public Province Province { get; set; }
 
+        
     }
 }
 
