@@ -19,13 +19,18 @@ namespace ASPNETCore.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+<<<<<<< HEAD
             modelBuilder.Entity("ASPNETCore.Models.Address", b =>
+=======
+            modelBuilder.Entity("ASPNETCore.Models.District", b =>
+>>>>>>> Anindya
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+<<<<<<< HEAD
                     b.Property<string>("StreetAddress1")
                         .HasColumnType("nvarchar(max)");
 
@@ -33,22 +38,38 @@ namespace ASPNETCore.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TerritoryId")
+=======
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProvinceId")
+>>>>>>> Anindya
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+<<<<<<< HEAD
                     b.HasIndex("TerritoryId");
 
                     b.ToTable("TB_M_Address");
                 });
 
             modelBuilder.Entity("ASPNETCore.Models.Employee", b =>
+=======
+                    b.HasIndex("ProvinceId");
+
+                    b.ToTable("TB_M_District");
+                });
+
+            modelBuilder.Entity("ASPNETCore.Models.Province", b =>
+>>>>>>> Anindya
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+<<<<<<< HEAD
                     b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
@@ -61,11 +82,14 @@ namespace ASPNETCore.Migrations
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
+=======
+>>>>>>> Anindya
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+<<<<<<< HEAD
                     b.HasIndex("AddressId");
 
                     b.ToTable("TB_M_Employee");
@@ -101,6 +125,16 @@ namespace ASPNETCore.Migrations
                     b.HasOne("ASPNETCore.Models.Address", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId");
+=======
+                    b.ToTable("TB_M_Province");
+                });
+
+            modelBuilder.Entity("ASPNETCore.Models.District", b =>
+                {
+                    b.HasOne("ASPNETCore.Models.Province", "Province")
+                        .WithMany("Districts")
+                        .HasForeignKey("ProvinceId");
+>>>>>>> Anindya
                 });
 #pragma warning restore 612, 618
         }

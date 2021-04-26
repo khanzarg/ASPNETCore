@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {}
   },
   "projects": {
@@ -12,9 +13,27 @@
         "projectPath": "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
         "packagesPath": "C:\\Users\\Alpha\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
+=======
+    "C:\\Users\\ASUS\\Documents\\GitHub\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ASUS\\Documents\\GitHub\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+        "projectName": "ASPNETCore",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
+>>>>>>> Anindya
         "projectStyle": "PackageReference",
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\Alpha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> Anindya
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,14 +63,18 @@
               "target": "Package",
               "version": "[3.1.0, )"
             },
+<<<<<<< HEAD
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
               "version": "[3.1.0, )"
             },
+=======
+>>>>>>> Anindya
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.0, )"
             },
+<<<<<<< HEAD
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[3.1.0, )"
@@ -60,6 +83,8 @@
               "target": "Package",
               "version": "[3.1.0, )"
             },
+=======
+>>>>>>> Anindya
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",

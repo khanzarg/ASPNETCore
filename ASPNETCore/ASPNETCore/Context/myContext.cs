@@ -16,8 +16,10 @@ namespace ASPNETCore.Context
         public DbSet<Territory> Territories  { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<SubDistrict> SubDistricts { get; set; }
+        public DbSet<District> Districts { get; set; }
+        public DbSet<Province> Provinces { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Territory
             modelBuilder.Entity<Territory>()
@@ -28,7 +30,10 @@ namespace ASPNETCore.Context
             modelBuilder.Entity<Address>()
                 .HasOne(address => address.Territory)
                 .WithMany(territory => territory.Addresses);
-
+            
+            modelBuilder.Entity<District>()
+                .HasOne(district => district.Province)
+                .WithMany(province => province.Districts);
         }
     }
 }
