@@ -5216,6 +5216,33 @@
           }
         }
       },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      "Microsoft.Data.Sqlite.Core/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
+      "Microsoft.DotNet.PlatformAbstractions/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.dll": {}
+        }
+      },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
       "Microsoft.EntityFrameworkCore/3.1.0": {
         "type": "package",
         "dependencies": {
@@ -5283,6 +5310,40 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      "Microsoft.EntityFrameworkCore.Sqlite/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": "3.1.0",
+          "SQLitePCLRaw.bundle_e_sqlite3": "2.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Sqlite.Core/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Data.Sqlite.Core": "3.1.0",
+          "Microsoft.DotNet.PlatformAbstractions": "3.1.0",
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.0",
+          "Microsoft.Extensions.DependencyModel": "3.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Sqlite.dll": {}
+        }
+      },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
       "Microsoft.EntityFrameworkCore.SqlServer/3.1.0": {
         "type": "package",
         "dependencies": {
@@ -5392,6 +5453,24 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      "Microsoft.Extensions.DependencyModel/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Json": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {}
+        }
+      },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
       "Microsoft.Extensions.Logging/3.1.0": {
         "type": "package",
         "dependencies": {
@@ -5546,6 +5625,111 @@
           }
         }
       },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      "SQLitePCLRaw.bundle_e_sqlite3/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.2",
+          "SQLitePCLRaw.lib.e_sqlite3": "2.0.2",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3/2.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/alpine-x64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "alpine-x64"
+          },
+          "runtimes/linux-arm/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-arm"
+          },
+          "runtimes/linux-arm64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          },
+          "runtimes/linux-armel/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-armel"
+          },
+          "runtimes/linux-musl-x64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-musl-x64"
+          },
+          "runtimes/linux-x64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x86/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-x86"
+          },
+          "runtimes/osx-x64/native/libe_sqlite3.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win-arm/native/e_sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win-arm"
+          },
+          "runtimes/win-arm64/native/e_sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/e_sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/e_sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        }
+      },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -5830,6 +6014,21 @@
           "lib/netstandard1.6/System.Linq.dll": {}
         }
       },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
       "System.Net.NameResolution/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -6292,6 +6491,21 @@
           "ref/netstandard1.3/_._": {}
         }
       },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      "System.Text.Json/4.7.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {}
+        }
+      },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
       "System.Text.RegularExpressions/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -6606,6 +6820,45 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Data.SqlClient.pdb"
       ]
     },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    "Microsoft.Data.Sqlite.Core/3.1.0": {
+      "sha512": "2AZt29WBUiIcPxl5lW2sMnVk7iJ3NmtP6KV57aPc4dMHZrKWAeKCLpNfZwy4VBKUw7rO0DumL1nkUHObAZNLmw==",
+      "type": "package",
+      "path": "microsoft.data.sqlite.core/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
+        "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
+        "microsoft.data.sqlite.core.3.1.0.nupkg.sha512",
+        "microsoft.data.sqlite.core.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "Microsoft.DotNet.PlatformAbstractions/3.1.0": {
+      "sha512": "WidpoE1j3eXAnccZRQjb4W+XQeDg2jJFKVgwD7iPF27wOkPB+t9P4B/ctN5GG+Vrp8k+O+01kLweuE+7+nlf9g==",
+      "type": "package",
+      "path": "microsoft.dotnet.platformabstractions/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net45/Microsoft.DotNet.PlatformAbstractions.dll",
+        "lib/net45/Microsoft.DotNet.PlatformAbstractions.xml",
+        "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll",
+        "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.xml",
+        "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.dll",
+        "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.xml",
+        "microsoft.dotnet.platformabstractions.3.1.0.nupkg.sha512",
+        "microsoft.dotnet.platformabstractions.nuspec"
+      ]
+    },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
     "Microsoft.EntityFrameworkCore/3.1.0": {
       "sha512": "BG+K/TBDlmkFUviU8lPvmQ3/nDf9e5MKh1il31gLEToV2kgxgkg+JulhtM0xOph6OU1Iyd5A+3c5FyBpI2xh3A==",
       "type": "package",
@@ -6678,6 +6931,39 @@
         "packageIcon.png"
       ]
     },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    "Microsoft.EntityFrameworkCore.Sqlite/3.1.0": {
+      "sha512": "U09oErFYp4C1bWSNzzGfZIM67BX0WMV3ilvpA3c9HODMWmUdoVH8arGEGQyIcXYBt0R+SFs4dh66nulZh+7qDg==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.sqlite/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/_._",
+        "microsoft.entityframeworkcore.sqlite.3.1.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlite.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/3.1.0": {
+      "sha512": "ScbxuIZo5ymMn8j1SraW6ZyJN1723KR82qDeJ2k5b3CbY7OMECTKswl7VopPQr1t9pwRxYHs1FYyxbKwjSyT4g==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.sqlite.core/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Sqlite.dll",
+        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Sqlite.xml",
+        "microsoft.entityframeworkcore.sqlite.core.3.1.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlite.core.nuspec",
+        "packageIcon.png"
+      ]
+    },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
     "Microsoft.EntityFrameworkCore.SqlServer/3.1.0": {
       "sha512": "907i9yQgBbnIqMeqP32hOSUz35sMV3l16GqmKhUvi96/iCaMcT/GM2CUvtT5cJBkr1VLi4/82ZGVPHISacfoag==",
       "type": "package",
@@ -6830,6 +7116,33 @@
         "packageIcon.png"
       ]
     },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    "Microsoft.Extensions.DependencyModel/3.1.0": {
+      "sha512": "8tBjqI1xU3CNjdXMZF7BaY71ChU44x30QtHI2rVmPB3+3PjYi+YGhVTV5+IOlc40F81Bylh4gWwHET3jVKFE4Q==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencymodel/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net451/Microsoft.Extensions.DependencyModel.dll",
+        "lib/net451/Microsoft.Extensions.DependencyModel.xml",
+        "lib/netstandard1.3/Microsoft.Extensions.DependencyModel.dll",
+        "lib/netstandard1.3/Microsoft.Extensions.DependencyModel.xml",
+        "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.dll",
+        "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.xml",
+        "microsoft.extensions.dependencymodel.3.1.0.nupkg.sha512",
+        "microsoft.extensions.dependencymodel.nuspec"
+      ]
+    },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
     "Microsoft.Extensions.Logging/3.1.0": {
       "sha512": "P+8sKQ8L4ooL79sxxqwFPxGGC3aBrUDLB/dZqhs4J0XjTyrkeeyJQ4D4nzJB6OnAhy78HIIgQ/RbD6upOXLynw==",
       "type": "package",
@@ -7011,9 +7324,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -7043,9 +7360,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -7062,9 +7383,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -7081,9 +7406,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -7093,6 +7422,84 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    "SQLitePCLRaw.bundle_e_sqlite3/2.0.2": {
+      "sha512": "OVPI/nh5AqfLCIKhAYqjCa6AHhc7oKApGcGM3UhMRSerFiBx58nSpGwxVFdMgjOCWZR+fA49nzsnKlWp5hFo8w==",
+      "type": "package",
+      "path": "sqlitepclraw.bundle_e_sqlite3/2.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll",
+        "lib/Xamarin.tvOS10/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net461/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net461/SQLitePCLRaw.nativelibrary.dll",
+        "lib/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll",
+        "lib/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll",
+        "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll",
+        "sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
+        "sqlitepclraw.bundle_e_sqlite3.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.core/2.0.2": {
+      "sha512": "TFSBX426OelS1tkaVC254NVVlrJIe9YLhWPkEvuqJj2104QpmDmEYOhfdfDJD1E/2SmqDhoRw1ek5cQHj8olcQ==",
+      "type": "package",
+      "path": "sqlitepclraw.core/2.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.core.dll",
+        "sqlitepclraw.core.2.0.2.nupkg.sha512",
+        "sqlitepclraw.core.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.lib.e_sqlite3/2.0.2": {
+      "sha512": "S+Tsqe/M7wsc+9HeediI6UHtBKf2X586aRwhi1aBVLGe0WxkAo52O9ZxwEy/v8XMLefcrEMupd2e9CDlIT6QCw==",
+      "type": "package",
+      "path": "sqlitepclraw.lib.e_sqlite3/2.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net461/SQLitePCLRaw.lib.e_sqlite3.targets",
+        "lib/net461/_._",
+        "lib/netstandard2.0/_._",
+        "runtimes/alpine-x64/native/libe_sqlite3.so",
+        "runtimes/linux-arm/native/libe_sqlite3.so",
+        "runtimes/linux-arm64/native/libe_sqlite3.so",
+        "runtimes/linux-armel/native/libe_sqlite3.so",
+        "runtimes/linux-musl-x64/native/libe_sqlite3.so",
+        "runtimes/linux-x64/native/libe_sqlite3.so",
+        "runtimes/linux-x86/native/libe_sqlite3.so",
+        "runtimes/osx-x64/native/libe_sqlite3.dylib",
+        "runtimes/win-arm/native/e_sqlite3.dll",
+        "runtimes/win-arm64/native/e_sqlite3.dll",
+        "runtimes/win-x64/native/e_sqlite3.dll",
+        "runtimes/win-x86/native/e_sqlite3.dll",
+        "runtimes/win10-arm/nativeassets/uap10.0/e_sqlite3.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/e_sqlite3.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/e_sqlite3.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/e_sqlite3.dll",
+        "sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",
+        "sqlitepclraw.lib.e_sqlite3.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.provider.dynamic_cdecl/2.0.2": {
+      "sha512": "ZSwacbKJUsxJEZxwT23uZVrGbaIvXcADZDz5Sr66fikO5eehdcceDncjzwzTzWfW13di8gpTpstx3WJSt/Ci5Q==",
+      "type": "package",
+      "path": "sqlitepclraw.provider.dynamic_cdecl/2.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll",
+        "sqlitepclraw.provider.dynamic_cdecl.2.0.2.nupkg.sha512",
+        "sqlitepclraw.provider.dynamic_cdecl.nuspec"
+      ]
+    },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
     "System.Collections/4.3.0": {
       "sha512": "3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==",
       "type": "package",
@@ -7100,9 +7507,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7171,9 +7582,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7265,9 +7680,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7307,9 +7726,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7349,9 +7772,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7500,9 +7927,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7542,9 +7973,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7619,9 +8054,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7715,9 +8154,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7775,9 +8218,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7868,9 +8315,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7939,9 +8390,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -7983,9 +8438,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8067,9 +8526,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8108,9 +8571,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8150,9 +8617,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8218,6 +8689,33 @@
         "system.linq.nuspec"
       ]
     },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    "System.Memory/4.5.3": {
+      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "type": "package",
+      "path": "system.memory/4.5.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
     "System.Net.NameResolution/4.3.0": {
       "sha512": "AFYl08R7MrsrEjqpQWTZWBadqXyTzNDaWpMqyxhb0d6sGhV6xMDKueuBXlLL30gz+DIRY6MpdgnHWlCh5wmq9w==",
       "type": "package",
@@ -8225,9 +8723,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8270,9 +8772,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8352,9 +8858,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.3/System.Private.DataContractSerialization.dll",
@@ -8371,9 +8881,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8581,9 +9095,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8641,9 +9159,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8755,9 +9277,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8815,9 +9341,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8971,9 +9501,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9055,9 +9589,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9096,9 +9634,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9192,9 +9734,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9283,9 +9829,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9401,9 +9951,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9579,9 +10133,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9698,9 +10256,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9762,6 +10324,33 @@
         "system.text.encoding.extensions.nuspec"
       ]
     },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    "System.Text.Json/4.7.0": {
+      "sha512": "IPq/x/d5nAcnD3vIyM3AbPOaTgcqrh0AqPSx7U53UFu3M6k1TH1u/eXc9/h4jm/3mpP1WRUpevlPY4PACd7AWw==",
+      "type": "package",
+      "path": "system.text.json/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Text.Json.dll",
+        "lib/net461/System.Text.Json.xml",
+        "lib/netcoreapp3.0/System.Text.Json.dll",
+        "lib/netcoreapp3.0/System.Text.Json.xml",
+        "lib/netstandard2.0/System.Text.Json.dll",
+        "lib/netstandard2.0/System.Text.Json.xml",
+        "system.text.json.4.7.0.nupkg.sha512",
+        "system.text.json.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
     "System.Text.RegularExpressions/4.3.0": {
       "sha512": "RpT2DA+L660cBt1FssIE9CAGpLFdFPuheB7pLpKpn6ZXNby7jDERe8Ua/Ne2xGiwLVG2JOqziiaVCGDon5sKFA==",
       "type": "package",
@@ -9769,9 +10358,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9856,9 +10449,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9930,9 +10527,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10001,9 +10602,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
@@ -10021,9 +10626,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10096,9 +10705,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10169,9 +10782,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10211,9 +10828,13 @@
       "files": [
         ".nupkg.metadata",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         ".signature.p7s",
 >>>>>>> Arsya
+=======
+        ".signature.p7s",
+>>>>>>> Fahmi
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10282,11 +10903,23 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.EntityFrameworkCore >= 3.1.0",
+<<<<<<< HEAD
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.0",
+=======
+<<<<<<< HEAD
+      "Microsoft.EntityFrameworkCore.Relational >= 3.1.0",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.0",
+      "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.0",
+      "Microsoft.EntityFrameworkCore.Sqlite.Core >= 3.1.0",
+=======
+      "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.0",
+>>>>>>> Anindya
+>>>>>>> Fahmi
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.0"
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
 <<<<<<< HEAD
     "C:\\Users\\aden\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
@@ -10295,10 +10928,18 @@
     "C:\\Users\\alfat\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
 >>>>>>> Arsya
+=======
+    "C:\\Users\\Alpha\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+>>>>>>> Anindya
+>>>>>>> Fahmi
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\aden\\Documents\\GitHub\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
       "projectName": "ASPNETCore",
@@ -10318,14 +10959,33 @@
       "projectPath": "C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
       "packagesPath": "C:\\Users\\alfat\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+      "projectName": "ASPNETCore",
+      "projectPath": "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+      "packagesPath": "C:\\Users\\Alpha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+      "projectName": "ASPNETCore",
+      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
+>>>>>>> Anindya
+>>>>>>> Fahmi
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\alfat\\AppData\\Roaming\\NuGet\\NuGet.Config",
 >>>>>>> Arsya
+=======
+<<<<<<< HEAD
+        "C:\\Users\\Alpha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Fahmi
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> Anindya
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10355,10 +11015,34 @@
             "target": "Package",
             "version": "[3.1.0, )"
           },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+          "Microsoft.EntityFrameworkCore.Relational": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[3.1.0, )"
           },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+          "Microsoft.EntityFrameworkCore.Sqlite": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          },
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          },
+=======
+>>>>>>> Anindya
+>>>>>>> Fahmi
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",

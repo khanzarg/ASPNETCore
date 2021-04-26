@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
@@ -29,4 +30,13 @@
     ]
   }
 >>>>>>> Arsya
+=======
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Alpha\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Alpha\\.nuget\\packages"
+    ]
+  }
+>>>>>>> Fahmi
 }

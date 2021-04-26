@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {
   "runtimeOptions": {
     "tfm": "netcoreapp3.1",
@@ -15,6 +16,8 @@
 =======
 =======
 >>>>>>> Arsya
+=======
+>>>>>>> Fahmi
 {
   "runtimeOptions": {
     "tfm": "netcoreapp3.1",
@@ -28,7 +31,10 @@
     }
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> main
 =======
 >>>>>>> Arsya
+=======
+>>>>>>> Fahmi
 }
