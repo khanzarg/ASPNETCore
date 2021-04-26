@@ -27,7 +27,7 @@ namespace ASPNETCore.Context
             // Address
             modelBuilder.Entity<Address>()
                 .HasOne(address => address.Territory)
-                .WithMany(territory => territory.Address);
+                .WithMany(territory => territory.Addresses);
 
         }
     }
