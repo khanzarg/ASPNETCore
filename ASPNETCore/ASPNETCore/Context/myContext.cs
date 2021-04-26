@@ -40,6 +40,7 @@ namespace ASPNETCore.Context
             modelBuilder.Entity<SubDistrict>()
              .HasOne(subdistrict => subdistrict.District)
              .WithMany(district => district.SubDistrict);
+
         }
     }
 }
