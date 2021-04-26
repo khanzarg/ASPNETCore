@@ -7,5 +7,6 @@ namespace ASPNETCore.Context
 {
     public class myContext
     {
+       
     }
 }
