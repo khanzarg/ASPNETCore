@@ -14,12 +14,8 @@ namespace ASPNETCore.Models
         public int Id { get; set; }
 
         public string Name { get; set; }
-
-        public int ProvinceId { get; set; }
-
-        [ForeignKey ("ProvinceId")]
-
-        public Province Province { get; set; }
+        //public Province Province { get; set; }
+        public ICollection<SubDistrict>  SubDistrict { get; set; }
 
     }
 }

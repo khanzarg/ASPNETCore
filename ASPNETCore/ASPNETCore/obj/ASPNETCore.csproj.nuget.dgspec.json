@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {}
+    "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {}
   },
   "projects": {
-    "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {
+    "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+        "projectUniqueName": "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
         "projectName": "ASPNETCore",
-        "projectPath": "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+        "projectPath": "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
         "packagesPath": "C:\\Users\\siaha\\.nuget\\packages\\",
-        "outputPath": "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
+        "outputPath": "D:\\Materi\\BCMetrodata\\DotNet\\CLONE\\ASPNETCore\\ASPNETCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\siaha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,6 +37,26 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
