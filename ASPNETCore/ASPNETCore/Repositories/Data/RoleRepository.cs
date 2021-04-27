@@ -1,11 +1,14 @@
-﻿using System;
+﻿using ASPNETCore.Context;
+using ASPNETCore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ASPNETCore.Repositories.Data
+namespace ASPNETCore.Repositories.Datas
 {
-    public class RoleRepository
+    public class RoleRepository : GeneralRepository<Role>
     {
+
     }
 }
