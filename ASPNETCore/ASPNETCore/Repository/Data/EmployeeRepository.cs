@@ -14,10 +14,6 @@ namespace ASPNETCore.Repository.Data
         {
             repository = new GeneralRepository<Employee>();
         }
-        //public EmployeeRepository(IGenericRepository<Employee> repository)
-        //{
-        //    this.repository = repository;
-        //}
 
         public IEnumerable<Employee> GetEmployees()
         {
