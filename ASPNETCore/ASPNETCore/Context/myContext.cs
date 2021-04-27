@@ -59,27 +59,27 @@ namespace ASPNETCore.Context
                 .WithOne(education => education.Employee)
                 .HasForeignKey<Education>(education => education.Id);
 
-            // Address
-            modelBuilder.Entity<Address>()
-                .HasOne(address => address.Territory)
-                .WithMany(territory => territory.Addresses);
-
-            //Territory
-            modelBuilder.Entity<Territory>()
-                .HasOne(territory => territory.SubDistrict)
-                .WithMany(subdistrict => subdistrict.Territory);
-
-
-            //SubDistrict
-            modelBuilder.Entity<SubDistrict>()
-             .HasOne(subdistrict => subdistrict.District)
-             .WithMany(district => district.SubDistrict);
-
-            //District
-            modelBuilder.Entity<District>()
-                .HasOne(district => district.Province)
-                .WithMany(province => province.Districts);
-
+            // Address
+            modelBuilder.Entity<Address>()
+                .HasOne(address => address.Territory)
+                .WithMany(territory => territory.Addresses);
+
+            //Territory
+            modelBuilder.Entity<Territory>()
+                .HasOne(territory => territory.SubDistrict)
+                .WithMany(subdistrict => subdistrict.Territory);
+
+
+            //SubDistrict
+            modelBuilder.Entity<SubDistrict>()
+             .HasOne(subdistrict => subdistrict.District)
+             .WithMany(district => district.SubDistrict);
+
+            //District
+            modelBuilder.Entity<District>()
+                .HasOne(district => district.Province)
+                .WithMany(province => province.Districts);
+
             //Employee-Employeerole
             modelBuilder.Entity<EmployeeRole>()
                 .HasOne(EmployeeRole => EmployeeRole.Employee)
