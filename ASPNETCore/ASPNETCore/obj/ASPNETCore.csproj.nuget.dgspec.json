@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {}
+    "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {}
   },
   "projects": {
-    "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {
+    "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+        "projectUniqueName": "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
         "projectName": "ASPNETCore",
-        "projectPath": "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
+        "projectPath": "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+        "packagesPath": "C:\\Users\\Alpha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Alpha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,6 +53,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.1.0, )"
             }
           },
           "imports": [
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

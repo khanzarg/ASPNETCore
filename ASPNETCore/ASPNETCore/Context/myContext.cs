@@ -9,10 +9,13 @@ namespace ASPNETCore.Context
 {
     public class MyContext : DbContext
     {
-        public MyContext(DbContextOptions<MyContext> options) : base(options)
+        public MyContext()
         {
-
         }
+
+        public MyContext(DbContextOptions<MyContext> options) : base(options)
+        { }
+
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Territory> Territories { get; set; }
         public DbSet<Employee> Employees { get; set; }
@@ -42,13 +45,13 @@ namespace ASPNETCore.Context
                 .HasOne(employee => employee.Contact)
                 .WithOne(contact => contact.Employee)
                 .HasForeignKey<Contact>(contact => contact.Id);
-            
+
             //Address-Employee
             modelBuilder.Entity<Employee>()
                 .HasOne(employee => employee.Address)
                 .WithOne(address => address.Employee)
                 .HasForeignKey<Address>(address => address.Id);
-            
+
             //Employee-Education
             modelBuilder.Entity<Employee>()
                 .HasOne(employee => employee.Education)

@@ -1,4 +1,8 @@
 using ASPNETCore.Context;
+using ASPNETCore.Models;
+using ASPNETCore.Repository;
+using ASPNETCore.Repository.Data;
+using ASPNETCore.Repository.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,10 +31,11 @@ namespace ASPNETCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            services.AddDbContext<MyContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
             services.AddControllers();
 
-            services.AddDbContext<MyContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
