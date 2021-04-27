@@ -15,12 +15,13 @@ namespace ASPNETCore.Controllers
     [ApiController]
     public class AddressesController : Controller
     {
+        private MyContext context;
         private IGeneralRepository<Address> repository = null;
         public AddressesController()
         {
             this.repository = new GeneralRepository<Address>();
         }
-        public AddressesController(IGeneralRepository<Address> repository)
+        public AddressesController(GeneralRepository<Address> repository)
         {
             this.repository = repository;
         }
@@ -40,9 +41,9 @@ namespace ASPNETCore.Controllers
         {
             if (ModelState.IsValid)
             {
-                repository.Insert(model);
-                repository.Save();
-                return RedirectToAction("Index", "Address");
+                repository.Post(model);
+                context.SaveChanges();
+
             }
             return View();
         }
@@ -57,9 +58,9 @@ namespace ASPNETCore.Controllers
         {
             if (ModelState.IsValid)
             {
-                repository.Update(model);
-                repository.Save();
-                return RedirectToAction("Index", "Address");
+                repository.Put(model);
+                context.SaveChanges();
+                return View(model);
             }
             else
             {
@@ -76,8 +77,8 @@ namespace ASPNETCore.Controllers
         public ActionResult Delete(int Address)
         {
             repository.Delete(Address);
-            repository.Save();
-            return RedirectToAction("Index", "Address");
+            var model = context.SaveChanges();
+            return View(model);
         }
     }
 }
