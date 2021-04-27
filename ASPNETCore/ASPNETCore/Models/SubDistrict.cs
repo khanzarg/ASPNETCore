@@ -14,9 +14,9 @@ namespace ASPNETCore.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public int District_Id { get; set; }
-        public ICollection<Territory> Territory { get; set; }
+        //public int District_Id { get; set; }
         public District District { get; set; }
+        public ICollection<Territory> Territory { get; set; }
 
 
     }
