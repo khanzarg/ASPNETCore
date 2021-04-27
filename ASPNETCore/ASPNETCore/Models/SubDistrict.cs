@@ -10,24 +10,14 @@ namespace ASPNETCore.Models
     [Table("TB_T_SubDistrict")]
     public class SubDistrict
     {
-        
-            [Key]
-            public int Id { get; set; }
-            public string Name { get; set; }
 
-            public int District_Id { get; set; }
-            [ForeignKey("District_Id")]
-            public District District { get; set; }
-
-            public int EducationId { get; set; }
-            [ForeignKey("EducationId")]
-            public Education Education { get; set; }
+        [Key]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int District_Id { get; set; }
+        public ICollection<Territory> Territory { get; set; }
+        public District District { get; set; }
 
 
-            public int EmployeeId { get; set; }
-            [ForeignKey("EmployeeId")]
-            public Employee Employee { get; set; }
-
-        
     }
 }
