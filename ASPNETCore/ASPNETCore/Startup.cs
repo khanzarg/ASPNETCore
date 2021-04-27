@@ -1,4 +1,6 @@
 using ASPNETCore.Context;
+using ASPNETCore.Repositories;
+using ASPNETCore.Repositories.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,7 +13,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Threading.Tasks;   
 
 namespace ASPNETCore
 {
@@ -28,9 +30,13 @@ namespace ASPNETCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
             services.AddDbContext<MyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
+
+            //services.AddApplicationInsightsTelemetry(Configuration);
+            //services.AddMvc();
+            //services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
+            //services.AddScoped(typeof(IGenericRepository<>), typeof(GeneralRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
