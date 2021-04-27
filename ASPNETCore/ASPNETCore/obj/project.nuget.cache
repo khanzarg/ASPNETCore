@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Rq994398+JusPvFX8lNfBkk6A/+gWTUt/eGLCK0njGYAf76oGRseOCB50VvMseiFsUlcWaoaTONE5MX0NoHGMA==",
+  "dgSpecHash": "XSNMo619vOi4mmzH33QJkGI02xwbFo5Q++huiwVXJofmTALn7LWSaLdajD00eOHFV39nWfohQsYufIyahb5f4g==",
   "success": true,
-  "projectFilePath": "D:\\BOOTCAMP\\.NET\\ASP NET Core\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+  "projectFilePath": "D:\\Visual Studio Source\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
