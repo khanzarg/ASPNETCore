@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Repositories.Datas
 {
-    public class RoleRepository : GeneralRepository<Role>
+    public class RoleRepository : GeneralRepository<Role, int>
     {
 
     }

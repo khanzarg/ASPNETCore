@@ -1,5 +1,7 @@
-﻿using ASPNETCore.Models;
+﻿using ASPNETCore.Base;
+using ASPNETCore.Models;
 using ASPNETCore.Repositories;
+using ASPNETCore.Repositories.Datas;
 using ASPNETCore.Repositories.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,68 +11,13 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Controllers
 {
-    public class RoleController : Controller
+    public class RoleController : BaseController<Role, RoleRepository, int>
     {
-        private IGenericRepository<Role> repository = null;
-        public RoleController()
+        private readonly RoleRepository roleRepository;
+
+        public RoleController(RoleRepository roleRepository) : base(roleRepository)
         {
-            this.repository = new GeneralRepository<Role>();
-        }
-        public RoleController(IGenericRepository<Role> repository)
-        {
-            this.repository = repository;
-        }
-        [HttpGet]
-        public ActionResult Index()
-        {
-            var model = repository.GetAll();
-            return View(model);
-        }
-        [HttpGet]
-        public ActionResult AddEmployee()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult AddRole(Role obj)
-        {
-            if (ModelState.IsValid)
-            {
-                repository.Post(obj);
-                return RedirectToAction("");
-            }
-            return View();
-        }
-        //[HttpGet]
-        //public ActionResult EditRole(int Id)
-        //{
-        //    Role model = repository.GetById(EmployeeId);
-        //    return View(model);
-        //}
-        [HttpPost]
-        public ActionResult EditRole(Role obj)
-        {
-            if (ModelState.IsValid)
-            {
-                repository.Put(obj);
-                return RedirectToAction("");
-            }
-            else
-            {
-                return View(obj);
-            }
-        }
-        //[HttpGet]
-        //public ActionResult DeleteRole(int Id)
-        //{
-        //    Employee model = repository.GetById(EmployeeId);
-        //    return View(model);
-        //}
-        [HttpPost]
-        public ActionResult DeleteRole(int Id)
-        {
-            repository.Delete(Id);
-            return RedirectToAction("");
+            this.roleRepository = roleRepository;
         }
     }
 }

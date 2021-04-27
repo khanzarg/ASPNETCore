@@ -8,42 +8,45 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Repositories
 {
-    public class GeneralRepository<T> : IGenericRepository<T> where T : class
+    public class GeneralRepository<Entity, TId> : IGenericRepository<Entity, TId> where Entity : class
     {
         private readonly MyContext context;
-        private DbSet<T> entities;
+        private DbSet<Entity> entities;
         string errorMessage = string.Empty;
 
-        public void Delete(object Id)
+        public int Delete(TId Id)
         {
             var deleted = entities.Find(Id);
             entities.Remove(deleted);
-            context.SaveChanges();
+            var result = context.SaveChanges();
+            return result;
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<Entity> GetAll()
         {
             var get = entities.ToList();
             return get;
         }
 
-        public T GetById(object Id)
+        public Entity GetById(TId Id)
         {
             var GetById = entities.Find(Id);
             return GetById;
         }
 
-        public void Post(T obj)
+        public int Post(Entity obj)
         {
             entities.Add(obj);
-            context.SaveChanges();
+            var result = context.SaveChanges();
+            return result;
         }
 
-        public void Put(T obj)
+        public int Put(Entity obj)
         {
             entities.Attach(obj);
             context.Entry(obj).State = EntityState.Modified;
-            context.SaveChanges();
+            var result = context.SaveChanges();
+            return result;
         }
     }
 }

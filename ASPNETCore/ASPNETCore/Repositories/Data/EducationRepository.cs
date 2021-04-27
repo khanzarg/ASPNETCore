@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Repositories.Data
 {
-    public class EducationRepository : GeneralRepository<Education>
+    public class EducationRepository : GeneralRepository<Education, int>
     {
+
     }
 }
