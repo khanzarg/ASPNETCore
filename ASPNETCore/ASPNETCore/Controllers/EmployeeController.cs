@@ -1,6 +1,7 @@
-﻿using ASPNETCore.Models;
+﻿using ASPNETCore.Context;
+using ASPNETCore.Models;
+using ASPNETCore.Repositories;
 using ASPNETCore.Repository.Data;
-using ASPNETCore.Repository.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,12 +15,11 @@ namespace ASPNETCore.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        EmployeeRepository employeeRepository = new EmployeeRepository();
-
-        private IGenericRepository<Employee> repository = null;
+        private MyContext context;
+        private GeneralRepository<Employee> employeeRepository = null;
         public EmployeeController()
         {
-            this.repository = new GeneralRepository<Employee>();
+            this.employeeRepository = new GeneralRepository<Employee>();
         }
         //public EmployeeController(IGenericRepository<Employee> repository)
         //{
@@ -31,7 +31,7 @@ namespace ASPNETCore.Controllers
         [Route("api/Employees")]
         public ActionResult Post(Employee employee)
         {
-            employeeRepository.InsertEmployee(employee);
+            employeeRepository.Post(employee);
             return Ok("Data Inserted!!!");
         }
 
@@ -39,7 +39,7 @@ namespace ASPNETCore.Controllers
         [Route("api/Employees")]
         public ActionResult Get()
         {
-            var get = employeeRepository.GetEmployees();
+            var get = employeeRepository.GetAll();
             if (get.Count() == 0)
             {
                 return BadRequest("Data Not Found");
@@ -52,7 +52,7 @@ namespace ASPNETCore.Controllers
         [Route("api/Employee/{id}")]
         public ActionResult GetById(int id)
         {
-            var get = employeeRepository.GetEmployeeById(id);
+            var get = employeeRepository.GetById(id);
             if (get == null)
             {
                 return BadRequest("Data Not Found");
@@ -65,7 +65,7 @@ namespace ASPNETCore.Controllers
         [Route("api/Departments/{id}")]
         public ActionResult Delete(int id)
         {
-            employeeRepository.DeleteEmployee(id);
+            employeeRepository.Delete(id);
             return Ok("Data Deleted!!!");
 
         }
@@ -74,7 +74,7 @@ namespace ASPNETCore.Controllers
         [Route("api/Departments/{id}")]
         public ActionResult Update(Employee employee)
         {
-            employeeRepository.UpdateEmployee(employee);
+            employeeRepository.Put(employee);
             return Ok("Data Updated");
 
         }
