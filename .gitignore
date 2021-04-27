@@ -21,3 +21,9 @@ ASPNETCore/ASPNETCore/obj/project.assets.json
 ASPNETCore/ASPNETCore/obj/project.nuget.cache
 ASPNETCore/ASPNETCore/obj/Debug/netcoreapp3.1/ASPNETCore.assets.cache
 ASPNETCore/ASPNETCore/obj/ASPNETCore.csproj.nuget.dgspec.json
+ASPNETCore/ASPNETCore/Repository/GeneralRepository.cs
+ASPNETCore/ASPNETCore/Repository/Interface/IGeneralRepository.cs
+ASPNETCore/ASPNETCore/obj/ASPNETCore.csproj.nuget.dgspec.json
+ASPNETCore/ASPNETCore/obj/ASPNETCore.csproj.nuget.g.props
+ASPNETCore/ASPNETCore/obj/project.nuget.cache
+ASPNETCore/ASPNETCore/obj/project.nuget.cache
