@@ -7,7 +7,7 @@ using ASPNETCore.Repositories;
 
 namespace ASPNETCore.Repositories.Data
 {
-    public class EmployeeRoleRepository : GeneralRepository<EmployeeRole>
+    public class EmployeeRoleRepository : GeneralRepository<EmployeeRole, int>
     {
 
     }

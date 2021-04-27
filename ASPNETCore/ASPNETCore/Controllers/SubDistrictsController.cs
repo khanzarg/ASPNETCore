@@ -25,7 +25,7 @@ namespace ASPNETCore.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var model = repoSubDistrict.Get();
+            var model = repoSubDistrict.GetAll();
             return View(model);
         }
 

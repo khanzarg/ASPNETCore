@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace ASPNETCore.Repositories.Data
 {
     //dari Muljadi
-    public class MajorRepository : GeneralRepository<Major>
+    public class MajorRepository : GeneralRepository<Major, int>
     {
+
     }
 }
