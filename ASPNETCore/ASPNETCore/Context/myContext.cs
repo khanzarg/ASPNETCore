@@ -9,6 +9,11 @@ namespace ASPNETCore.Context
 {
     public class MyContext : DbContext
     {
+
+        public MyContext() 
+        {
+
+        }
         public MyContext(DbContextOptions<MyContext> options) : base(options)
         {
 

@@ -65,3 +65,7 @@ C:\Users\Hp\Documents\GitHub\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcorea
 C:\Users\Hp\Documents\GitHub\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Hp\Documents\GitHub\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\Hp\Documents\GitHub\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csprojAssemblyReference.cache
+C:\Users\Hp\Documents\GitHub\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\Hp\Documents\GitHub\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+C:\Users\Hp\Documents\GitHub\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Hp\Documents\GitHub\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
