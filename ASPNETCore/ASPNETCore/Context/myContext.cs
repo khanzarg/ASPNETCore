@@ -13,6 +13,8 @@ namespace ASPNETCore.Context
         {
 
         }
+
+        public MyContext() { }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Territory> Territories { get; set; }
         public DbSet<Employee> Employees { get; set; }
