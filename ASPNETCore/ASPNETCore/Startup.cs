@@ -29,8 +29,7 @@ namespace ASPNETCore
         {
             services.AddControllers();
 
-            services.AddDbContext<MyContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
+            services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

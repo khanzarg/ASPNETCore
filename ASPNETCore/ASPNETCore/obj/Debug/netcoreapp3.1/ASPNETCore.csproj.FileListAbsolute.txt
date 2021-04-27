@@ -39,3 +39,44 @@ C:\Users\aden\Documents\GitHub\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcor
 C:\Users\aden\Documents\GitHub\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.dll
 C:\Users\aden\Documents\GitHub\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.pdb
 C:\Users\aden\Documents\GitHub\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.genruntimeconfig.cache
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\ASPNETCore.exe
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\ASPNETCore.deps.json
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\ASPNETCore.runtimeconfig.json
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\ASPNETCore.runtimeconfig.dev.json
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\ASPNETCore.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\ASPNETCore.pdb
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csprojAssemblyReference.cache
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.AssemblyInfoInputs.cache
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.AssemblyInfo.cs
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csproj.CoreCompileInputs.cache
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.MvcApplicationPartsAssemblyInfo.cache
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\staticwebassets\ASPNETCore.StaticWebAssets.Manifest.cache
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\staticwebassets\ASPNETCore.StaticWebAssets.xml
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\scopedcss\bundle\ASPNETCore.styles.css
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.RazorTargetAssemblyInfo.cache
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csproj.CopyComplete
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.pdb
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.genruntimeconfig.cache
