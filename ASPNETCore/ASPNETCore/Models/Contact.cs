@@ -20,6 +20,7 @@ namespace ASPNETCore.Models
         //public int EmployeeId { get; set; }
         //[ForeignKey("EmployeeId")]
 
+        [ForeignKey("EmployeeId")]
         public Employee Employee { get; set; }
     }
 }
