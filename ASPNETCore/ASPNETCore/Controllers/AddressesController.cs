@@ -1,7 +1,7 @@
 ﻿using ASPNETCore.Context;
 using ASPNETCore.Models;
+using ASPNETCore.Repositories;
 using ASPNETCore.Repository;
-using ASPNETCore.Repository.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,7 +16,7 @@ namespace ASPNETCore.Controllers
     public class AddressesController : Controller
     {
         private MyContext context;
-        private IGeneralRepository<Address> repository = null;
+        private GeneralRepository<Address> repository = null;
         public AddressesController()
         {
             this.repository = new GeneralRepository<Address>();
