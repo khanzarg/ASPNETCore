@@ -1,4 +1,5 @@
 ﻿using ASPNETCore.Models;
+using ASPNETCore.Repositories;
 using ASPNETCore.Repositories.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -60,8 +61,7 @@ namespace ASPNETCore.Controllers
         {
             if (ModelState.IsValid)
             {
-                repository.Insert(model);
-                repository.Save();
+                repository.Post(model);
                 return RedirectToAction("Index", "District");
             }
             return View();
@@ -82,8 +82,7 @@ namespace ASPNETCore.Controllers
         {
             if (ModelState.IsValid)
             {
-                repository.Update(model);
-                repository.Save();
+                repository.Put(model);
                 return RedirectToAction("Index", "District");
             }
             else
@@ -107,7 +106,6 @@ namespace ASPNETCore.Controllers
         {
            
             repository.Delete(model);
-            repository.Save();
             return RedirectToAction("Index", "SubDistrict");
         }
         

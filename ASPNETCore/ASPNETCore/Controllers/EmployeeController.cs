@@ -15,7 +15,7 @@ namespace ASPNETCore.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private MyContext context;
+        //private MyContext context;
         private GeneralRepository<Employee> employeeRepository = null;
         public EmployeeController()
         {
