@@ -65,7 +65,6 @@ namespace ASPNETCore.Context
                 .HasOne(territory => territory.SubDistrict)
                 .WithMany(subdistrict => subdistrict.Territory);
 
-
             //SubDistrict
             modelBuilder.Entity<SubDistrict>()
              .HasOne(subdistrict => subdistrict.District)
