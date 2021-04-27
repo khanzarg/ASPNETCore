@@ -9,14 +9,13 @@ namespace ASPNETCore.Models
 {
     [Table("TB_M_Address")]
     public class Address
-    {   
+    {
         [Key]
         public int Id { get; set; }
         public string StreetAddress1 { get; set; }
         public string StreetAddress2 { get; set; }
-        public int Territory_id { get; set; }
-        [ForeignKey("Territory_id")]
         public Territory Territory { get; set; }
-      
+        public Employee Employee { get; set; }
+
     }
 }
