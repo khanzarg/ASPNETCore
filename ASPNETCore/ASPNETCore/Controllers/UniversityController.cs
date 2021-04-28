@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class UniversitiesController : BaseController<University, UniversityRepository, int>
     {
         private readonly UniversityRepository universityRepository;

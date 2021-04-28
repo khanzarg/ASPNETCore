@@ -124,3 +124,4 @@ C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreap
 C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.dll
 C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.pdb
 C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.genruntimeconfig.cache
+C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csprojAssemblyReference.cache
