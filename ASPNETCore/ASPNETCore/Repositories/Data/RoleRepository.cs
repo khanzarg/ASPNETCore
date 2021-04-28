@@ -13,7 +13,7 @@ namespace ASPNETCore.Repositories.Data
 
         public RoleRepository(MyContext myContext) : base(myContext)
         {
-
+            //master khanza
         }
     }
 }
