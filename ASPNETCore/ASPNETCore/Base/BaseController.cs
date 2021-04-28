@@ -34,7 +34,7 @@ namespace ASPNETCore.Base
             }
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public ActionResult Get(TId id)
         {
             try
@@ -62,7 +62,7 @@ namespace ASPNETCore.Base
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public ActionResult Delete(TId id)
         {
             try
@@ -76,12 +76,12 @@ namespace ASPNETCore.Base
             }
             
         }
-        [HttpPut]
-        public ActionResult Put(Entity entity)
+        [HttpPut("{id}")]
+        public ActionResult Put(TId Id, Entity entity)
         {
             try
             {
-                var result = repository.Put(entity) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
+                var result = repository.Put(Id, entity) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
                 return result;
             }
             catch (Exception e)
