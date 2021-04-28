@@ -4952,24 +4952,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ilpra\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Alpha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Kerjaan\\Tugas\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+      "projectUniqueName": "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
       "projectName": "ASPNETCore",
-      "projectPath": "E:\\Kerjaan\\Tugas\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
-      "packagesPath": "C:\\Users\\ilpra\\.nuget\\packages\\",
-      "outputPath": "E:\\Kerjaan\\Tugas\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
+      "projectPath": "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
+      "packagesPath": "C:\\Users\\Alpha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Alpha\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ilpra\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Alpha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5031,13 +5026,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
