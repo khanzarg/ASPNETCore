@@ -6,13 +6,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ASPNETCore.Repository.Data
+namespace ASPNETCore.Repositories.Data
 {
-    public class AddressRepository : GeneralRepository<Address, int>
+    public class AddressRepository : GeneralRepository<Address, MyContext, int>
     {
-        //public AddressRepository(MyContext context) : base(context)
-        //{
+        private readonly MyContext myContext;
 
-        //}
+        public AddressRepository(MyContext myContext) : base(myContext)
+        {
+         
+        }
     }
 }

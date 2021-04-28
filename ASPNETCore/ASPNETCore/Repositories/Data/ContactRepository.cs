@@ -7,12 +7,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ASPNETCore.Repository.Data
+namespace ASPNETCore.Repositories.Data
 {
-    public class ContactRepository : GeneralRepository<Contact, int>
+    public class ContactRepository : GeneralRepository<Contact, MyContext, int>
     {
-        //public ContactRepository(MyContext context) : base(context)
-        //{
-        //}
+        private readonly MyContext myContext;
+
+        public ContactRepository(MyContext myContext) : base(myContext)
+        {
+
+        }
     }
 }

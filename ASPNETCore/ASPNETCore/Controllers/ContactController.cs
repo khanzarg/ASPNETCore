@@ -1,8 +1,7 @@
 ﻿using ASPNETCore.Base;
 using ASPNETCore.Context;
 using ASPNETCore.Models;
-using ASPNETCore.Repository;
-using ASPNETCore.Repository.Data;
+using ASPNETCore.Repositories.Data;
 //using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;

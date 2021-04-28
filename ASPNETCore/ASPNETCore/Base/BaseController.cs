@@ -23,34 +23,71 @@ namespace ASPNETCore.Base
         [HttpGet]
         public ActionResult Get()
         {
-            var model = repository.GetAll();
-            return Ok(model);
+            try
+            {
+                var get = repository.GetAll();
+                return Ok(get);
+            }
+            catch(Exception e)
+            {
+                return NotFound(e.InnerException);
+            }
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public ActionResult Get(TId id)
         {
-            var model = repository.GetById(id);
-            return Ok(model);
+            try
+            {
+                var getById = repository.GetById(id);
+                return Ok(getById);
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException);
+            }
         }
 
         [HttpPost]
         public ActionResult Post(Entity entity)
         {
-            repository.Post(entity);
-            return Ok("Data has been successfully inserted.");
+            try
+            { 
+                var result = repository.Post(entity) > 0 ? (ActionResult)Ok("Data has been successfully inserted.") : BadRequest("Data can't be inserted");
+                return result;
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.InnerException);
+            }
         }
-        [HttpDelete]
+
+        [HttpDelete("{id}")]
         public ActionResult Delete(TId id)
         {
-            repository.Delete(id);
-            return Ok("Data has been successfully deleted.");
+            try
+            {
+                var result = repository.Delete(id) > 0 ? (ActionResult)Ok("Data has been successfully deleted.") : BadRequest("Data can't be deleted.");
+                return result;
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.InnerException);
+            }
+            
         }
-        [HttpPut]
-        public ActionResult Put(Entity entity)
+        [HttpPut("{id}")]
+        public ActionResult Put(TId Id, Entity entity)
         {
-            repository.Put(entity);
-            return Ok("Data has been successfully updated.");
+            try
+            {
+                var result = repository.Put(Id, entity) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
+                return result;
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.InnerException);
+            }
         }
     }
 }

@@ -1,6 +1,5 @@
 using ASPNETCore.Context;
-using ASPNETCore.Repositories;
-using ASPNETCore.Repositories.Interface;
+using ASPNETCore.Repositories.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +31,21 @@ namespace ASPNETCore
             services.AddControllers();
             services.AddDbContext<MyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
+
+            services.AddScoped<AddressRepository>();
+            services.AddScoped<ContactRepository>();
+            services.AddScoped<DistrictRepository>();
+            services.AddScoped<EducationRepository>();
+            services.AddScoped<EmployeeRepository>();
+            services.AddScoped<EmployeeRoleRepository>();
+            services.AddScoped<MajorRepository>();
+            services.AddScoped<ProvinceRepository>();
+            services.AddScoped<RoleRepository>();
+            services.AddScoped<SubDistrictRepository>();
+            services.AddScoped<TerritoryRepository>();
+            services.AddScoped<UniversityRepository>();
+
+
 
             //services.AddApplicationInsightsTelemetry(Configuration);
             //services.AddMvc();
