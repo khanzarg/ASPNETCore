@@ -25,7 +25,7 @@ namespace ASPNETCore.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var model = repoSubDistrict.Get();
+            var model = repoSubDistrict.GetAll();
             return View(model);
         }
 
@@ -52,7 +52,6 @@ namespace ASPNETCore.Controllers
             if (ModelState.IsValid)
             {
                 repoSubDistrict.Post(subDistrict);
-                repoSubDistrict.Save();
                 return RedirectToAction("Index", "SubDistrict");
             }
             return View();
@@ -74,7 +73,6 @@ namespace ASPNETCore.Controllers
             if (ModelState.IsValid)
             {
                 repoSubDistrict.Put(subDistrict);
-                repoSubDistrict.Save();
                 return RedirectToAction("Index", "SubDistrict");
             }
             else
@@ -96,7 +94,6 @@ namespace ASPNETCore.Controllers
         public ActionResult Delete(SubDistrict  subDistrict)
         {
             repoSubDistrict.Delete(subDistrict);
-            repoSubDistrict.Save();
             return RedirectToAction("Index", "SubDistrict");
         }
     }

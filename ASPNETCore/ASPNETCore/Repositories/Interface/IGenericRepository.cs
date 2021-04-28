@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Repositories.Interface
 {
-    public interface IGenericRepository<T> where T : class
+    public interface IGenericRepository<Entity, TId> where Entity : class
     {
-        IEnumerable<T> GetAll();
-        T GetById(object Id);
-        void Post(T obj);
-        void Put(T obj);
-        void Delete(object Id);
+        IEnumerable<Entity> GetAll();
+        Entity GetById(TId Id);
+        int Post(Entity obj);
+        int Put(Entity obj);
+        int Delete(TId Id);
         //void Save();
     }
 }
