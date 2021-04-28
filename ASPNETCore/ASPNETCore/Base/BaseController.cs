@@ -23,64 +23,34 @@ namespace ASPNETCore.Base
         [HttpGet]
         public ActionResult Get()
         {
-            var get = repository.GetAll();
-            return Ok(get);
+            var model = repository.GetAll();
+            return Ok(model);
         }
 
         [HttpGet]
         public ActionResult Get(TId id)
         {
-            var getById = repository.GetById(id);
-            if (getById == null)
-            {
-                return NotFound("Data not found");
-            }
-            else
-            {
-                return Ok(getById);
-            }
+            var model = repository.GetById(id);
+            return Ok(model);
         }
 
         [HttpPost]
         public ActionResult Post(Entity entity)
         {
-            try
-            { 
-                var result = repository.Post(entity) > 0 ? (ActionResult)Ok("Data has been successfully inserted.") : BadRequest("Data can't be inserted");
-                return result;
-            }
-            catch(Exception e)
-            {
-                return BadRequest(e.InnerException);
-            }
+            repository.Post(entity);
+            return Ok("Data has been successfully inserted.");
         }
-
         [HttpDelete]
         public ActionResult Delete(TId id)
         {
-            try
-            {
-                var result = repository.Delete(id) > 0 ? (ActionResult)Ok("Data has been successfully deleted.") : BadRequest("Data can't be deleted.");
-                return result;
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.InnerException);
-            }
-            
+            repository.Delete(id);
+            return Ok("Data has been successfully deleted.");
         }
         [HttpPut]
         public ActionResult Put(Entity entity)
         {
-            try
-            {
-                var result = repository.Put(entity) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
-                return result;
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.InnerException);
-            }
+            repository.Put(entity);
+            return Ok("Data has been successfully updated.");
         }
     }
 }

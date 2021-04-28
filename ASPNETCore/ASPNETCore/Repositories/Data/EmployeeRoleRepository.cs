@@ -1,18 +1,14 @@
-﻿using ASPNETCore.Context;
-using ASPNETCore.Models;
-using ASPNETCore.Repositories;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ASPNETCore.Models;
+using ASPNETCore.Repositories;
 
-namespace ASPNETCore.Repository.Data
+namespace ASPNETCore.Repositories.Data
 {
-    public class EmployeeRoleRepository : GeneralRepository<Contact, int>
+    public class EmployeeRoleRepository : GeneralRepository<EmployeeRole, int>
     {
-        //public ContactRepository(MyContext context) : base(context)
-        //{
-        //}
+
     }
 }
