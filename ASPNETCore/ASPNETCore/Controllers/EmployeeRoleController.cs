@@ -13,7 +13,7 @@ namespace ASPNETCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeeRoleController : BaseController<Contact, EmployeeRoleRepository, int>
+    public class EmployeeRoleController : BaseController<EmployeeRole, EmployeeRoleRepository, int>
     {
         private readonly EmployeeRoleRepository employeeRoleRepository;
         public EmployeeRoleController(EmployeeRoleRepository employeeRoleRepository) : base(employeeRoleRepository)

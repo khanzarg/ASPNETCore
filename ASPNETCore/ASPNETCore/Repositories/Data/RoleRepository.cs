@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Repositories.Data
 {
-    public class RoleRepository : GeneralRepository<Role, int>
+    public class RoleRepository : GeneralRepository<Role, MyContext, int>
     {
+        private readonly MyContext myContext;
 
+        public RoleRepository(MyContext myContext) : base(myContext)
+        {
+
+        }
     }
 }

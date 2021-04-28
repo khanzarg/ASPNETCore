@@ -8,8 +8,13 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Repositories.Data
 {
-    public class AddressRepository : GeneralRepository<Address, int>
+    public class AddressRepository : GeneralRepository<Address, MyContext, int>
     {
+        private readonly MyContext myContext;
 
+        public AddressRepository(MyContext myContext) : base(myContext)
+        {
+         
+        }
     }
 }

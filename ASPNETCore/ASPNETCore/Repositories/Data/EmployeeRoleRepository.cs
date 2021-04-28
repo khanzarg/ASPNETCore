@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Repositories.Data
 {
-    public class EmployeeRoleRepository : GeneralRepository<Contact, int>
+    public class EmployeeRoleRepository : GeneralRepository<EmployeeRole, MyContext, int>
     {
-        //public ContactRepository(MyContext context) : base(context)
-        //{
-        //}
+        private readonly MyContext myContext;
+
+        public EmployeeRoleRepository(MyContext myContext) : base(myContext)
+        {
+
+        }
     }
 }

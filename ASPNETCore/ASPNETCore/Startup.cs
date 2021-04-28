@@ -32,18 +32,18 @@ namespace ASPNETCore
             services.AddDbContext<MyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
 
-            services.AddSingleton<AddressRepository>();
-            services.AddSingleton<ContactRepository>();
-            services.AddSingleton<DistrictRepository>();
-            services.AddSingleton<EducationRepository>();
-            services.AddSingleton<EmployeeRepository>();
-            services.AddSingleton<EmployeeRoleRepository>();
-            services.AddSingleton<MajorRepository>();
-            services.AddSingleton<ProvinceRepository>();
-            services.AddSingleton<RoleRepository>();
-            services.AddSingleton<SubDistrictRepository>();
-            services.AddSingleton<TerritoryRepository>();
-            services.AddSingleton<UniversityRepository>();
+            services.AddScoped<AddressRepository>();
+            services.AddScoped<ContactRepository>();
+            services.AddScoped<DistrictRepository>();
+            services.AddScoped<EducationRepository>();
+            services.AddScoped<EmployeeRepository>();
+            services.AddScoped<EmployeeRoleRepository>();
+            services.AddScoped<MajorRepository>();
+            services.AddScoped<ProvinceRepository>();
+            services.AddScoped<RoleRepository>();
+            services.AddScoped<SubDistrictRepository>();
+            services.AddScoped<TerritoryRepository>();
+            services.AddScoped<UniversityRepository>();
 
 
 
