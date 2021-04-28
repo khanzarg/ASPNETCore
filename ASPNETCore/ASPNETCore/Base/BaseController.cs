@@ -1,4 +1,5 @@
 ﻿using ASPNETCore.Repositories.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Base
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BaseController<Entity, Repository, TId> : ControllerBase
@@ -20,7 +22,7 @@ namespace ASPNETCore.Base
             this.repository = repository;
         }
 
-        [HttpGet("GetAll/")]
+        [HttpGet]
         public ActionResult Get()
         {
             try
@@ -34,7 +36,7 @@ namespace ASPNETCore.Base
             }
         }
 
-        [HttpGet("Get/{id}")]
+        [HttpGet("{id}")]
         public ActionResult Get(TId id)
         {
             try
@@ -78,12 +80,12 @@ namespace ASPNETCore.Base
         }
 
        
-        [HttpPut("Put/{id}")]
-        public ActionResult Put(Entity entity, TId Id)
+        [HttpPut]
+        public ActionResult Put(Entity entity)
         {
             try
             {
-                var result = repository.Put(entity, Id) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
+                var result = repository.Put(entity) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
                 return result;
             }
             catch (Exception e)

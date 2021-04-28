@@ -44,11 +44,10 @@ namespace ASPNETCore.Repositories
             var result = context.SaveChanges();
             return result;
         }
-        public int Put(Entity obj, TId Id)
+        public int Put(Entity obj)
         {
             //context.Set<Entity>().Attach(obj);
             //context.Entry(obj).State = EntityState.Modified;
-            GetById(Id);
             context.Entry(obj).State = EntityState.Modified;
             var result = context.SaveChanges();
             return result;
