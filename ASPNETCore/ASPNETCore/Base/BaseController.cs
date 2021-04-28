@@ -34,19 +34,7 @@ namespace ASPNETCore.Base
             }
         }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
         [HttpGet("Get/{id}")]
-=======
-        [HttpGet("{id}")]
->>>>>>> main
-=======
-        [HttpGet("Get/{id}")]
->>>>>>> Stashed changes
-=======
-        [HttpGet("Get/{id}")]
->>>>>>> Stashed changes
         public ActionResult Get(TId id)
         {
             try
@@ -73,32 +61,8 @@ namespace ASPNETCore.Base
                 return BadRequest(e.InnerException);
             }
         }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        [HttpDelete]
-=======
 
         [HttpDelete("{id}")]
->>>>>>> Stashed changes
-=======
-
-        [HttpDelete("{id}")]
->>>>>>> Stashed changes
-=======
-
-        [HttpDelete("{id}")]
->>>>>>> main
-=======
-
-        [HttpDelete("{id}")]
->>>>>>> Stashed changes
-=======
-
-        [HttpDelete("{id}")]
->>>>>>> Stashed changes
         public ActionResult Delete(TId id)
         {
             try
@@ -112,50 +76,20 @@ namespace ASPNETCore.Base
             }
             
         }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-        [HttpPut("Put/{id}")]
-        public ActionResult Put(Entity entity, TId Id)
-        {
-<<<<<<< Updated upstream
-            repository.Put(entity);
-            return Ok("Data has been successfully updated.");
-=======
-            try
-            {
-                var result = repository.Put(entity, Id) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
-=======
-        [HttpPut("{id}")]
-        public ActionResult Put(TId Id, Entity entity)
-        {
-            try
-            {
-                var result = repository.Put(Id, entity) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
->>>>>>> main
-=======
-=======
->>>>>>> Stashed changes
+
+       
         [HttpPut("Put/{id}")]
         public ActionResult Put(Entity entity, TId Id)
         {
             try
             {
                 var result = repository.Put(entity, Id) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                 return result;
             }
             catch (Exception e)
             {
                 return BadRequest(e.InnerException);
             }
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> main
         }
     }
 }

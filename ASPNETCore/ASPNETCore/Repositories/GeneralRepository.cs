@@ -13,41 +13,10 @@ namespace ASPNETCore.Repositories
         where TContext : MyContext
     {
         private readonly MyContext context;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-=======
-
         public GeneralRepository(MyContext context)
         {
             this.context = context;
-        }
-
-      
->>>>>>> Stashed changes
-
-        public GeneralRepository(MyContext context)
-        {
-            this.context = context;
-        }
-
-      
->>>>>>> Stashed changes
-
-        public GeneralRepository(MyContext context)
-        {
-            this.context = context;
-        }
-
-      
-=======
->>>>>>> main
-
-        public GeneralRepository(MyContext context)
-        {
-            this.context = context;
-        }
+        }     
         
         public int Delete(TId Id)
         {
@@ -75,33 +44,11 @@ namespace ASPNETCore.Repositories
             var result = context.SaveChanges();
             return result;
         }
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
         public int Put(Entity obj, TId Id)
         {
             //context.Set<Entity>().Attach(obj);
             //context.Entry(obj).State = EntityState.Modified;
             GetById(Id);
-=======
-        public int Put(TId Id, Entity obj)
-        {
-            context.Set<Entity>().Find(Id);
-            context.Set<Entity>().Attach(obj);
->>>>>>> main
-=======
-=======
->>>>>>> Stashed changes
-        public int Put(Entity obj, TId Id)
-        {
-            //context.Set<Entity>().Attach(obj);
-            //context.Entry(obj).State = EntityState.Modified;
-            GetById(Id);
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
             context.Entry(obj).State = EntityState.Modified;
             var result = context.SaveChanges();
             return result;

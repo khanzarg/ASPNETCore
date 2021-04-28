@@ -11,28 +11,9 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Controllers
 {
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    public class EmployeeRoleController : Controller
-=======
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeRoleController : BaseController<EmployeeRole, EmployeeRoleRepository, int>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
-    [Route("api/[controller]")]
-    [ApiController]
-    public class EmployeeRoleController : BaseController<EmployeeRole, EmployeeRoleRepository, int>
->>>>>>> main
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     {
         private readonly EmployeeRoleRepository employeeRoleRepository;
         public EmployeeRoleController(EmployeeRoleRepository employeeRoleRepository) : base(employeeRoleRepository)

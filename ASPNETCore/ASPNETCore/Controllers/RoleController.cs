@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class RoleController : BaseController<Role, RoleRepository, int>
     {
         private readonly RoleRepository roleRepository;
