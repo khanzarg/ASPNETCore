@@ -33,7 +33,7 @@ namespace ASPNETCore.Base
             var getById = repository.GetById(id);
             if (getById == null)
             {
-                return NotFound("Data tidak ditemukan");
+                return NotFound("Data not found");
             }
             else
             {
@@ -45,40 +45,42 @@ namespace ASPNETCore.Base
         public ActionResult Post(Entity entity)
         {
             try
-            {
-                repository.Post(entity);
+            { 
+                var result = repository.Post(entity) > 0 ? (ActionResult)Ok("Data has been successfully inserted.") : BadRequest("Data can't be inserted");
+                return result;
             }
-            catch (Exception)
+            catch(Exception e)
             {
-                return BadRequest("Insert data gagal");
+                return BadRequest(e.InnerException);
             }
-            return Ok("Data berhasil diinputkan");
         }
+
         [HttpDelete]
         public ActionResult Delete(TId id)
         {
             try
             {
-                repository.Delete(id);
+                var result = repository.Delete(id) > 0 ? (ActionResult)Ok("Data has been successfully deleted.") : BadRequest("Data can't be deleted.");
+                return result;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return BadRequest("Hapus data gagal");
+                return BadRequest(e.InnerException);
             }
-            return Ok("Data berhasil dihapus");
+            
         }
         [HttpPut]
         public ActionResult Put(Entity entity)
         {
             try
             {
-                repository.Put(entity);
+                var result = repository.Put(entity) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
+                return result;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return BadRequest("Update data gagal");
+                return BadRequest(e.InnerException);
             }
-            return Ok("Data berhasil diperbarui");
         }
     }
 }
