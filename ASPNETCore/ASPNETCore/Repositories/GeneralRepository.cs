@@ -13,6 +13,7 @@ namespace ASPNETCore.Repositories
         where TContext : MyContext
     {
         private readonly MyContext context;
+<<<<<<< HEAD
 
         public GeneralRepository(MyContext context)
         {
@@ -20,7 +21,14 @@ namespace ASPNETCore.Repositories
         }
 
       
+=======
+>>>>>>> main
 
+        public GeneralRepository(MyContext context)
+        {
+            this.context = context;
+        }
+        
         public int Delete(TId Id)
         {
             var deleted = GetById(Id);
@@ -48,11 +56,18 @@ namespace ASPNETCore.Repositories
             return result;
         }
 
+<<<<<<< HEAD
         public int Put(Entity obj, TId Id)
         {
             //context.Set<Entity>().Attach(obj);
             //context.Entry(obj).State = EntityState.Modified;
             GetById(Id);
+=======
+        public int Put(TId Id, Entity obj)
+        {
+            context.Set<Entity>().Find(Id);
+            context.Set<Entity>().Attach(obj);
+>>>>>>> main
             context.Entry(obj).State = EntityState.Modified;
             var result = context.SaveChanges();
             return result;

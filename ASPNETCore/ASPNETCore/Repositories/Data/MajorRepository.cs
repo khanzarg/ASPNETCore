@@ -10,10 +10,18 @@ namespace ASPNETCore.Repositories.Data
     //dari Muljadi
     public class MajorRepository : GeneralRepository<Major, MyContext, int>
     {
+<<<<<<< HEAD
         private readonly MyContext context;
         public MajorRepository(MyContext context) : base(context)
         {
 
+=======
+        private readonly MyContext myContext;
+
+        public MajorRepository(MyContext myContext) : base(myContext)
+        {
+
+>>>>>>> main
         }
     }
 }

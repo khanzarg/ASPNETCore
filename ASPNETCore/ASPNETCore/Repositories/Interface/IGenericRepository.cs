@@ -10,7 +10,11 @@ namespace ASPNETCore.Repositories.Interface
         IEnumerable<Entity> GetAll();
         Entity GetById(TId Id);
         int Post(Entity obj);
+<<<<<<< HEAD
         int Put(Entity obj, TId Id);
+=======
+        int Put(TId Id, Entity obj);
+>>>>>>> main
         int Delete(TId Id);
         //void Save();
     }

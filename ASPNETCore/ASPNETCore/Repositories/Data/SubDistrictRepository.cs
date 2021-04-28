@@ -11,8 +11,14 @@ namespace ASPNETCore.Repositories.Data
 {
     public class SubDistrictRepository : GeneralRepository<SubDistrict, MyContext, int>
     {
+<<<<<<< HEAD
         private readonly MyContext context;
         public SubDistrictRepository(MyContext context) : base(context)
+=======
+        private readonly MyContext myContext;
+
+        public SubDistrictRepository(MyContext myContext) : base(myContext)
+>>>>>>> main
         {
 
         }

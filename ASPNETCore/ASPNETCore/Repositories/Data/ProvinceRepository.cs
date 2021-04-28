@@ -10,8 +10,14 @@ namespace ASPNETCore.Repositories.Data
 {
     public class ProvinceRepository : GeneralRepository<Province, MyContext, int>
     {
+<<<<<<< HEAD
         private readonly MyContext context;
         public ProvinceRepository(MyContext context) : base(context)
+=======
+        private readonly MyContext myContext;
+
+        public ProvinceRepository(MyContext myContext) : base(myContext)
+>>>>>>> main
         {
 
         }

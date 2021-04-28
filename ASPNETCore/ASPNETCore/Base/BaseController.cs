@@ -23,23 +23,49 @@ namespace ASPNETCore.Base
         [HttpGet("GetAll/")]
         public ActionResult Get()
         {
-            var model = repository.GetAll();
-            return Ok(model);
+            try
+            {
+                var get = repository.GetAll();
+                return Ok(get);
+            }
+            catch(Exception e)
+            {
+                return NotFound(e.InnerException);
+            }
         }
 
+<<<<<<< HEAD
         [HttpGet("Get/{id}")]
+=======
+        [HttpGet("{id}")]
+>>>>>>> main
         public ActionResult Get(TId id)
         {
-            var model = repository.GetById(id);
-            return Ok(model);
+            try
+            {
+                var getById = repository.GetById(id);
+                return Ok(getById);
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException);
+            }
         }
 
         [HttpPost]
         public ActionResult Post(Entity entity)
         {
-            repository.Post(entity);
-            return Ok("Data has been successfully inserted.");
+            try
+            { 
+                var result = repository.Post(entity) > 0 ? (ActionResult)Ok("Data has been successfully inserted.") : BadRequest("Data can't be inserted");
+                return result;
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.InnerException);
+            }
         }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
         [HttpDelete]
@@ -51,11 +77,24 @@ namespace ASPNETCore.Base
 
         [HttpDelete("{id}")]
 >>>>>>> Stashed changes
+=======
+
+        [HttpDelete("{id}")]
+>>>>>>> main
         public ActionResult Delete(TId id)
         {
-            repository.Delete(id);
-            return Ok("Data has been successfully deleted.");
+            try
+            {
+                var result = repository.Delete(id) > 0 ? (ActionResult)Ok("Data has been successfully deleted.") : BadRequest("Data can't be deleted.");
+                return result;
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.InnerException);
+            }
+            
         }
+<<<<<<< HEAD
         [HttpPut("Put/{id}")]
         public ActionResult Put(Entity entity, TId Id)
         {
@@ -66,13 +105,24 @@ namespace ASPNETCore.Base
             try
             {
                 var result = repository.Put(entity, Id) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
+=======
+        [HttpPut("{id}")]
+        public ActionResult Put(TId Id, Entity entity)
+        {
+            try
+            {
+                var result = repository.Put(Id, entity) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
+>>>>>>> main
                 return result;
             }
             catch (Exception e)
             {
                 return BadRequest(e.InnerException);
             }
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> main
         }
     }
 }

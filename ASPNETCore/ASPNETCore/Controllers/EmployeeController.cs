@@ -2,7 +2,11 @@
 using ASPNETCore.Context;
 using ASPNETCore.Models;
 using ASPNETCore.Repositories;
+<<<<<<< HEAD
 using ASPNETCore.Repository.Data;
+=======
+using ASPNETCore.Repositories.Data;
+>>>>>>> main
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
