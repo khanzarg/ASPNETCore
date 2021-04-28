@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ASPNETCore.Repository.Data
+namespace ASPNETCore.Repositories.Data
 {
     public class ContactRepository : GeneralRepository<Contact, int>
     {

@@ -3,7 +3,6 @@ using ASPNETCore.Models;
 using ASPNETCore.Repositories;
 using ASPNETCore.Repositories.Data;
 using ASPNETCore.Repositories.Interface;
-using ASPNETCore.Repository.Data;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

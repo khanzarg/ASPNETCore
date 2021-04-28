@@ -23,21 +23,28 @@ namespace ASPNETCore.Base
         [HttpGet]
         public ActionResult Get()
         {
-            var get = repository.GetAll();
-            return Ok(get);
+            try
+            {
+                var get = repository.GetAll();
+                return Ok(get);
+            }
+            catch(Exception e)
+            {
+                return NotFound(e.InnerException);
+            }
         }
 
         [HttpGet]
         public ActionResult Get(TId id)
         {
-            var getById = repository.GetById(id);
-            if (getById == null)
+            try
             {
-                return NotFound("Data not found");
-            }
-            else
-            {
+                var getById = repository.GetById(id);
                 return Ok(getById);
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException);
             }
         }
 
