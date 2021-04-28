@@ -13,7 +13,17 @@ namespace ASPNETCore.Repositories
         where TContext : MyContext
     {
         private readonly MyContext context;
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+
+        public GeneralRepository(MyContext context)
+        {
+            this.context = context;
+        }
+
+      
+>>>>>>> Stashed changes
 
         public GeneralRepository(MyContext context)
         {
@@ -56,6 +66,7 @@ namespace ASPNETCore.Repositories
             return result;
         }
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         public int Put(Entity obj, TId Id)
         {
@@ -68,6 +79,13 @@ namespace ASPNETCore.Repositories
             context.Set<Entity>().Find(Id);
             context.Set<Entity>().Attach(obj);
 >>>>>>> main
+=======
+        public int Put(Entity obj, TId Id)
+        {
+            //context.Set<Entity>().Attach(obj);
+            //context.Entry(obj).State = EntityState.Modified;
+            GetById(Id);
+>>>>>>> Stashed changes
             context.Entry(obj).State = EntityState.Modified;
             var result = context.SaveChanges();
             return result;

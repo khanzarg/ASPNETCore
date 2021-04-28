@@ -9,11 +9,15 @@ namespace ASPNETCore.Repositories.Data
 {
     public class RoleRepository : GeneralRepository<Role, MyContext, int>
     {
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
         private readonly MyContext context;
         public RoleRepository(MyContext context) : base(context)
         {
 
+<<<<<<< Updated upstream
 =======
         private readonly MyContext myContext;
 
@@ -21,6 +25,8 @@ namespace ASPNETCore.Repositories.Data
         {
 
 >>>>>>> main
+=======
+>>>>>>> Stashed changes
         }
     }
 }

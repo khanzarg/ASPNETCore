@@ -19,10 +19,15 @@ namespace ASPNETCore.Repositories.Data
 {
     public class ContactRepository : GeneralRepository<Contact, MyContext, int>
     {
+<<<<<<< Updated upstream
         private readonly MyContext myContext;
 
         public ContactRepository(MyContext myContext) : base(myContext)
 >>>>>>> main
+=======
+        private readonly MyContext context;
+        public ContactRepository(MyContext context) : base(context)
+>>>>>>> Stashed changes
         {
 
         }

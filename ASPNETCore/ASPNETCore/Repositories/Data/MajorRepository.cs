@@ -10,11 +10,15 @@ namespace ASPNETCore.Repositories.Data
     //dari Muljadi
     public class MajorRepository : GeneralRepository<Major, MyContext, int>
     {
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
         private readonly MyContext context;
         public MajorRepository(MyContext context) : base(context)
         {
 
+<<<<<<< Updated upstream
 =======
         private readonly MyContext myContext;
 
@@ -22,6 +26,8 @@ namespace ASPNETCore.Repositories.Data
         {
 
 >>>>>>> main
+=======
+>>>>>>> Stashed changes
         }
     }
 }

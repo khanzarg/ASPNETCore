@@ -19,6 +19,7 @@ namespace ASPNETCore.Controllers
     [ApiController]
     public class EmployeeRoleController : BaseController<EmployeeRole, EmployeeRoleRepository, int>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -27,6 +28,8 @@ namespace ASPNETCore.Controllers
     [ApiController]
     public class EmployeeRoleController : BaseController<EmployeeRole, EmployeeRoleRepository, int>
 >>>>>>> main
+=======
+>>>>>>> Stashed changes
     {
         private readonly EmployeeRoleRepository employeeRoleRepository;
         public EmployeeRoleController(EmployeeRoleRepository employeeRoleRepository) : base(employeeRoleRepository)

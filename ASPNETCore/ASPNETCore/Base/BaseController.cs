@@ -34,11 +34,15 @@ namespace ASPNETCore.Base
             }
         }
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         [HttpGet("Get/{id}")]
 =======
         [HttpGet("{id}")]
 >>>>>>> main
+=======
+        [HttpGet("Get/{id}")]
+>>>>>>> Stashed changes
         public ActionResult Get(TId id)
         {
             try
@@ -65,6 +69,7 @@ namespace ASPNETCore.Base
                 return BadRequest(e.InnerException);
             }
         }
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -81,6 +86,10 @@ namespace ASPNETCore.Base
 
         [HttpDelete("{id}")]
 >>>>>>> main
+=======
+
+        [HttpDelete("{id}")]
+>>>>>>> Stashed changes
         public ActionResult Delete(TId id)
         {
             try
@@ -94,6 +103,7 @@ namespace ASPNETCore.Base
             }
             
         }
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         [HttpPut("Put/{id}")]
         public ActionResult Put(Entity entity, TId Id)
@@ -113,6 +123,14 @@ namespace ASPNETCore.Base
             {
                 var result = repository.Put(Id, entity) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
 >>>>>>> main
+=======
+        [HttpPut("Put/{id}")]
+        public ActionResult Put(Entity entity, TId Id)
+        {
+            try
+            {
+                var result = repository.Put(entity, Id) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
+>>>>>>> Stashed changes
                 return result;
             }
             catch (Exception e)
