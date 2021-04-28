@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace ASPNETCore.Filter
+namespace ASPNETCore.Filters
 {
     public class BasicAuthenticationAttribute : AuthorizationFilterAttribute
     {
