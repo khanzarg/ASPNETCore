@@ -9,7 +9,13 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Controllers
 {
+<<<<<<< Updated upstream
     public class EmployeeRoleController : Controller
+=======
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmployeeRoleController : BaseController<EmployeeRole, EmployeeRoleRepository, int>
+>>>>>>> Stashed changes
     {
 
         private IGenericRepository<EmployeeRole> repository = null;

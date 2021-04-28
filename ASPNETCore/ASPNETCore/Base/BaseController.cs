@@ -20,14 +20,14 @@ namespace ASPNETCore.Base
             this.repository = repository;
         }
 
-        [HttpGet]
+        [HttpGet("GetAll/")]
         public ActionResult Get()
         {
             var model = repository.GetAll();
             return Ok(model);
         }
 
-        [HttpGet]
+        [HttpGet("Get/{id}")]
         public ActionResult Get(TId id)
         {
             var model = repository.GetById(id);
@@ -40,17 +40,34 @@ namespace ASPNETCore.Base
             repository.Post(entity);
             return Ok("Data has been successfully inserted.");
         }
+<<<<<<< Updated upstream
         [HttpDelete]
+=======
+
+        [HttpDelete("{id}")]
+>>>>>>> Stashed changes
         public ActionResult Delete(TId id)
         {
             repository.Delete(id);
             return Ok("Data has been successfully deleted.");
         }
-        [HttpPut]
-        public ActionResult Put(Entity entity)
+        [HttpPut("Put/{id}")]
+        public ActionResult Put(Entity entity, TId Id)
         {
+<<<<<<< Updated upstream
             repository.Put(entity);
             return Ok("Data has been successfully updated.");
+=======
+            try
+            {
+                var result = repository.Put(entity, Id) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
+                return result;
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.InnerException);
+            }
+>>>>>>> Stashed changes
         }
     }
 }

@@ -9,10 +9,14 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Repositories.Data
 {
-    public class SubDistrictRepository : GeneralRepository<SubDistrict, int>
+    public class SubDistrictRepository : GeneralRepository<SubDistrict, MyContext, int>
     {
-     
+        private readonly MyContext context;
+        public SubDistrictRepository(MyContext context) : base(context)
+        {
+
+        }
     }
 
-    
+
 }

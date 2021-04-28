@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Repositories.Data
 {
-    public class UniversityRepository : GeneralRepository<University, int>
+    public class UniversityRepository : GeneralRepository<University, MyContext, int>
     {
-        
+        private readonly MyContext context;
+        public UniversityRepository(MyContext context) : base(context)
+        {
+
+        }
     }
 }

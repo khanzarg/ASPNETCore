@@ -8,11 +8,19 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Repository.Data
 {
-    public class AddressRepository : GeneralRepository<Address, int>
+    public class AddressRepository : GeneralRepository<Address, MyContext, int>
     {
+<<<<<<< Updated upstream
         //public AddressRepository(MyContext context) : base(context)
         //{
 
         //}
+=======
+        private readonly MyContext context;
+        public AddressRepository(MyContext context) : base(context)
+        {
+            
+        }
+>>>>>>> Stashed changes
     }
 }

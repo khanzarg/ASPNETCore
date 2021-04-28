@@ -10,8 +10,12 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Repositories.Data
 {
-    public class TerritoryRepository : GeneralRepository<Territory, int>
+    public class TerritoryRepository : GeneralRepository<Territory, MyContext, int>
     {
+        private readonly MyContext context;
+        public TerritoryRepository(MyContext context) : base(context)
+        {
 
+        }
     }
 }
