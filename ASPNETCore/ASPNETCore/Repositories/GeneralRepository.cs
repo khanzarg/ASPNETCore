@@ -46,9 +46,8 @@ namespace ASPNETCore.Repositories
             return result;
         }
 
-        public int Put(TId Id, Entity obj)
+        public int Put(Entity obj)
         {
-            context.Set<Entity>().Find(Id);
             context.Set<Entity>().Attach(obj);
             context.Entry(obj).State = EntityState.Modified;
             var result = context.SaveChanges();
