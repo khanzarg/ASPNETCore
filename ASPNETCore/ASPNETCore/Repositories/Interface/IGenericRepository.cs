@@ -11,11 +11,15 @@ namespace ASPNETCore.Repositories.Interface
         Entity GetById(TId Id);
         int Post(Entity obj);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         int Put(Entity obj, TId Id);
 =======
         int Put(TId Id, Entity obj);
 >>>>>>> main
+=======
+        int Put(Entity obj, TId Id);
+>>>>>>> Stashed changes
 =======
         int Put(Entity obj, TId Id);
 >>>>>>> Stashed changes

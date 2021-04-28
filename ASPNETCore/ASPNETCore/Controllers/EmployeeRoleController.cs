@@ -20,6 +20,7 @@ namespace ASPNETCore.Controllers
     public class EmployeeRoleController : BaseController<EmployeeRole, EmployeeRoleRepository, int>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -28,6 +29,8 @@ namespace ASPNETCore.Controllers
     [ApiController]
     public class EmployeeRoleController : BaseController<EmployeeRole, EmployeeRoleRepository, int>
 >>>>>>> main
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     {

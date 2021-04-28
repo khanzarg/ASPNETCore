@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace ASPNETCore.Repositories.Data
 {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -35,11 +36,16 @@ namespace ASPNETCore.Repositories.Data
     public class EmployeeRoleRepository : GeneralRepository<EmployeeRole, MyContext, int>
     {
 >>>>>>> Stashed changes
+=======
+    public class EmployeeRoleRepository : GeneralRepository<EmployeeRole, MyContext, int>
+    {
+>>>>>>> Stashed changes
         private readonly MyContext context;
         public EmployeeRoleRepository(MyContext context) : base(context)
         {
 
         }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 >>>>>>> Stashed changes
@@ -48,6 +54,8 @@ namespace ASPNETCore.Repositories.Data
 =======
         }
 >>>>>>> main
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     }

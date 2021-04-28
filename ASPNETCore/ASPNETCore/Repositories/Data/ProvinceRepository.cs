@@ -11,6 +11,7 @@ namespace ASPNETCore.Repositories.Data
     public class ProvinceRepository : GeneralRepository<Province, MyContext, int>
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         private readonly MyContext context;
         public ProvinceRepository(MyContext context) : base(context)
@@ -19,6 +20,10 @@ namespace ASPNETCore.Repositories.Data
 
         public ProvinceRepository(MyContext myContext) : base(myContext)
 >>>>>>> main
+=======
+        private readonly MyContext context;
+        public ProvinceRepository(MyContext context) : base(context)
+>>>>>>> Stashed changes
 =======
         private readonly MyContext context;
         public ProvinceRepository(MyContext context) : base(context)
