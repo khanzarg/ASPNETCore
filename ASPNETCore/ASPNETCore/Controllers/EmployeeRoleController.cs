@@ -15,6 +15,9 @@ namespace ASPNETCore.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeRoleController : BaseController<EmployeeRole, EmployeeRoleRepository, int>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     {
 

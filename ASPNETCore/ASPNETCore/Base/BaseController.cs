@@ -41,7 +41,12 @@ namespace ASPNETCore.Base
             return Ok("Data has been successfully inserted.");
         }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         [HttpDelete]
+=======
+
+        [HttpDelete("{id}")]
+>>>>>>> Stashed changes
 =======
 
         [HttpDelete("{id}")]

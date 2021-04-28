@@ -11,16 +11,22 @@ namespace ASPNETCore.Repository.Data
     public class AddressRepository : GeneralRepository<Address, MyContext, int>
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         //public AddressRepository(MyContext context) : base(context)
         //{
 
         //}
 =======
+=======
+>>>>>>> Stashed changes
         private readonly MyContext context;
         public AddressRepository(MyContext context) : base(context)
         {
             
         }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 }
