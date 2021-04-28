@@ -10,9 +10,6 @@ namespace ASPNETCore.Repository.Data
 {
     public class AddressRepository : GeneralRepository<Address, int>
     {
-        //public AddressRepository(MyContext context) : base(context)
-        //{
 
-        //}
     }
 }
