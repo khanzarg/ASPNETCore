@@ -125,3 +125,7 @@ D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.dll
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.pdb
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.genruntimeconfig.cache
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

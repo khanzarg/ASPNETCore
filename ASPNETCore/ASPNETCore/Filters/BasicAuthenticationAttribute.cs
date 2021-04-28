@@ -29,7 +29,7 @@ namespace ASPNETCore.Filters
                 var password = arrUserNameandPassword[1];
 
                 // Replace this with your own system of security / means of validating credentials
-                var isValid = userName == "sa" && password == "sapassword";
+                var isValid = userName == "Alfi" && password == "123";
 
                 // at 0th postion of array we get username and at 1st we get password  
                 if (isValid)
