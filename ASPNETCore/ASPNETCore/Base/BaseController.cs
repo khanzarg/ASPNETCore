@@ -23,34 +23,62 @@ namespace ASPNETCore.Base
         [HttpGet]
         public ActionResult Get()
         {
-            var model = repository.GetAll();
-            return Ok(model);
+            var get = repository.GetAll();
+            return Ok(get);
         }
 
         [HttpGet]
         public ActionResult Get(TId id)
         {
-            var model = repository.GetById(id);
-            return Ok(model);
+            var getById = repository.GetById(id);
+            if (getById == null)
+            {
+                return NotFound("Data tidak ditemukan");
+            }
+            else
+            {
+                return Ok(getById);
+            }
         }
 
         [HttpPost]
         public ActionResult Post(Entity entity)
         {
-            repository.Post(entity);
-            return Ok("Data has been successfully inserted.");
+            try
+            {
+                repository.Post(entity);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Insert data gagal");
+            }
+            return Ok("Data berhasil diinputkan");
         }
         [HttpDelete]
         public ActionResult Delete(TId id)
         {
-            repository.Delete(id);
-            return Ok("Data has been successfully deleted.");
+            try
+            {
+                repository.Delete(id);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Hapus data gagal");
+            }
+            return Ok("Data berhasil dihapus");
         }
         [HttpPut]
         public ActionResult Put(Entity entity)
         {
-            repository.Put(entity);
-            return Ok("Data has been successfully updated.");
+            try
+            {
+                repository.Put(entity);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Update data gagal");
+            }
+            return Ok("Data berhasil diperbarui");
         }
     }
 }
