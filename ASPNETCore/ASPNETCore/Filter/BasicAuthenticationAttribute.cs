@@ -38,9 +38,7 @@ namespace ASPNETCore.Filter
                     var principal = new GenericPrincipal(new GenericIdentity(userName), null);
                     Thread.CurrentPrincipal = principal;
 
-                    actionContext.Response =
-                       actionContext.Request.CreateResponse(HttpStatusCode.OK,
-                          "User " + userName + " successfully authenticated");
+                    actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.OK,"User " + userName + " successfully authenticated");
 
                     return;
                 }
