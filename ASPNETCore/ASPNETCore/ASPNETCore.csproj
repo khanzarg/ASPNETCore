@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20210427031152_tes.cs" />
-    <Compile Remove="Migrations\20210427031152_tes.Designer.cs" />
+    <Compile Remove="Handlers\BasicAuthenticationHandler.cs" />
   </ItemGroup>
 
   <ItemGroup>

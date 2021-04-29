@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using ASPNETCore.Repositories.Interface;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 namespace ASPNETCore.Handler
 {
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
+       
     {
         
         public BasicAuthenticationHandler(
@@ -21,11 +23,11 @@ namespace ASPNETCore.Handler
             ISystemClock clock)
             : base (options, logger, encoder, clock)
         {
-
+            
         }
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
-        {
+        { 
             if (!Request.Headers.ContainsKey("Authorization"))
             {
                 return AuthenticateResult.Fail("Authorization Header Was Not Found");

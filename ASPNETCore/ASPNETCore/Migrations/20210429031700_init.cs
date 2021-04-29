@@ -38,6 +38,20 @@ namespace ASPNETCore.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TB_M_Parameter",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    Value = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TB_M_Parameter", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TB_M_Province",
                 columns: table => new
                 {
@@ -181,7 +195,6 @@ namespace ASPNETCore.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
-                    District_Id = table.Column<int>(nullable: false),
                     DistrictId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -296,6 +309,9 @@ namespace ASPNETCore.Migrations
 
             migrationBuilder.DropTable(
                 name: "TB_M_EmployeeRole");
+
+            migrationBuilder.DropTable(
+                name: "TB_M_Parameter");
 
             migrationBuilder.DropTable(
                 name: "TB_M_Territory");

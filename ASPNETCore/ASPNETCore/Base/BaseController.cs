@@ -1,4 +1,5 @@
-﻿using ASPNETCore.Repositories.Interface;
+﻿using ASPNETCore.Handlers;
+using ASPNETCore.Repositories.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Base
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BaseController<Entity, Repository, TId> : ControllerBase
@@ -17,6 +18,7 @@ namespace ASPNETCore.Base
         where Repository : IGenericRepository<Entity, TId>
     {
         private readonly Repository repository;
+
         public BaseController(Repository repository)
         {
             this.repository = repository;
@@ -25,15 +27,16 @@ namespace ASPNETCore.Base
         [HttpGet]
         public ActionResult Get()
         {
-            try
-            {
-                var get = repository.GetAll();
-                return Ok(get);
-            }
-            catch(Exception e)
-            {
-                return NotFound(e.InnerException);
-            }
+                try
+                {
+                    var get = repository.GetAll();
+                    return Ok(get);
+                }
+                catch (Exception e)
+                {
+                    return NotFound(e.InnerException);
+                }
+            
         }
 
         [HttpGet("{id}")]

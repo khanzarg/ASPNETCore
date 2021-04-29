@@ -1,5 +1,6 @@
 using ASPNETCore.Context;
 using ASPNETCore.Handler;
+using ASPNETCore.Handlers;
 using ASPNETCore.Repositories.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -34,8 +35,8 @@ namespace ASPNETCore
             services.AddDbContext<MyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
 
-            services.AddAuthentication("BasicAuthentication")
-                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+            //services.AddAuthentication("BasicAuthentication")
+            //    .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddScoped<AddressRepository>();
             services.AddScoped<ContactRepository>();
@@ -49,6 +50,7 @@ namespace ASPNETCore
             services.AddScoped<SubDistrictRepository>();
             services.AddScoped<TerritoryRepository>();
             services.AddScoped<UniversityRepository>();
+            services.AddScoped<SimpleAuthentication>();
 
 
 
