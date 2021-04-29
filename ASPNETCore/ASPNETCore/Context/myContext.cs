@@ -29,6 +29,7 @@ namespace ASPNETCore.Context
         public DbSet<Major> Majors { get; set; }
         public DbSet<University> Universities { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<Parameter> Parameters { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //University-Education

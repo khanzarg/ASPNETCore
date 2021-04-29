@@ -19,6 +19,5 @@ namespace ASPNETCore.Controllers
         {
             this.provinceRepository = provinceRepository;
         }
-
     }
 }

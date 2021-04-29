@@ -1,4 +1,5 @@
 using ASPNETCore.Context;
+using ASPNETCore.Handlers;
 using ASPNETCore.Repositories.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -44,6 +45,8 @@ namespace ASPNETCore
             services.AddScoped<SubDistrictRepository>();
             services.AddScoped<TerritoryRepository>();
             services.AddScoped<UniversityRepository>();
+            services.AddScoped<ParameterRepository>();
+            services.AddScoped<SimpleAuthentication>();
 
 
 

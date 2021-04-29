@@ -1,4 +1,5 @@
-﻿using ASPNETCore.Repositories.Interface;
+﻿using ASPNETCore.Handlers;
+using ASPNETCore.Repositories.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -23,15 +24,16 @@ namespace ASPNETCore.Base
         [HttpGet]
         public ActionResult Get()
         {
-            try
-            {
-                var get = repository.GetAll();
-                return Ok(get);
-            }
-            catch(Exception e)
-            {
-                return NotFound(e.InnerException);
-            }
+                try
+                {
+                    var get = repository.GetAll();
+                    return Ok(get);
+                }
+                catch (Exception e)
+                {
+                    return NotFound(e.InnerException);
+                }
+            return Forbid("Failed to auth");
         }
 
         [HttpGet("{id}")]
