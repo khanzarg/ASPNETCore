@@ -1,7 +1,10 @@
 ﻿using ASPNETCore.Handlers;
 using ASPNETCore.Repositories.Interface;
+using ASPNETCore.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +19,7 @@ namespace ASPNETCore.Base
         where Repository : IGenericRepository<Entity, TId>
     {
         private readonly Repository repository;
+        //private IConfiguration _config;
         public BaseController(Repository repository)
         {
             this.repository = repository;
@@ -26,6 +30,9 @@ namespace ASPNETCore.Base
         {
                 try
                 {
+                    //var jwt = new JwtService(_config);
+                    //var token = jwt.GenerateSecurityToken("fake@email.com");
+                    //return token;
                     var get = repository.GetAll();
                     return Ok(get);
                 }

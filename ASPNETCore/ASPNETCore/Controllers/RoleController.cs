@@ -31,9 +31,7 @@ namespace ASPNETCore.Controllers
             var result = simpleAuthentication.Check(applicationHeader, tokenHeader);
             if (result)
             {
-
                 return "Authorize";
-
             }
             return "Authentication Failed";
         }

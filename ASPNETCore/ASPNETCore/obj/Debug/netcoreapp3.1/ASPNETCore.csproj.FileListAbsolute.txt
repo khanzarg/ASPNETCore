@@ -112,7 +112,6 @@ D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csprojAssemblyReference.cache
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.AssemblyInfoInputs.cache
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.AssemblyInfo.cs
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csproj.CoreCompileInputs.cache
@@ -129,3 +128,11 @@ D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.Web.Http.dll
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csprojAssemblyReference.cache
