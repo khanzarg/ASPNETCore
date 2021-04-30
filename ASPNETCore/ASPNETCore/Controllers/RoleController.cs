@@ -4,7 +4,9 @@ using ASPNETCore.Models;
 using ASPNETCore.Repositories;
 using ASPNETCore.Repositories.Data;
 using ASPNETCore.Repositories.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +15,19 @@ using System.Threading.Tasks;
 namespace ASPNETCore.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class RoleController : BaseController<Role, RoleRepository, int>
     {
         private readonly RoleRepository roleRepository;
         private readonly SimpleAuthentication simpleAuthentication;
+        private readonly ILogger<RoleController> logger;
 
-        public RoleController(RoleRepository roleRepository, SimpleAuthentication simpleAuthentication) : base(roleRepository)
+        public RoleController(RoleRepository roleRepository, SimpleAuthentication simpleAuthentication, ILogger<RoleController> logger) : base(roleRepository)
         {
             this.roleRepository = roleRepository;
             this.simpleAuthentication = simpleAuthentication;
+            this.logger = logger;
         }
 
         [HttpGet("CheckRole/")]

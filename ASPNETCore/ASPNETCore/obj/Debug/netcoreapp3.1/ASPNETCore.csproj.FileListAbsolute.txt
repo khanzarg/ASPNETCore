@@ -125,3 +125,11 @@ C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debu
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.dll
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.pdb
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.genruntimeconfig.cache
+C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

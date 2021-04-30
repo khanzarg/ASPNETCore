@@ -1,6 +1,7 @@
 using ASPNETCore.Context;
 using ASPNETCore.Handler;
 using ASPNETCore.Handlers;
+using ASPNETCore.Middleware;
 using ASPNETCore.Repositories.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +33,7 @@ namespace ASPNETCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTokenAuthentication(Configuration);
             services.AddDbContext<MyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
 
@@ -52,7 +54,7 @@ namespace ASPNETCore
             services.AddScoped<UniversityRepository>();
             services.AddScoped<SimpleAuthentication>();
 
-
+            
 
             //services.AddApplicationInsightsTelemetry(Configuration);
             //services.AddMvc();
