@@ -1,4 +1,6 @@
-﻿using ASPNETCore.Repositories.Interface;
+﻿using ASPNETCore.Context;
+using ASPNETCore.Handlers;
+using ASPNETCore.Repositories.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Base
 {
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BaseController<Entity, Repository, TId> : ControllerBase
@@ -15,6 +18,7 @@ namespace ASPNETCore.Base
         where Repository : IGenericRepository<Entity, TId>
     {
         private readonly Repository repository;
+
         public BaseController(Repository repository)
         {
             this.repository = repository;
@@ -28,10 +32,11 @@ namespace ASPNETCore.Base
                 var get = repository.GetAll();
                 return Ok(get);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return NotFound(e.InnerException);
             }
+
         }
 
         [HttpGet("{id}")]
@@ -52,11 +57,11 @@ namespace ASPNETCore.Base
         public ActionResult Post(Entity entity)
         {
             try
-            { 
+            {
                 var result = repository.Post(entity) > 0 ? (ActionResult)Ok("Data has been successfully inserted.") : BadRequest("Data can't be inserted");
                 return result;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.InnerException);
             }
@@ -74,8 +79,10 @@ namespace ASPNETCore.Base
             {
                 return BadRequest(e.InnerException);
             }
-            
+
         }
+
+
         [HttpPut]
         public ActionResult Put(Entity entity)
         {

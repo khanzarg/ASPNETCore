@@ -1,5 +1,6 @@
 ﻿using ASPNETCore.Base;
 using ASPNETCore.Context;
+using ASPNETCore.Handlers;
 using ASPNETCore.Models;
 using ASPNETCore.Repositories;
 using ASPNETCore.Repositories.Data;
@@ -13,16 +14,33 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/")]
     [ApiController]
     public class AddressesController : BaseController<Address, AddressRepository, int>
     {
   
-        private AddressRepository addressRepository;
+        private readonly AddressRepository addressRepository;
+        private readonly SimpleAuthentication simpleAuthentication;
 
-        public AddressesController(AddressRepository addressRepository) : base(addressRepository)
+        public AddressesController(AddressRepository addressRepository, SimpleAuthentication simpleAuthentication) : base(addressRepository)
         {
             this.addressRepository = addressRepository;
+            this.simpleAuthentication = simpleAuthentication;
+        }
+
+        [HttpGet("CheckAddresses/")]
+        public string CheckAddresses()
+        {
+            var headerApp = Request.Headers["Application"].ToString();
+            var headerToken = Request.Headers["Token"].ToString();
+            
+            var result = simpleAuthentication.Check(headerApp, headerToken);
+            
+            if (result)
+            {
+                return "OK";
+            }
+            return "Not OK";
         }
     }
 }

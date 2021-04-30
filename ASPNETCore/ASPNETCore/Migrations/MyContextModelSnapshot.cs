@@ -163,6 +163,24 @@ namespace ASPNETCore.Migrations
                     b.ToTable("TB_M_Major");
                 });
 
+            modelBuilder.Entity("ASPNETCore.Models.Parameter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TB_M_Parameter");
+                });
+
             modelBuilder.Entity("ASPNETCore.Models.Province", b =>
                 {
                     b.Property<int>("Id")
@@ -201,9 +219,6 @@ namespace ASPNETCore.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("DistrictId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("District_Id")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASPNETCore.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210426225139_init")]
+    [Migration("20210429031329_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -165,6 +165,24 @@ namespace ASPNETCore.Migrations
                     b.ToTable("TB_M_Major");
                 });
 
+            modelBuilder.Entity("ASPNETCore.Models.Parameter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TB_M_Parameter");
+                });
+
             modelBuilder.Entity("ASPNETCore.Models.Province", b =>
                 {
                     b.Property<int>("Id")
@@ -203,9 +221,6 @@ namespace ASPNETCore.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("DistrictId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("District_Id")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
