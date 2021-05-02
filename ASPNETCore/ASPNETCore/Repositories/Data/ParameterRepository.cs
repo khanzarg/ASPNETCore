@@ -15,6 +15,37 @@ namespace ASPNETCore.Repositories.Data
         {
             this.myContext = myContext;
         }
+
+        public override int Post(Parameter parameter)
+        {
+            var newParameter = new Parameter();
+            string passwordHash = BCrypt.Net.BCrypt.HashPassword(parameter.Value);
+            newParameter.Value = passwordHash;
+            
+            myContext.Parameters.Add(newParameter);
+            var result = myContext.SaveChanges();
+            return result;
+        }
+
+        public bool Authenticate(Parameter model)
+        {
+            // get account from database
+            var account = myContext.Parameters.SingleOrDefault(x => x.Name == model.Name);
+
+            // check account found and verify password
+            if (account == null || !BCrypt.Net.BCrypt.Verify(model.Value, account.Value))
+            {
+                // authentication failed
+                return false;
+            }
+            else
+            {
+                // authentication successful
+                return true;
+            }
+        }
+
+
     }
 }
 

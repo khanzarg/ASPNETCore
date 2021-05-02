@@ -29,7 +29,7 @@ namespace ASPNETCore.Controllers
         {
             try
             {
-                var result = parameterRepository.PostRegister(entity) > 0 ? (ActionResult)Ok("Data has been successfully inserted.") : BadRequest("Data can't be inserted");
+                var result = parameterRepository.Post(entity) > 0 ? (ActionResult)Ok("Data has been successfully inserted.") : BadRequest("Data can't be inserted");
                 return result;
             }
             catch (Exception e)
@@ -44,7 +44,12 @@ namespace ASPNETCore.Controllers
             try
             {
                 var get = parameterRepository.Authenticate(entity);
-                return Ok(get);
+                if(get == true)
+                {
+                    return Ok(get);
+                }
+                return Forbid("Password or Name is wrong");
+
             }
             catch (Exception e)
             {

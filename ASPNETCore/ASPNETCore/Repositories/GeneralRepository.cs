@@ -39,7 +39,7 @@ namespace ASPNETCore.Repositories
             return GetById;
         }
 
-        public int Post(Entity obj)
+        public virtual int Post(Entity obj)
         {
             context.Set<Entity>().Add(obj);
             var result = context.SaveChanges();
