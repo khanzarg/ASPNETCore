@@ -1,5 +1,6 @@
 using ASPNETCore.Context;
 using ASPNETCore.Handlers;
+using ASPNETCore.Middleware;
 using ASPNETCore.Repositories.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -48,6 +49,8 @@ namespace ASPNETCore
             services.AddScoped<ParameterRepository>();
             services.AddScoped<SimpleAuthentication>();
 
+            services.AddTokenAuthentication(Configuration);
+  
             //services.AddApplicationInsightsTelemetry(Configuration);
             //services.AddMvc();
             //services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
@@ -66,8 +69,8 @@ namespace ASPNETCore
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

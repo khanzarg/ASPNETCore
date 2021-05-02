@@ -23,5 +23,15 @@ namespace ASPNETCore.Handlers
             }
             return true;
         }
+
+        public bool CheckAdmin(string role)
+        {
+            var get = context.Roles.SingleOrDefault(x => x.Name == role);
+            if(get.Name != "Admin")
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
