@@ -52,6 +52,7 @@ namespace ASPNETCore
             services.AddScoped<SubDistrictRepository>();
             services.AddScoped<TerritoryRepository>();
             services.AddScoped<UniversityRepository>();
+            services.AddScoped<AccountRepository>();
             services.AddScoped<SimpleAuthentication>();
 
             

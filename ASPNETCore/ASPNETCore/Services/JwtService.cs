@@ -21,7 +21,7 @@ namespace ASPNETCore.Services
             _expDate = config.GetSection("JwtConfig").GetSection("expirationInMinutes").Value;
         }
 
-        public string GenerateSecurityToken(string email)
+        public string GenerateSecurityToken(string aEmail)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_secret);
@@ -29,7 +29,7 @@ namespace ASPNETCore.Services
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.Email, email),
+                    new Claim(ClaimTypes.Email, aEmail),
                     new Claim(ClaimTypes.Role, "Admin")
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(double.Parse(_expDate)),

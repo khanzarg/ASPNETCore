@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "pamM4S3dYlburKZMS1zA5m5ZGKoEepzLGBqIqcwvNrjmGohWlqQygEyr4UaZISPQaQsoxsyDgu6sp21Qrdph+A==",
+  "dgSpecHash": "afW9RWWGQ6NU41h8T5Il/nDXzbj0NSlzFs5qdgGNx4pEnDmNX/BF16mJhLAetjZsNtn6g3aCXA+REaUYzQJJUA==",
   "success": true,
   "projectFilePath": "C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\alfat\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\alfat\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.0\\microsoft.aspnetcore.authentication.jwtbearer.3.1.0.nupkg.sha512",
     "C:\\Users\\alfat\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\alfat\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

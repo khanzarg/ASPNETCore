@@ -133,3 +133,4 @@ C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debu
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\BCrypt.Net-Next.dll
