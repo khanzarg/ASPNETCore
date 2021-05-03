@@ -47,6 +47,7 @@ namespace ASPNETCore
             services.AddScoped<TerritoryRepository>();
             services.AddScoped<UniversityRepository>();
             services.AddScoped<ParameterRepository>();
+            services.AddScoped<AccountRepository>();
             services.AddScoped<SimpleAuthentication>();
 
             services.AddTokenAuthentication(Configuration);

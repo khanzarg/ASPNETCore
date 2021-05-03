@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "33oWC1/blhaGnPsspdtLnHf+e8jzz8vRdMzIDxPI7rdgsZ0CCb0d/8Fld6FhHIvdHpamnc4QS3Q8hrO6oFqnyg==",
+  "dgSpecHash": "mzgthP5Jnm2dantVZZylaC5h9d6tjkG6h9o8DvCuZI3kPjr3izYsMdJ/KvSb70MIOTNas1HzNjegVvXj0rCONQ==",
   "success": true,
   "projectFilePath": "D:\\Visual Studio Source\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.7\\microsoft.aspnet.webapi.core.5.2.7.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.0\\microsoft.aspnetcore.authentication.jwtbearer.3.1.0.nupkg.sha512",
