@@ -54,15 +54,23 @@ namespace ASPNETCore.Controllers
         [Route("login")]
         public ActionResult Login(Account account) 
         {
-            var user = context.Accounts.SingleOrDefault(e => e.Email == account.Email);
-            var passwordCheck = BCrypt.Net.BCrypt.Verify(account.Password, user.Password);
-            if (user != null && passwordCheck) 
+            try 
             {
-                var jwt = new JwtService(_config);
-                var token = jwt.GenerateSecurityToken(account.Email, account.Password);
-                return Ok(token);
+                var user = context.Accounts.SingleOrDefault(e => e.Email == account.Email);
+                var passwordCheck = BCrypt.Net.BCrypt.Verify(account.Password, user.Password);
+                if (user != null && passwordCheck)
+                {
+                    var jwt = new JwtService(_config);
+                    var token = jwt.GenerateSecurityToken(account.Email, account.Password);
+                    return Ok(token);
+                }
+                return BadRequest("Failed to login.");
             }
-            return BadRequest("Failed to login.");
+            catch (Exception e)
+            {
+                return BadRequest(e.InnerException);
+            }
+
         }
 
         [Authorize]
@@ -70,20 +78,26 @@ namespace ASPNETCore.Controllers
         [Route("changepassword")]
         public ActionResult ChangePassword(string email, string oldPassword, string newPassword) 
         {
-            var user = context.Accounts.SingleOrDefault(e => e.Email == email);
-            var passwordCheck = BCrypt.Net.BCrypt.Verify(oldPassword, user.Password);
-            if (user != null && passwordCheck)
+            try 
             {
-                var newPass = BCrypt.Net.BCrypt.HashPassword(newPassword);
-                user.Password = newPass;
-                var save = context.SaveChanges();
-                if (save > 0)
+                var user = context.Accounts.SingleOrDefault(e => e.Email == email);
+                var passwordCheck = BCrypt.Net.BCrypt.Verify(oldPassword, user.Password);
+                if (user != null && passwordCheck)
                 {
-                    return Ok("Password has been changed.");
+                    var newPass = BCrypt.Net.BCrypt.HashPassword(newPassword);
+                    user.Password = newPass;
+                    var save = context.SaveChanges();
+                    if (save > 0)
+                    {
+                        return Ok("Password has been changed.");
+                    }
                 }
+                return BadRequest("Your password is incorrect.");
             }
-            return BadRequest("Your password is incorrect.");
-
+            catch (Exception e)
+            {
+                return BadRequest(e.InnerException);
+            }
             //var user = context.Accounts.SingleOrDefault(e => e.Email == account.Email);
             //var passwordCheck = BCrypt.Net.BCrypt.Verify(account.Password, user.Password);
             //if (user != null && passwordCheck)
@@ -100,8 +114,28 @@ namespace ASPNETCore.Controllers
             //return BadRequest("Your password is incorrect.");
         }
 
-
-
+        [HttpPost]
+        [Route("forgotpassword")]
+        public ActionResult ForgotPassword(string email, string newPassword, string confirmPassword) 
+        {
+            var userExisting = context.Accounts.SingleOrDefault(e => e.Email == email);
+            if (userExisting.Email == email) 
+            {
+                if (newPassword == confirmPassword)
+                {
+                    userExisting.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);
+                    var save = context.SaveChanges();
+                    if (save > 0) 
+                    {
+                        var jwt = new JwtService(_config);
+                        var token = jwt.GenerateSecurityToken(userExisting.Email, userExisting.Password);
+                        return Ok("sending to " + userExisting.Email + ".\n Reset link: https://localhost:44320/api/account/" + token);
+                    }
+                }
+                return BadRequest("Your confirmation password is incorrect.");
+            }
+            return BadRequest("Email not found.");  
+        }
 
     }
 }
