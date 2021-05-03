@@ -96,7 +96,7 @@ namespace ASPNETCore.Controllers
                 context.Entry(foundAccount).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 context.SaveChanges();
 
-                var user = new SmtpClient("smtp.gmail.com", 587)
+                var user = new SmtpClient("smtp.gmail.com", 465)
                 {
                     Credentials = new NetworkCredential("aninsabrina17@gmail.com", "yulisulasta"),
                     EnableSsl = true,
