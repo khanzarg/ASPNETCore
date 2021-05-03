@@ -2,6 +2,7 @@
 using ASPNETCore.Models;
 using ASPNETCore.Repositories.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -21,6 +22,22 @@ namespace ASPNETCore.Controllers
         {
             this.accountRepository = accountRepository;
             _config = config;
+        }
+
+        [HttpPost]
+        [Route("register")]
+        public ActionResult Register(Account account)
+        {
+            try
+            {
+                //var userExists = accountRepository.
+                var result = accountRepository.Post(account) > 0 ? (ActionResult)Ok("Account has been created.") : BadRequest("User creation failed.");
+                return result;
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.InnerException);
+            }
         }
 
     }

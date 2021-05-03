@@ -3,10 +3,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ASPNETCore.Migrations
 {
-    public partial class initPara : Migration
+    public partial class init_para_until_context : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "TB_M_Account",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TB_M_Account", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "TB_M_Employee",
                 columns: table => new
@@ -44,7 +59,7 @@ namespace ASPNETCore.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
-                    value = table.Column<string>(nullable: true)
+                    Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -298,6 +313,9 @@ namespace ASPNETCore.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "TB_M_Account");
+
             migrationBuilder.DropTable(
                 name: "TB_M_Address");
 
