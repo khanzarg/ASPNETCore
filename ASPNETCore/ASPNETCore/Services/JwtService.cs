@@ -29,8 +29,31 @@ namespace ASPNETCore.Services
             {
                 Subject = new ClaimsIdentity(new[]
                 {
+                    new Claim(ClaimTypes.Email, aEmail)
+                }),
+                Expires = DateTime.UtcNow.AddMinutes(double.Parse(_expDate)),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            tokenDescriptor.Issuer = "localhost:44320";
+            tokenDescriptor.Audience = "localhost:44320";
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+
+            return tokenHandler.WriteToken(token);
+
+        }
+        
+        public string GenerateSecurityLoginToken(string aEmail, string aRole)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_secret);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[]
+                {
                     new Claim(ClaimTypes.Email, aEmail),
-                    new Claim(ClaimTypes.Role, "Admin")
+                    new Claim(ClaimTypes.Role, aRole)
+
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(double.Parse(_expDate)),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

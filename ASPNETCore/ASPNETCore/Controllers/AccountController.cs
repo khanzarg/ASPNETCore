@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using ASPNETCore.Services;
 using System.Net.Mail;
 using System.Net;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace ASPNETCore.Controllers
 {
@@ -55,6 +56,8 @@ namespace ASPNETCore.Controllers
             {
                 string email = Request.Headers["Email"].ToString();
                 string password = Request.Headers["Password"].ToString();
+
+                
                 // get account from database
                 var foundAccount = context.Accounts.SingleOrDefault(account => account.Email == email);
                 if (foundAccount == null || !BC.Verify(password, foundAccount.Password))
@@ -65,8 +68,9 @@ namespace ASPNETCore.Controllers
                 else
                 {
                     // authentication successful, generate token
+                    var role = foundAccount.Role;
                     var jwt = new JwtService(_config);
-                    var token = jwt.GenerateSecurityToken(email);
+                    var token = jwt.GenerateSecurityLoginToken(email, role);
                     return Ok(token);
                     
                 }
@@ -80,43 +84,100 @@ namespace ASPNETCore.Controllers
         [HttpPost("Forget-Password")]
         public ActionResult ForgetPassword()
         {
-            string email = Request.Headers["Email"].ToString();
-            var foundAccount = context.Accounts.Where(account => account.Email == email).FirstOrDefault();
+            string headerEmail = Request.Headers["Email"].ToString();
+            var foundAccount = context.Accounts.Where(account => account.Email == headerEmail).FirstOrDefault();
             if (foundAccount == null)
             {
                 return NotFound("Email Not Found");
             }
             else
             {
+                var jwt = new JwtService(_config);
+                string token = jwt.GenerateSecurityToken(headerEmail);
+                string url = "https://localhost:44320/api/Account/Reset-Password?Token=";
+
+                var user = new SmtpClient("smtp.gmail.com", 587)
+                {
+                    UseDefaultCredentials = false,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    Credentials = new NetworkCredential("aninsabrina17@gmail.com", "yulisulasta"),
+
+                };
+
+                user.Send("aninsabrina17@gmail.com", foundAccount.Email, "Reset Password Request", $"Link Reset Password : {url}{token}");
+
+                return Ok("request sent");
+
+                //belum kirim pakai email
                 //var jwt = new JwtService(_config);
                 //var token = jwt.GenerateSecurityToken(email);
-                //return Ok("https://localhost:44320/api/Account/Reset-Password/" + token);
-
-                foundAccount.Password = "passwordbaru";
-                context.Entry(foundAccount).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                context.SaveChanges();
-
-                var user = new SmtpClient("smtp.gmail.com", 465)
-                {
-                    Credentials = new NetworkCredential("aninsabrina17@gmail.com", "yulisulasta"),
-                    EnableSsl = true,
-                    UseDefaultCredentials = false
-                    
-            };
-               
-                user.Send("aninsabrina17@gmail.com", foundAccount.Email, "Reset Password Request", "Your New Password : passwordbaru");
-                
-                return Ok("request sent");
+                //return Ok("https://localhost:44320/api/Account/Reset-Password?Token=" + token + "&Email=" + email);
+                //return Ok("https://localhost:44320/api/Account/Reset-Password?Token=" + token);
             }
-            
+
 
         }
 
-        //[HttpPost("Reset-Password")]
-        //public ActionResult ResetPassword()
-        //{
-            
-        //}
+        [HttpPost("Reset-Password")]
+        public ActionResult ResetPassword()
+        {
+            //var token = Request.Query["Token"].ToString();
+            //var email = Request.Query["Email"].ToString();
+
+            //var newPassword = Request.Headers["NewPassword"].ToString();
+            //var confirmPassword = Request.Headers["ConfirmPassword"].ToString();
+
+            //var foundAccount = context.Accounts.Where(account => account.Email == email).FirstOrDefault();
+
+            //if (foundAccount == null)
+            //{
+            //    return NotFound("Wrong Email");
+            //}
+            //else if (newPassword != confirmPassword)
+            //{
+            //    return BadRequest("New Password & Confirm Password Must Same");
+            //}
+            //else if(token != Request.Query["Token"].ToString())
+            //{
+            //    return Unauthorized();
+            //}
+            //else
+            //{
+            //    string passwordHash = BC.HashPassword(newPassword);
+            //    foundAccount.Password = passwordHash;
+            //    var result = accountRepository.Put(foundAccount) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
+            //    return result;
+            //}
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var readToken = tokenHandler.ReadJwtToken(Request.Query["Token"]);
+
+            var newPassword = Request.Headers["NewPassword"].ToString();
+            var confirmPassword = Request.Headers["ConfirmPassword"].ToString();
+
+            if(newPassword == confirmPassword)
+            {
+                var getEmail = readToken.Claims.First(getEmail => getEmail.Type == "email").Value;
+                var foundAccount = context.Accounts.Where(account => account.Email == getEmail).FirstOrDefault();
+
+                if (foundAccount == null)
+                {
+                    return NotFound("Wrong Email");
+                }
+                else
+                {
+                    string passwordHash = BC.HashPassword(newPassword);
+                    foundAccount.Password = passwordHash;
+                    var result = accountRepository.Put(foundAccount) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
+                    return result;
+                }
+            }
+            else
+            {
+                return BadRequest("New Password & Confirm Password Must Same");
+            }
+        }
 
         [HttpPost("Change-Password")]
         public ActionResult ChangePassword()

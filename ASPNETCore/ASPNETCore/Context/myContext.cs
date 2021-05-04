@@ -91,6 +91,11 @@ namespace ASPNETCore.Context
             modelBuilder.Entity<EmployeeRole>()
                 .HasOne(EmployeeRole => EmployeeRole.Role)
                 .WithMany(Role => Role.EmployeeRoles);
+
+            //Account
+            modelBuilder.Entity<Account>()
+                .HasIndex(account => account.Email)
+                .IsUnique();
         }
     }
 }
