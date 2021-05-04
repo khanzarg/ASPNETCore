@@ -11,10 +11,18 @@
     <Compile Remove="Migrations\20210429030656_parameter.Designer.cs" />
     <Compile Remove="Migrations\20210429030750_parameter.cs" />
     <Compile Remove="Migrations\20210429030750_parameter.Designer.cs" />
+    <Compile Remove="Migrations\20210503022404_MigrationAccount.cs" />
+    <Compile Remove="Migrations\20210503022404_MigrationAccount.Designer.cs" />
+    <Compile Remove="Migrations\20210503022449_MigrationAccount.cs" />
+    <Compile Remove="Migrations\20210503022449_MigrationAccount.Designer.cs" />
+    <Compile Remove="Migrations\20210503022528_MigrationAccountAddKey.cs" />
+    <Compile Remove="Migrations\20210503022528_MigrationAccountAddKey.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
+    <PackageReference Include="MailKit" Version="2.11.1" />
+    <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
@@ -22,6 +30,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="MimeKit" Version="2.11.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.0" />
   </ItemGroup>
 

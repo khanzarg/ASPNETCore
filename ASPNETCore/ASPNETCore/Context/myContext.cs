@@ -30,6 +30,7 @@ namespace ASPNETCore.Context
         public DbSet<University> Universities { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Parameter> Parameters { get; set; }
+        public DbSet<Account> Accounts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //University-Education
@@ -90,6 +91,11 @@ namespace ASPNETCore.Context
             modelBuilder.Entity<EmployeeRole>()
                 .HasOne(EmployeeRole => EmployeeRole.Role)
                 .WithMany(Role => Role.EmployeeRoles);
+
+            //Accounts
+            modelBuilder.Entity<Account>()
+              .HasIndex(account => account.Email)
+              .IsUnique();
         }
     }
 }
