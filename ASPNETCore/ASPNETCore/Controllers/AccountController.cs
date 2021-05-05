@@ -37,7 +37,7 @@ namespace ASPNETCore.Controllers
         {
             try
             {
-                var userExists = context.Accounts.SingleOrDefault(e=>e.Email == account.Email);
+                var userExists = context.Accounts.SingleOrDefault(a=>a.Email == account.Email);
                 if (userExists != null) 
                 {
                     return BadRequest("User already exists.");
@@ -58,7 +58,7 @@ namespace ASPNETCore.Controllers
         {
             try 
             {
-                var user = context.Accounts.SingleOrDefault(e => e.Email == account.Email);
+                var user = context.Accounts.SingleOrDefault(a => a.Email == account.Email);
                 var passwordCheck = BCrypt.Net.BCrypt.Verify(account.Password, user.Password);
                 if (user != null && passwordCheck)
                 {
@@ -87,7 +87,7 @@ namespace ASPNETCore.Controllers
         {
             try 
             {
-                var user = context.Accounts.SingleOrDefault(e => e.Email == email);
+                var user = context.Accounts.SingleOrDefault(a => a.Email == email);
                 var passwordCheck = BCrypt.Net.BCrypt.Verify(oldPassword, user.Password);
                 if (user != null && passwordCheck)
                 {
@@ -128,7 +128,7 @@ namespace ASPNETCore.Controllers
             try
             {
                 //var email = Request.Headers["email"].ToString();
-                var userExisting = context.Accounts.SingleOrDefault(e => e.Email == email);
+                var userExisting = context.Accounts.SingleOrDefault(a => a.Email == email);
                 string resetCode = Guid.NewGuid().ToString();
                 var time24 = DateTime.Now.ToString("HH:mm:ss");
                 if (userExisting.Email == email)
