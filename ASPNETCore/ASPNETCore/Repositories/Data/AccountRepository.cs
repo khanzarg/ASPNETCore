@@ -1,5 +1,6 @@
 ﻿using ASPNETCore.Context;
 using ASPNETCore.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,13 @@ namespace ASPNETCore.Repositories.Data
         private readonly MyContext context;
         public AccountRepository(MyContext context) : base(context)
         {
-
+            
         }
+
+        //public new IEnumerable<Account> GetAll()
+        //{
+        //    var get = context.Set<Account>().Include("Role").ToList();
+        //    return get;
+        //}
     }
 }

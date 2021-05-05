@@ -54,6 +54,7 @@ namespace ASPNETCore
             services.AddScoped<UniversityRepository>();
             services.AddScoped<AccountRepository>();
             services.AddScoped<SimpleAuthentication>();
+            services.AddScoped<SendEmail>();
 
             
 

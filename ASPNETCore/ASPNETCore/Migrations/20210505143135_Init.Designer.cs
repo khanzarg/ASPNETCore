@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASPNETCore.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210504022559_AddUniqueColumnAccount")]
-    partial class AddUniqueColumnAccount
+    [Migration("20210505143135_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,30 +24,12 @@ namespace ASPNETCore.Migrations
             modelBuilder.Entity("ASPNETCore.Models.Account", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("int");
 
                     b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
 
                     b.ToTable("TB_M_Account");
                 });
@@ -303,6 +285,15 @@ namespace ASPNETCore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TB_M_University");
+                });
+
+            modelBuilder.Entity("ASPNETCore.Models.Account", b =>
+                {
+                    b.HasOne("ASPNETCore.Models.Employee", "Employee")
+                        .WithOne("Account")
+                        .HasForeignKey("ASPNETCore.Models.Account", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ASPNETCore.Models.Address", b =>
