@@ -8,16 +8,19 @@ namespace ASPNETCore.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "TB_M_Account",
+                name: "TB_M_Employee",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Password = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    BirthDate = table.Column<DateTime>(nullable: false),
+                    Gender = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TB_M_Account", x => x.Id);
+                    table.PrimaryKey("PK_TB_M_Employee", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,22 +92,38 @@ namespace ASPNETCore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TB_M_Employee",
+                name: "TB_M_Account",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    BirthDate = table.Column<DateTime>(nullable: false),
-                    Gender = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Password = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TB_M_Employee", x => x.Id);
+                    table.PrimaryKey("PK_TB_M_Account", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TB_M_Employee_TB_M_Account_Id",
+                        name: "FK_TB_M_Account_TB_M_Employee_Id",
                         column: x => x.Id,
-                        principalTable: "TB_M_Account",
+                        principalTable: "TB_M_Employee",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TB_M_Contact",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    Phone = table.Column<string>(nullable: true),
+                    Linkedin = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TB_M_Contact", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TB_M_Contact_TB_M_Employee_Id",
+                        column: x => x.Id,
+                        principalTable: "TB_M_Employee",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -130,22 +149,29 @@ namespace ASPNETCore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TB_M_Contact",
+                name: "TB_M_EmployeeRole",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
-                    Phone = table.Column<string>(nullable: true),
-                    Linkedin = table.Column<string>(nullable: true)
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EmployeeId = table.Column<int>(nullable: true),
+                    RoleId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TB_M_Contact", x => x.Id);
+                    table.PrimaryKey("PK_TB_M_EmployeeRole", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TB_M_Contact_TB_M_Employee_Id",
-                        column: x => x.Id,
+                        name: "FK_TB_M_EmployeeRole_TB_M_Employee_EmployeeId",
+                        column: x => x.EmployeeId,
                         principalTable: "TB_M_Employee",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_TB_M_EmployeeRole_TB_M_Role_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "TB_M_Role",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -176,32 +202,6 @@ namespace ASPNETCore.Migrations
                         name: "FK_TB_M_Education_TB_M_University_UniversityId",
                         column: x => x.UniversityId,
                         principalTable: "TB_M_University",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TB_M_EmployeeRole",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EmployeeId = table.Column<int>(nullable: true),
-                    RoleId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TB_M_EmployeeRole", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_TB_M_EmployeeRole_TB_M_Employee_EmployeeId",
-                        column: x => x.EmployeeId,
-                        principalTable: "TB_M_Employee",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_TB_M_EmployeeRole_TB_M_Role_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "TB_M_Role",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -317,6 +317,9 @@ namespace ASPNETCore.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "TB_M_Account");
+
+            migrationBuilder.DropTable(
                 name: "TB_M_Address");
 
             migrationBuilder.DropTable(
@@ -348,9 +351,6 @@ namespace ASPNETCore.Migrations
 
             migrationBuilder.DropTable(
                 name: "TB_T_SubDistrict");
-
-            migrationBuilder.DropTable(
-                name: "TB_M_Account");
 
             migrationBuilder.DropTable(
                 name: "TB_M_District");

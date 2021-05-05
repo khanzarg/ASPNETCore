@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASPNETCore.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210505093002_initial")]
+    [Migration("20210505132434_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,9 +24,7 @@ namespace ASPNETCore.Migrations
             modelBuilder.Entity("ASPNETCore.Models.Account", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
@@ -119,7 +117,9 @@ namespace ASPNETCore.Migrations
             modelBuilder.Entity("ASPNETCore.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
@@ -287,6 +287,15 @@ namespace ASPNETCore.Migrations
                     b.ToTable("TB_M_University");
                 });
 
+            modelBuilder.Entity("ASPNETCore.Models.Account", b =>
+                {
+                    b.HasOne("ASPNETCore.Models.Employee", "Employee")
+                        .WithOne("Account")
+                        .HasForeignKey("ASPNETCore.Models.Account", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ASPNETCore.Models.Address", b =>
                 {
                     b.HasOne("ASPNETCore.Models.Employee", "Employee")
@@ -331,15 +340,6 @@ namespace ASPNETCore.Migrations
                     b.HasOne("ASPNETCore.Models.University", "University")
                         .WithMany("Educations")
                         .HasForeignKey("UniversityId");
-                });
-
-            modelBuilder.Entity("ASPNETCore.Models.Employee", b =>
-                {
-                    b.HasOne("ASPNETCore.Models.Account", "Account")
-                        .WithOne("Employee")
-                        .HasForeignKey("ASPNETCore.Models.Employee", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("ASPNETCore.Models.EmployeeRole", b =>

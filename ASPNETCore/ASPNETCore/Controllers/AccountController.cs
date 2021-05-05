@@ -44,6 +44,8 @@ namespace ASPNETCore.Controllers
                     return BadRequest("User already exists.");
                 }
                 register.Password = Hash.HashPassword(register.Password);
+                //Taro dapper disini
+                //EF: Database.Execute query "SP_..." 
 
                 //var result = accountRepository.Post(register) > 0 ? (ActionResult)Ok("Account has been created.") : BadRequest("User creation failed.");
                 return Ok();
@@ -52,7 +54,7 @@ namespace ASPNETCore.Controllers
             {
                 return BadRequest(e.InnerException);
             }
-            return Ok();
+            //return Ok();
         }
 
         [HttpPost]

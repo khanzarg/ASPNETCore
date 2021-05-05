@@ -96,7 +96,7 @@ namespace ASPNETCore.Context
             modelBuilder.Entity<Account>()
                 .HasOne(Account=> Account.Employee)
                 .WithOne(Employee => Employee.Account)
-                .HasForeignKey<Employee>(Employee => Employee.Id);
+                .HasForeignKey<Account>(Account => Account.Id);
         }
     }
 }
