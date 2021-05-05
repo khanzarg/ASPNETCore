@@ -53,7 +53,7 @@ namespace ASPNETCore
             services.AddScoped<AccountRepository>();
 
             services.AddTokenAuthentication(Configuration);
-            services.AddTransient<EmailHelper>();
+            services.AddScoped<IDapper, Dapperr>();
 
             //services.AddApplicationInsightsTelemetry(Configuration);
             //services.AddMvc();
