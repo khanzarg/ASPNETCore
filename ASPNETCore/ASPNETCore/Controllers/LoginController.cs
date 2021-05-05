@@ -18,6 +18,7 @@ namespace ASPNETCore.Controllers
     {
         private readonly ParameterRepository parameterRepository;
         private IConfiguration _config;
+
         public LoginController(ParameterRepository parameterRepository) : base(parameterRepository)
         {
             this.parameterRepository = parameterRepository;
