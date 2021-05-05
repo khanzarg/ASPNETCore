@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ASPNETCore.Models
 {
 
-    //sebuah table untuk menghindari yang namanya 
+  
     [Table("TB_M_Parameter")]
     public class Parameter
     {

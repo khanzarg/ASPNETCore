@@ -10,14 +10,11 @@ namespace ASPNETCore.Models
     [Table("TB_M_Education")]
     public class Education
     {
-        [Key]
         public int Id { get; set; }
         public string Degree { get; set; }
-        //public int MajorId { get; set; }
-        //[ForeignKey("MajorId")]
+
         public Major Major { get; set; }
-        //public int UniversityId { get; set; }
-        //[ForeignKey("UniversityId")]
+
         public University University { get; set; }
         public Employee Employee { get; set; }
     }

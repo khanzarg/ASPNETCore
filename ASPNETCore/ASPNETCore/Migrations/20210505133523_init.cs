@@ -92,6 +92,24 @@ namespace ASPNETCore.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TB_M_Account",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    Password = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TB_M_Account", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TB_M_Account_TB_M_Employee_Id",
+                        column: x => x.Id,
+                        principalTable: "TB_M_Employee",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TB_M_Contact",
                 columns: table => new
                 {
@@ -298,6 +316,9 @@ namespace ASPNETCore.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "TB_M_Account");
+
             migrationBuilder.DropTable(
                 name: "TB_M_Address");
 

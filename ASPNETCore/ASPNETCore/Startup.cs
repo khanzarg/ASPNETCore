@@ -2,6 +2,7 @@ using ASPNETCore.Context;
 using ASPNETCore.Handlers;
 using ASPNETCore.Middleware;
 using ASPNETCore.Repositories.Data;
+using ASPNETCore.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -52,7 +53,8 @@ namespace ASPNETCore
             services.AddScoped<AccountRepository>();
 
             services.AddTokenAuthentication(Configuration);
-  
+            services.AddTransient<EmailHelper>();
+
             //services.AddApplicationInsightsTelemetry(Configuration);
             //services.AddMvc();
             //services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));

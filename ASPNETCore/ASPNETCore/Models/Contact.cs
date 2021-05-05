@@ -10,15 +10,11 @@ namespace ASPNETCore.Models
     [Table("TB_M_Contact")]
     public class Contact
     {
-        [Key]
         public int Id { get; set; }
 
         public string Phone { get; set; }
 
         public string Linkedin { get; set; }
-
-        //public int EmployeeId { get; set; }
-        //[ForeignKey("EmployeeId")]
 
         public Employee Employee { get; set; }
     }

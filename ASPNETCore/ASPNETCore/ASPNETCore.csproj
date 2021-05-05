@@ -17,6 +17,10 @@
     <Compile Remove="Migrations\20210503022449_MigrationAccount.Designer.cs" />
     <Compile Remove="Migrations\20210503022528_MigrationAccountAddKey.cs" />
     <Compile Remove="Migrations\20210503022528_MigrationAccountAddKey.Designer.cs" />
+    <Compile Remove="Migrations\20210505041054_Employee-Password-OneToOne.cs" />
+    <Compile Remove="Migrations\20210505041054_Employee-Password-OneToOne.Designer.cs" />
+    <Compile Remove="Migrations\20210505041706_Employee-Password-OneToOne.cs" />
+    <Compile Remove="Migrations\20210505041706_Employee-Password-OneToOne.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +36,10 @@
     </PackageReference>
     <PackageReference Include="MimeKit" Version="2.11.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 

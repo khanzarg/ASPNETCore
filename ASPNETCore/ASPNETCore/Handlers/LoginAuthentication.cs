@@ -14,14 +14,14 @@ namespace ASPNETCore.Handlers
             this.context = context;
         }
 
-        public bool Authenticate(string email, string password)
-        {
-            var account = context.Accounts.SingleOrDefault(account => account.Email == email);
-            if (account == null || !BCrypt.Net.BCrypt.Verify(password, account.Password))
-            {
-                return false;
-            }
-            return true;
-        }
+        //public bool Authenticate(string email, string password)
+        //{
+        //    var account = context.Accounts.SingleOrDefault(account => account.Email == email);
+        //    if (account == null || !BCrypt.Net.BCrypt.Verify(password, account.Password))
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
     }
 }

@@ -15,8 +15,4 @@ namespace ASPNETCore.Models
         public string Name { get; set; }
         public ICollection<EmployeeRole> EmployeeRoles { get; set; }
     }
-
-
-
-
 }

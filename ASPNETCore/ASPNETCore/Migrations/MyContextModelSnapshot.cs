@@ -22,27 +22,12 @@ namespace ASPNETCore.Migrations
             modelBuilder.Entity("ASPNETCore.Models.Account", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("int");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Role")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique()
-                        .HasFilter("[Email] IS NOT NULL");
 
                     b.ToTable("TB_M_Account");
                 });
@@ -298,6 +283,15 @@ namespace ASPNETCore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TB_M_University");
+                });
+
+            modelBuilder.Entity("ASPNETCore.Models.Account", b =>
+                {
+                    b.HasOne("ASPNETCore.Models.Employee", "Employee")
+                        .WithOne("Account")
+                        .HasForeignKey("ASPNETCore.Models.Account", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ASPNETCore.Models.Address", b =>

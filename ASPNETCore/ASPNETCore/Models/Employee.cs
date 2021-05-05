@@ -16,15 +16,13 @@ namespace ASPNETCore.Models
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
         public string Gender { get; set; }
-        public string Email { get; set; }
-
+        public string Email { get; set;}
         public Address Address { get; set; }
-      
         public Education Education { get; set; }
-
         public Contact Contact { get; set;}
-
+        public Account Account { get; set; }
         public ICollection<EmployeeRole> EmployeeRoles { get; set; }
+        
 
     }
 }
