@@ -47,8 +47,8 @@ namespace ASPNETCore.Controllers
         //    {
         //        var userExists = myContext.Employees.SingleOrDefault(a => a.Email == register.Email);
         //        register.Password = accountRepository.Encrypt(register.Password);
-                
-        //        var result = accountRepository.Post(account) > 0 ? (ActionResult)Ok("Data has been successfully inserted.") : BadRequest("Data can't be inserted");
+
+        //        var result = accountRepository.Post(register) > 0 ? (ActionResult)Ok("Data has been successfully inserted.") : BadRequest("Data can't be inserted");
         //        return result;
         //    }
         //    catch (Exception e)
@@ -63,7 +63,7 @@ namespace ASPNETCore.Controllers
         //    // get value from header
         //    string hEmail = Request.Headers["email"];
         //    string hPassword = Request.Headers["password"];
-            
+
         //    // login authentication
         //    var result = loginAuthentication.Authenticate(hEmail, hPassword);
         //    if (result)
