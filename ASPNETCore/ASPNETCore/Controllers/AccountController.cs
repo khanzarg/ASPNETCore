@@ -59,8 +59,9 @@ namespace ASPNETCore.Controllers
                 var userExists = context.Employees.SingleOrDefault(Employee => Employee.Email == register.Email);
                 string passwordHash = BC.HashPassword(register.Password);
                 register.Password = passwordHash;
-                var result = accountRepository.Post(register) > 0 ? (ActionResult)Ok("Data has been successfully inserted.") : BadRequest("Data can't be inserted");
-                return result;
+                //var result = accountRepository.Post(register) > 0 ? (ActionResult)Ok("Data has been successfully inserted.") : BadRequest("Data can't be inserted");
+                //return result;
+                return Ok();
             }
             catch (Exception e)
             {

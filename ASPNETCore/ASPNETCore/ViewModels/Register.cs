@@ -13,6 +13,6 @@ namespace ASPNETCore.ViewModels
         public DateTime BirthDate { get; set; }
         public bool Gender { get; set; }
         public string Phone { get; set; }
-        public int Role { get; set; }
+        public int RoleId { get; set; }
     }
 }
