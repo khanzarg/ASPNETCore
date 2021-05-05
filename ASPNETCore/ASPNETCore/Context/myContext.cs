@@ -91,6 +91,12 @@ namespace ASPNETCore.Context
             modelBuilder.Entity<EmployeeRole>()
                 .HasOne(EmployeeRole => EmployeeRole.Role)
                 .WithMany(Role => Role.EmployeeRoles);
+
+            //Account-Employee
+            modelBuilder.Entity<Account>()
+                .HasOne(Account=> Account.Employee)
+                .WithOne(Employee => Employee.Account)
+                .HasForeignKey<Employee>(Employee => Employee.Id);
         }
     }
 }

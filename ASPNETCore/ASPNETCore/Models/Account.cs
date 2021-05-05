@@ -12,13 +12,7 @@ namespace ASPNETCore.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Username { get; set; }
-
-        [EmailAddress]
-        [Required(ErrorMessage = "Email is required")]
-        public string Email { get; set; }
-
         public string Password { get; set; }
-        public string Role { get; set; }
+        public Employee Employee { get; set; }
     }
 }

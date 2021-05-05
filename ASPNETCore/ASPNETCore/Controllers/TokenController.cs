@@ -25,7 +25,7 @@ namespace ASPNETCore.Controllers
         public string GetRandomToken()
         {
             var jwt = new JwtService(_config);
-            var token = jwt.GenerateSecurityToken("fake@email.com", "Ilham");
+            var token = jwt.GenerateSecurityToken("fake@email.com", "Ilham", "Intern");
             return token;
         }
     }

@@ -3,9 +3,9 @@ using ASPNETCore.Context;
 using ASPNETCore.Models;
 using ASPNETCore.Repositories.Data;
 using ASPNETCore.Services;
+using ASPNETCore.Handlers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -14,6 +14,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using ASPNETCore.ViewModels;
 
 namespace ASPNETCore.Controllers
 {
@@ -33,160 +34,136 @@ namespace ASPNETCore.Controllers
 
         [HttpPost]
         [Route("register")]
-        public ActionResult Register(Account account)
+        public ActionResult Register(Register register)
         {
             try
             {
-                var userExists = context.Accounts.SingleOrDefault(a=>a.Email == account.Email);
+                var userExists = context.Employees.SingleOrDefault(e=>e.Email == register.Email);
                 if (userExists != null) 
                 {
                     return BadRequest("User already exists.");
                 }
-                account.Password = BCrypt.Net.BCrypt.HashPassword(account.Password);
-                var result = accountRepository.Post(account) > 0 ? (ActionResult)Ok("Account has been created.") : BadRequest("User creation failed.");
-                return result;
+                register.Password = Hash.HashPassword(register.Password);
+
+                //var result = accountRepository.Post(register) > 0 ? (ActionResult)Ok("Account has been created.") : BadRequest("User creation failed.");
+                return Ok();
             }
             catch (Exception e)
             {
                 return BadRequest(e.InnerException);
             }
+            return Ok();
         }
 
         [HttpPost]
         [Route("login")]
         public ActionResult Login(Account account) 
         {
-            try 
-            {
-                var user = context.Accounts.SingleOrDefault(a => a.Email == account.Email);
-                var passwordCheck = BCrypt.Net.BCrypt.Verify(account.Password, user.Password);
-                if (user != null && passwordCheck)
-                {
-                    if (user.Role == "Admin") 
-                    {
-                        var jwt = new JwtService(_config);
-                        var token = jwt.GenerateSecurityToken(account.Email, account.Password);
-                        return Ok("Successfully login as Admin.\nHere's your token: " + token);
-                    }
-                    return Ok("Login successful.");
-                    
-                }
-                return BadRequest("Failed to login. Your email and password are not match.");
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.InnerException);
-            }
-
+            //try 
+            //{
+            //    var user = context.Accounts.SingleOrDefault(a => a.Email == account.Email);
+            //    var role = context.Accounts.SingleOrDefault(a => a.Role.Id == user.Id);
+            //    var passwordCheck = Hash.ValidatePassword(account.Password, user.Password);
+            //    if (user != null && passwordCheck)
+            //    {
+            //        var jwt = new JwtService(_config);
+            //        var token = jwt.GenerateSecurityToken(account.Email, account.Password, role.Role.Name);
+            //        return Ok(token);
+            //    }
+            //    return BadRequest("Failed to login. Your email and password are not match.");
+            //}
+            //catch (Exception e)
+            //{
+            //    return BadRequest(e.InnerException);
+            //}
+            return Ok();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("changepassword")]
         public ActionResult ChangePassword(string email, string oldPassword, string newPassword) 
         {
-            try 
-            {
-                var user = context.Accounts.SingleOrDefault(a => a.Email == email);
-                var passwordCheck = BCrypt.Net.BCrypt.Verify(oldPassword, user.Password);
-                if (user != null && passwordCheck)
-                {
-                    var newPass = BCrypt.Net.BCrypt.HashPassword(newPassword);
-                    user.Password = newPass;
-                    var save = context.SaveChanges();
-                    if (save > 0)
-                    {
-                        return Ok("Password has been changed.");
-                    }
-                }
-                return BadRequest("Your password is incorrect.");
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.InnerException);
-            }
-            //var user = context.Accounts.SingleOrDefault(e => e.Email == account.Email);
-            //var passwordCheck = BCrypt.Net.BCrypt.Verify(account.Password, user.Password);
-            //if (user != null && passwordCheck)
+            //try 
             //{
-            //    var newPass = BCrypt.Net.BCrypt.HashPassword(newPassword);
-            //    user.Password = newPass;
-            //    var save = context.SaveChanges();
-            //    if (save > 0) 
+            //    var user = context.Accounts.SingleOrDefault(a => a.Email == email);
+            //    var passwordCheck = Hash.ValidatePassword(oldPassword, user.Password);
+            //    if (user != null && passwordCheck)
             //    {
-            //        return Ok("Password has been changed.");
+            //        var newPass = Hash.HashPassword(newPassword);
+            //        user.Password = newPass;
+            //        var save = context.SaveChanges();
+            //        if (save > 0)
+            //        {
+            //            return Ok("Password has been changed.");
+            //        }
             //    }
-
+            //    return BadRequest("Your password is incorrect.");
             //}
-            //return BadRequest("Your password is incorrect.");
+            //catch (Exception e)
+            //{
+            //    return BadRequest(e.InnerException);
+            //}
+            return Ok();
         }
 
         [HttpPost]
         [Route("forgotpassword")]
         public ActionResult ForgotPassword(string email)
         {
-            try
-            {
-                //var email = Request.Headers["email"].ToString();
-                var userExisting = context.Accounts.SingleOrDefault(a => a.Email == email);
-                string resetCode = Guid.NewGuid().ToString();
-                var time24 = DateTime.Now.ToString("HH:mm:ss");
-                if (userExisting.Email == email)
-                {
-                    //create token
-                    var jwt = new JwtService(_config);
-                    var token = jwt.GenerateSecurityToken(userExisting.Email, userExisting.Password);
-                            
-                    //Sending email
-                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                    smtp.UseDefaultCredentials = false;
-                    smtp.EnableSsl = true;
-                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    smtp.Credentials = new NetworkCredential("aninsabrina17@gmail.com", "yulisulasta");
-                    MailMessage m = new MailMessage();
-                    m.From = new MailAddress("aninsabrina17@gmail.com");
-                    m.To.Add(new MailAddress(email));
-                    m.Subject = "Reset Password " + time24;
-                    m.IsBodyHtml = false;
-                    m.Body = "Hi " + "\nThis is your reset code for your account. " 
-                        + resetCode + "\nReset link: https://localhost:44320/api/account/resetpassword \nToken: " + token + "\n Thank You";
-                    smtp.Send(m);
-                    return Ok("Please check your email.");
-                }
-                return BadRequest("Email not found.");
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+            //try
+            //{
+            //    //var email = Request.Headers["email"].ToString();
+            //    var userExisting = context.Accounts.SingleOrDefault(a => a.Email == email);
+            //    var role = context.Roles.SingleOrDefault(r => r.Id == userExisting.Role.Id);
+            //    string resetCode = Guid.NewGuid().ToString();
+            //    if (userExisting.Email == email)
+            //    {
+            //        //create token
+            //        var jwt = new JwtService(_config);
+            //        var token = jwt.GenerateSecurityToken(userExisting.Email, userExisting.Password, role.Name);
+
+            //        //Sending email
+            //        var sendEmail = new SendEmail(context);
+            //        sendEmail.SendForgotPassword(token, resetCode, email);
+            //        return Ok("Please check your email.");
+            //    }
+            //    return BadRequest("Email not found.");
+            //}
+            //catch (Exception e)
+            //{
+            //    return BadRequest(e.Message);
+            //}
+            return Ok();
         }
         [Authorize]
         [HttpPost]
         [Route("resetpassword")]
         public ActionResult ResetPassword(string email, string newPassword, string confirmPassword)
         {
-            try
-            {
-                var userExisting = context.Accounts.SingleOrDefault(e => e.Email == email);
-                if (userExisting.Email == email)
-                {
-                    if (newPassword == confirmPassword)
-                    {
-                        userExisting.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);
-                        var save = context.SaveChanges();
-                        if (save > 0)
-                        {
-                            return Ok("Your password has been changed.");
-                        }
-                    }
-                    return BadRequest("Your confirmation password is incorrect.");
-                }
-                return BadRequest("Email not found.");
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            } 
+            //try
+            //{
+            //    var userExisting = context.Accounts.SingleOrDefault(e => e.Email == email);
+            //    if (userExisting.Email == email)
+            //    {
+            //        if (newPassword == confirmPassword)
+            //        {
+            //            userExisting.Password = Hash.HashPassword(newPassword);
+            //            var save = context.SaveChanges();
+            //            if (save > 0)
+            //            {
+            //                return Ok("Your password has been changed.");
+            //            }
+            //        }
+            //        return BadRequest("Your confirmation password is incorrect.");
+            //    }
+            //    return BadRequest("Email not found.");
+            //}
+            //catch (Exception e)
+            //{
+            //    return BadRequest(e.Message);
+            //} 
+            return Ok();
         }
     }
 }

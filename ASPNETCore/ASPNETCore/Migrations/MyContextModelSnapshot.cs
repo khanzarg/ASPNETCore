@@ -26,17 +26,7 @@ namespace ASPNETCore.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -127,9 +117,7 @@ namespace ASPNETCore.Migrations
             modelBuilder.Entity("ASPNETCore.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
@@ -341,6 +329,15 @@ namespace ASPNETCore.Migrations
                     b.HasOne("ASPNETCore.Models.University", "University")
                         .WithMany("Educations")
                         .HasForeignKey("UniversityId");
+                });
+
+            modelBuilder.Entity("ASPNETCore.Models.Employee", b =>
+                {
+                    b.HasOne("ASPNETCore.Models.Account", "Account")
+                        .WithOne("Employee")
+                        .HasForeignKey("ASPNETCore.Models.Employee", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ASPNETCore.Models.EmployeeRole", b =>
