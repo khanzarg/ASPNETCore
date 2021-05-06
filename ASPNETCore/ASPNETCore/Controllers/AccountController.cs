@@ -150,13 +150,13 @@ namespace ASPNETCore.Controllers
             {
                 //var email = Request.Headers["email"].ToString();
                 var userExisting = context.Employees.SingleOrDefault(e => e.Email == email);
-                var role = context.EmployeeRoles.SingleOrDefault(e => e.Role.Id == userExisting.Id);
+                //var role = context.Employees.SingleOrDefault(e => e.Id == userExisting.Id);
                 string resetCode = Guid.NewGuid().ToString();
                 if (userExisting.Email == email)
                 {
                     //create token
                     var jwt = new JwtService(_config);
-                    var token = jwt.GenerateSecurityToken(userExisting.Email, userExisting.Name, role.Role.Name);
+                    var token = jwt.GenerateSecurityToken(userExisting.Email, userExisting.Name, "Admin");
 
                     //Sending email
                     var sendEmail = new SendEmail(context);
@@ -178,12 +178,13 @@ namespace ASPNETCore.Controllers
         {
             try
             {
-                var userExisting = context.Accounts.SingleOrDefault(e => e.Employee.Email == email);
-                if (userExisting.Employee.Email == email)
+                var userExisting = context.Employees.SingleOrDefault(e => e.Email == email);
+                var passwordExisting = context.Accounts.SingleOrDefault(a => a.Employee.Email == email);
+                if (userExisting.Email == email)
                 {
                     if (newPassword == confirmPassword)
                     {
-                        userExisting.Password = Hash.HashPassword(newPassword);
+                        passwordExisting.Password = Hash.HashPassword(newPassword);
                         var save = context.SaveChanges();
                         if (save > 0)
                         {

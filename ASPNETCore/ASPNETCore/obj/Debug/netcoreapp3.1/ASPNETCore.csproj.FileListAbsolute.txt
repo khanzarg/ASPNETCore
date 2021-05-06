@@ -141,3 +141,9 @@ D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Swashbuckle.Core.dll
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.MvcApplicationPartsAssemblyInfo.cs
