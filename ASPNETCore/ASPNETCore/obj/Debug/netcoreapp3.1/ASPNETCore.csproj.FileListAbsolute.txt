@@ -112,7 +112,6 @@ C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debu
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csprojAssemblyReference.cache
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.AssemblyInfoInputs.cache
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.AssemblyInfo.cs
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csproj.CoreCompileInputs.cache
