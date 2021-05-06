@@ -18,18 +18,18 @@ namespace ASPNETCore.Handlers
             this.context = context;
         }
 
-        public void SendForgetPassword(string url, string token, Account account)
+        public void SendForgetPassword(string url, string token, Employee employee)
         {
-            //var parameter = context.Parameters.Find(1);
-            //var user = new SmtpClient("smtp.gmail.com", 587)
-            //{
-            //    UseDefaultCredentials = false,
-            //    EnableSsl = true,
-            //    DeliveryMethod = SmtpDeliveryMethod.Network,
-            //    Credentials = new NetworkCredential(parameter.Name, parameter.Value),
-            //};
+            var parameter = context.Parameters.Find(1);
+            var user = new SmtpClient("smtp.gmail.com", 587)
+            {
+                UseDefaultCredentials = false,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(parameter.Name, parameter.Value),
+            };
 
-            //user.Send(parameter.Name, account.Email, "Reset Password Request", $"Link Reset Password : {url}{token}");
+            user.Send(parameter.Name, employee.Email, "Reset Password Request", $"Link Reset Password : {url}{token}");
         }
     }
 }

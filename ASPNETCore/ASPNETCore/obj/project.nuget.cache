@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "afW9RWWGQ6NU41h8T5Il/nDXzbj0NSlzFs5qdgGNx4pEnDmNX/BF16mJhLAetjZsNtn6g3aCXA+REaUYzQJJUA==",
+  "dgSpecHash": "vblRSW3QGihSKien8O16Zhpy8/2vrc5HV16iH87D1GD/0KjWx/4pHCvKb0fXkpdJsbEo1K/LrLYeKw0FkAmd9A==",
   "success": true,
   "projectFilePath": "C:\\Users\\alfat\\source\\repos\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore\\ASPNETCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alfat\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
+    "C:\\Users\\alfat\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\alfat\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.0\\microsoft.aspnetcore.authentication.jwtbearer.3.1.0.nupkg.sha512",
     "C:\\Users\\alfat\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\alfat\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
@@ -73,7 +74,7 @@
     "C:\\Users\\alfat\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
     "C:\\Users\\alfat\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
     "C:\\Users\\alfat\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
-    "C:\\Users\\alfat\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
+    "C:\\Users\\alfat\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
     "C:\\Users\\alfat\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\alfat\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\alfat\\.nuget\\packages\\system.reflection.typeextensions\\4.3.0\\system.reflection.typeextensions.4.3.0.nupkg.sha512",

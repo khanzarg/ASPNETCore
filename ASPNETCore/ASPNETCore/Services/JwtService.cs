@@ -43,7 +43,7 @@ namespace ASPNETCore.Services
 
         }
         
-        public string GenerateSecurityLoginToken(string aEmail, string aRole)
+        public string GenerateSecurityLoginToken(string aName, string aEmail, string aRole)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_secret);
@@ -51,6 +51,7 @@ namespace ASPNETCore.Services
             {
                 Subject = new ClaimsIdentity(new[]
                 {
+                    new Claim(ClaimTypes.Name, aName),
                     new Claim(ClaimTypes.Email, aEmail),
                     new Claim(ClaimTypes.Role, aRole)
 

@@ -2,7 +2,10 @@ using ASPNETCore.Context;
 using ASPNETCore.Handler;
 using ASPNETCore.Handlers;
 using ASPNETCore.Middleware;
+using ASPNETCore.Repositories;
 using ASPNETCore.Repositories.Data;
+using ASPNETCore.Repositories.Interface;
+using ASPNETCore.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -55,8 +58,9 @@ namespace ASPNETCore
             services.AddScoped<AccountRepository>();
             services.AddScoped<SimpleAuthentication>();
             services.AddScoped<SendEmail>();
+            services.AddScoped<IGenericDapper, GeneralDapper>();
 
-            
+
 
             //services.AddApplicationInsightsTelemetry(Configuration);
             //services.AddMvc();
