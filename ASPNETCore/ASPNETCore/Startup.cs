@@ -1,7 +1,9 @@
 using ASPNETCore.Context;
 using ASPNETCore.Handlers;
 using ASPNETCore.Middleware;
+using ASPNETCore.Repositories;
 using ASPNETCore.Repositories.Data;
+using ASPNETCore.Repositories.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +36,7 @@ namespace ASPNETCore
             services.AddDbContext<MyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
 
+            services.AddScoped<IGenericDapper, GeneralDapper>();
             services.AddScoped<AddressRepository>();
             services.AddScoped<ContactRepository>();
             services.AddScoped<DistrictRepository>();
