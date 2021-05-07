@@ -10,7 +10,6 @@ namespace ASPNETCore.Models
     [Table("TB_M_Account")]
     public class Account
     {
-        [Key]
         public int Id { get; set; }
         public string Password { get; set; }
         public Employee Employee{ get; set; }

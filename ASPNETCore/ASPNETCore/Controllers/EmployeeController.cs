@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeController : BaseController<Employee, EmployeeRepository, int>

@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using ASPNETCore.Repositories.Interface;
+using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -8,22 +9,21 @@ using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ASPNETCore.Services
+namespace ASPNETCore.Repositories
 {
-    public class Dapperr : IDapper
+    public class GeneralDapper : IGenericDapper
     {
-
         private readonly IConfiguration _config;
         private string Connectionstring = "MyConnection";
 
-        public Dapperr(IConfiguration config)
+        public GeneralDapper(IConfiguration config)
         {
             _config = config;
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+     
         }
 
         public int Execute(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)

@@ -15,15 +15,11 @@ namespace ASPNETCore.Repositories.Data
             this.myContext = myContext;
         }
 
-        //public Account GetByEmail(string email)
-        //{
-        //    var getByName = myContext.Accounts.SingleOrDefault(get=> get.Email == email);
-        //    return getByName;
-        //}
-
-        public string Encrypt(string plainPassword)
+        public Account GetByEmail(string email)
         {
-            return BCrypt.Net.BCrypt.HashPassword(plainPassword);
+            var employee = myContext.Employees.SingleOrDefault(get => get.Email == email);
+            var account = myContext.Accounts.SingleOrDefault(account => account.Id == employee.Id);
+            return account;
         }
     }
 }

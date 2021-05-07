@@ -91,7 +91,7 @@ namespace ASPNETCore.Context
                 .HasOne(EmployeeRole => EmployeeRole.Role)
                 .WithMany(Role => Role.EmployeeRoles);
 
-            //Employeerole-Role
+            //Account Employee
             modelBuilder.Entity<Account>()
                 .HasOne(account => account.Employee)
                 .WithOne(employee => employee.Account)

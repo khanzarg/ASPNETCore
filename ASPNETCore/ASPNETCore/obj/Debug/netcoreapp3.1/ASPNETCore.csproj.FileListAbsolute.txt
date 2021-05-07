@@ -138,3 +138,9 @@ C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreap
 C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\MailKit.dll
 C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\MimeKit.dll
 C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Dapper.dll
+C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Alpha\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.MvcApplicationPartsAssemblyInfo.cs
