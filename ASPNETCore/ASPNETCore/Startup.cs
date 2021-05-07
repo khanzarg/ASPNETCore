@@ -37,6 +37,21 @@ namespace ASPNETCore
             services.AddDbContext<MyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
 
+            //CORS
+            services.AddCors(options =>
+            {
+                //options.AddDefaultPolicy(
+                //    builder => builder.WithOrigins("http://localhost:5004 , http://localhost:5101")
+                //        .AllowAnyHeader()
+                //        .AllowAnyMethod());
+                options.AddPolicy("mypolicy", builder =>
+                    builder.WithOrigins("https://www.test-cors.org")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+            }
+                
+            );
+
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
@@ -105,12 +120,16 @@ namespace ASPNETCore
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            //CORS middleware
+            app.UseCors("mypolicy");
+
             app.UseAuthentication();
             app.UseAuthorization();
             
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers(); ;
             });
         }
     }

@@ -2,6 +2,7 @@
 using ASPNETCore.Repositories.Interface;
 using ASPNETCore.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore.Base
 {
+    [EnableCors("mypolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public class BaseController<Entity, Repository, TId> : ControllerBase
@@ -43,6 +45,7 @@ namespace ASPNETCore.Base
             return Forbid("Failed to auth");
         }
 
+        [DisableCors]
         [HttpGet("{id}")]
         public ActionResult Get(TId id)
         {
