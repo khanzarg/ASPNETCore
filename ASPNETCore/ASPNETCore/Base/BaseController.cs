@@ -1,6 +1,7 @@
 ﻿using ASPNETCore.Handlers;
 using ASPNETCore.Repositories.Interface;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 namespace ASPNETCore.Base
 {
     //[Authorize]
+    [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public class BaseController<Entity, Repository, TId> : ControllerBase
@@ -39,6 +41,7 @@ namespace ASPNETCore.Base
             
         }
 
+        [DisableCors]
         [HttpGet("{id}")]
         public ActionResult Get(TId id)
         {

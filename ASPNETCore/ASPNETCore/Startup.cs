@@ -26,6 +26,7 @@ namespace ASPNETCore
 {
     public class Startup
     {
+        readonly string MyPolicy = "_myPolicy";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -36,6 +37,16 @@ namespace ASPNETCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "MyPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://www.test-cors.org")
+                                .AllowAnyHeader().WithMethods("POST", "PUT", "GET");
+                    });
+            });
+
             services.AddControllers();
             services.AddTokenAuthentication(Configuration);
             services.AddDbContext<MyContext>(options =>
@@ -110,6 +121,8 @@ namespace ASPNETCore
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthentication();
             app.UseAuthorization();
