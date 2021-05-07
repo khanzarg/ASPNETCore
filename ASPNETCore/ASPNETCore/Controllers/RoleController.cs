@@ -15,7 +15,6 @@ using System.Threading.Tasks;
 namespace ASPNETCore.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize(Roles = "3")]
     [ApiController]
     public class RoleController : BaseController<Role, RoleRepository, int>
     {

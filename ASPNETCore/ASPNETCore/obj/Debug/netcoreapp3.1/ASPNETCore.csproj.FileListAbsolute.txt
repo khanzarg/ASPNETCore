@@ -142,3 +142,4 @@ C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debu
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\bin\Debug\netcoreapp3.1\Swashbuckle.Core.dll
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\ASPNETCore\obj\Debug\netcoreapp3.1\ASPNETCore.csprojAssemblyReference.cache
