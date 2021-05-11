@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@section scripts{ 
+    <script>
+        $(document).ready(function () {
+            //let planetsAPI = "https://swapi.dev/api/planets/";
+            //let planets = () => $.get(planetsAPI);
+            //let mapPlanets = planets.map( (planet) => {
+            //    name: planet.name;
+            //    diameter: planet.diameter;
+            //    terrain: planet.terrain
+            //})
+            $.ajax({
+                url: "https://swapi.dev/api/planets/",
+                type: "GET"
+            }).done((arrayGet) => {
+                //result
+                let planets = arrayGet.results.map(planet => ({
+                    Name: planet.name,
+                    Diameter: planet.diameter,
+                    Terrain: planet.terrain
+                })
+                )
+                console.log("Get All");
+                console.log(arrayGet);
+                console.log("\nGet some data");
+                console.log(planets);
+            }).fail((error) => {
+                //error
+                console.log(error)
+            })
+        })
+    </script>
+}
