@@ -6,36 +6,58 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+<table id="tb_API" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+</table>
 
 @section scripts{ 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function () {
-            //let planetsAPI = "https://swapi.dev/api/planets/";
-            //let planets = () => $.get(planetsAPI);
-            //let mapPlanets = planets.map( (planet) => {
-            //    name: planet.name;
-            //    diameter: planet.diameter;
-            //    terrain: planet.terrain
-            //})
+            //Ajax
             $.ajax({
-                url: "https://swapi.dev/api/planets/",
+                //url: "https://swapi.dev/api/planets/",
+                url: "https://localhost:44320/api/Employee",
                 type: "GET"
-            }).done((arrayGet) => {
+            }).done((resultGet) => {
                 //result
-                let planets = arrayGet.results.map(planet => ({
-                    Name: planet.name,
-                    Diameter: planet.diameter,
-                    Terrain: planet.terrain
+                //let planets = resultGet.results.map(planet => ({
+                //    name: planet.name,
+                //    diameter: planet.diameter,
+                //    terrain: planet.terrain
+                //})
+                //)
+                    
+                //table
+                $('#tb_API').DataTable({
+                    //"aaData": planets,
+                    "aaData": resultGet,
+                    columns: [
+                        //{ "data": "name" },
+                        //{ "data": "diameter" },
+                        //{ "data": "terrain" }
+                        { "data": "name" },
+                        { "data": "gender" },
+                        { "data": "email" }
+                    ]
                 })
-                )
+
                 console.log("Get All");
-                console.log(arrayGet);
+                console.log(resultGet);
                 console.log("\nGet some data");
-                console.log(planets);
+                //console.log(planets);
             }).fail((error) => {
                 //error
                 console.log(error)
-            })
+            })//End Ajax
         })
     </script>
 }

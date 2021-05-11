@@ -45,7 +45,7 @@ namespace ASPNETCore
                 //        .AllowAnyHeader()
                 //        .AllowAnyMethod());
                 options.AddPolicy("mypolicy", builder =>
-                    builder.WithOrigins("https://www.test-cors.org")
+                    builder.WithOrigins("https://www.test-cors.org", "https://localhost:44340")
                         .AllowAnyHeader()
                         .AllowAnyMethod());
             }
@@ -122,7 +122,7 @@ namespace ASPNETCore
             app.UseRouting();
 
             //CORS middleware
-            app.UseCors("mypolicy");
+            app.UseCors();
 
             app.UseAuthentication();
             app.UseAuthorization();

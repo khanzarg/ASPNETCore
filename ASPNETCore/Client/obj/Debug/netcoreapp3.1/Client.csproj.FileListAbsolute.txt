@@ -8,7 +8,6 @@ D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\bin\Debug\netcoreapp3.1\Cli
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\bin\Debug\netcoreapp3.1\Client.pdb
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\bin\Debug\netcoreapp3.1\Client.Views.dll
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\bin\Debug\netcoreapp3.1\Client.Views.pdb
-D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\obj\Debug\netcoreapp3.1\Client.AssemblyInfoInputs.cache
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\obj\Debug\netcoreapp3.1\Client.AssemblyInfo.cs
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\obj\Debug\netcoreapp3.1\Client.csproj.CoreCompileInputs.cache
@@ -35,3 +34,4 @@ D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\obj\Debug\netcoreapp3.1\Cli
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\obj\Debug\netcoreapp3.1\Client.pdb
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\obj\Debug\netcoreapp3.1\Client.genruntimeconfig.cache
 D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\obj\Debug\netcoreapp3.1\Client.csproj.CopyComplete
+D:\Visual Studio Source\ASPNETCore\ASPNETCore\Client\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache
