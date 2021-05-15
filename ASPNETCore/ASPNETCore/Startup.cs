@@ -42,7 +42,7 @@ namespace ASPNETCore
                 options.AddPolicy(name: "MyPolicy",
                     builder =>
                     {
-                        builder.WithOrigins("https://www.test-cors.org")
+                        builder.WithOrigins("https://www.test-cors.org", "https://localhost:44363")
                                 .AllowAnyHeader().WithMethods("POST", "PUT", "GET");
                     });
             });

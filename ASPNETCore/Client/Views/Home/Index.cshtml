@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table id="PlanetsTable" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Diameter</th>
+            <th>Terrain</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<table id="EmployeesTable" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Birth Date</th>
+            <th>Gender</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+@section scripts{
+    
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "https://swapi.dev/api/planets/",
+                type: "GET"
+            }).done((result) => {
+                console.log(result.results)
+                let planets = result.results.map((planet) => {
+                    return {
+                        name: planet.name,
+                        diameter: planet.diameter,
+                        terrain: planet.terrain
+                    }
+                })
+                $('#PlanetsTable').DataTable({
+                    "aaData": planets,
+                    columns: [
+                        {"data": "name"},
+                        {"data": "diameter"},
+                        {"data": "terrain"}
+                    ]
+                })
+                console.log(planets)
+                // success
+            }).fail((error) => {
+                //fail
+                console.log(error)
+            })
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "https://localhost:44320/api/Employee",
+                type: "GET"
+            }).done((result) => {
+                console.log(result.results)
+                let employees = result.map((employee) => {
+                    return employee;
+                })
+                $('#EmployeesTable').DataTable({
+                    "aaData": employees,
+                    columns: [
+                        {"data": "id"},
+                        {"data": "name"},
+                        {"data": "birthDate"},
+                        {"data": "gender"},
+                        {"data": "email"}
+                    ]
+                })
+                console.log(employees)
+                // success
+            }).fail((error) => {
+                //fail
+                console.log(error)
+            })
+        });
+    </script>
+}
