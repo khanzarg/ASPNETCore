@@ -38,10 +38,38 @@
     
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 
-
-
+    <script>
+        $("#PlanetsTable").DataTable({
+            ajax: {
+                url: "https://swapi.dev/api/planets/",
+                dataSrc: "results"
+            },
+            columns: [
+                { "data": "name" },
+                { "data": "diameter" },
+                { "data": "terrain" }
+            ]
+        });
+    </script>
 
     <script>
+        $("#EmployeesTable").DataTable({
+            ajax: {
+                url: "https://localhost:44320/api/Employee",
+                dataSrc: ""
+            },
+            columns: [
+                { "data": "id" },
+                { "data": "name" },
+                { "data": "birthDate" },
+                { "data": "gender" },
+                { "data": "email" }
+            ]
+        });
+    </script>
+
+
+    @*<script>
         $(document).ready(function () {
             $.ajax({
                 url: "https://swapi.dev/api/planets/",
@@ -70,9 +98,9 @@
                 console.log(error)
             })
         });
-    </script>
+    </script>*@
 
-    <script>
+    @*<script>
         $(document).ready(function () {
             $.ajax({
                 url: "https://localhost:44320/api/Employee",
@@ -99,5 +127,5 @@
                 console.log(error)
             })
         });
-    </script>
+    </script>*@
 }

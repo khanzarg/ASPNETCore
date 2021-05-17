@@ -1,0 +1,147 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>Hello from our View Template!</p>
+
+<div id="chart"></div>
+
+@section scripts{ 
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script>
+        $(document).ready(function () {
+            var url = 'https://localhost:44320/api/Employee';
+
+            //Get Employee From API
+            $.getJSON(url, response => {
+                console.log(response)
+                let employees = response.map(employee => {
+                    return {
+                        gender: employee.gender,
+                        year: employee.birthDate.substr(0,4)
+                    }
+                })
+                // get Employee Birth Year
+                let employeesBirthYear = []
+                employees.map(employee => {
+                    if (employeesBirthYear.includes(employee.year)) {
+                        return false
+                    } else {
+                        employeesBirthYear.push(employee.year)
+                    }
+                })
+                employeesBirthYear.sort((a, b) => a - b)               
+                console.log(employeesBirthYear)
+
+                // push to array
+                let menBirthYear = [], womenBirthYear = []
+                employeesBirthYear.forEach(yearEl => {
+                    let menCount = 0, womenCount = 0
+                    employees.forEach(employeeEl => {
+                        if (employeeEl.gender == "Pria" && employeeEl.year == yearEl) {
+                            menCount++
+                        }
+                        else if (employeeEl.gender == "Wanita" && employeeEl.year == yearEl) {
+                            womenCount++
+                        }
+                    })
+                    menBirthYear.push(menCount)
+                    womenBirthYear.push(womenCount)
+                    //console.log(menBirthYear)
+                    //console.log(womenBirthYear)
+                })
+                var options = {
+                    series: [
+                        {
+                            name: "Pria",
+                            data: menBirthYear
+                        },
+                        {
+                            name: "Wanita",
+                            data: womenBirthYear
+                        }
+                    ],
+                    chart: {
+                        height: 350,
+                        type: 'line',
+                        dropShadow: {
+                            enabled: true,
+                            color: '#000',
+                            top: 18,
+                            left: 7,
+                            blur: 10,
+                            opacity: 0.2
+                        },
+                        toolbar: {
+                            show: false
+                        }
+                    },
+                    colors: ['#77B6EA', '#545454'],
+                    dataLabels: {
+                        enabled: true,
+                    },
+                    stroke: {
+                        curve: 'smooth'
+                    },
+                    title: {
+                        text: 'Total Employee per Year',
+                        align: 'left'
+                    },
+                    grid: {
+                        borderColor: '#e7e7e7',
+                        row: {
+                            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                            opacity: 0.5
+                        },
+                    },
+                    markers: {
+                        size: 1
+                    },
+                    xaxis: {
+                        categories: employeesBirthYear,
+                        title: {
+                            text: 'Year'
+                        }
+                    },
+                    yaxis: {
+                        title: {
+                            text: 'Total'
+                        },
+                        min: 0,
+                        max: 10
+                    },
+                    legend: {
+                        position: 'top',
+                        horizontalAlign: 'right',
+                        floating: true,
+                        offsetY: -25,
+                        offsetX: -5
+                    }
+                };
+
+                var chart = new ApexCharts(
+                    document.querySelector("#chart"),
+                    options
+                );
+
+                //$.getJSON(url, function (response) {
+                //    console.log(response)
+                //    chart.updateSeries([{
+                //        name: 'High - 2013',
+                //        data: [40, 29, 33, 36, 32, 32, 33]
+                //    }])
+                //});
+
+                chart.render();
+            })
+            
+        })
+
+        
+    </script>
+
+
+}
