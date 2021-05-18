@@ -45,7 +45,7 @@ namespace ASPNETCore
                 //        .AllowAnyHeader()
                 //        .AllowAnyMethod());
                 options.AddPolicy("mypolicy", builder =>
-                    builder.WithOrigins("https://www.test-cors.org", "https://localhost:44340")
+                    builder.WithOrigins("https://www.test-cors.org", "https://localhost:44340", "https://localhost:44320")
                         .AllowAnyHeader()
                         .AllowAnyMethod());
             }

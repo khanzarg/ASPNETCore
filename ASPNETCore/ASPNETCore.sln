@@ -5,7 +5,10 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNETCore", "ASPNETCore\ASPNETCore.csproj", "{986F3199-1CF1-457D-8992-0B587E7F8368}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{6D10F623-1AD0-4E99-A791-35BB8DF7881D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{6D10F623-1AD0-4E99-A791-35BB8DF7881D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{986F3199-1CF1-457D-8992-0B587E7F8368} = {986F3199-1CF1-457D-8992-0B587E7F8368}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
