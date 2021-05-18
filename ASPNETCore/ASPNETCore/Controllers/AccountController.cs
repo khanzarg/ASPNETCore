@@ -43,20 +43,6 @@ namespace ASPNETCore.Controllers
         }
 
 
-        //[HttpGet("GetAll/")]
-        ////[Route("api/")]
-        //public new ActionResult Get()
-        //{
-        //    var get = accountRepository.GetAll();
-        //    if (get.Count() == 0)
-        //    {
-        //        return BadRequest("Data Not Found");
-        //    }
-        //    return Ok(get);
-
-        //}
-
-
         [HttpPost("Register/")]
         public ActionResult PostRegister(Register register)
         {

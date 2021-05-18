@@ -6,7 +6,9 @@
 
 <p>Hello from our View Template!</p>
 
-<div id="chart"></div>
+<div id="linechart"></div>
+
+<div id="columnchart"></div>
 
 @section scripts{ 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -53,7 +55,9 @@
                     //console.log(menBirthYear)
                     //console.log(womenBirthYear)
                 })
-                var options = {
+
+                // Line Chart
+                let lineOptions = {
                     series: [
                         {
                             name: "Pria",
@@ -122,20 +126,75 @@
                     }
                 };
 
-                var chart = new ApexCharts(
-                    document.querySelector("#chart"),
-                    options
+                // column Chart
+                var columnOptions = {
+                    series: [
+                        {
+                            name: "Pria",
+                            data: menBirthYear
+                        },
+                        {
+                            name: "Wanita",
+                            data: womenBirthYear
+                        }
+                    ],
+                    chart: {
+                        type: 'bar',
+                        height: 350
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '55%',
+                            endingShape: 'rounded'
+                        },
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        show: true,
+                        width: 2,
+                        colors: ['transparent']
+                    },
+                    xaxis: {
+                        categories: employeesBirthYear,
+                        title: {
+                            text: 'Year'
+                        }
+                    },
+                    yaxis: {
+                        title: {
+                            text: 'Total'
+                        },
+                        min: 0,
+                        max: 10
+                    },
+                    fill: {
+                        opacity: 1
+                    }
+                };
+
+
+
+                // Line Chart Object
+                var lineChart = new ApexCharts(
+                    document.querySelector("#linechart"),
+                    lineOptions
                 );
 
-                //$.getJSON(url, function (response) {
-                //    console.log(response)
-                //    chart.updateSeries([{
-                //        name: 'High - 2013',
-                //        data: [40, 29, 33, 36, 32, 32, 33]
-                //    }])
-                //});
+                // Column Chart Object
+                var columnChart = new ApexCharts(
+                    document.querySelector("#columnchart"),
+                    columnOptions
+                );
 
-                chart.render();
+                
+                // Line Chart Render
+                lineChart.render();
+
+                // Column Chart Render
+                columnChart.render();
             })
             
         })

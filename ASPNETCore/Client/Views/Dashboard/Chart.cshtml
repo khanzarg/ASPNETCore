@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Chart";
+}
+<div class="justify-content-center">
+    <select class="dropdown" id="filterId">
+        <option value="0" selected="selected">All</option>
+    </select>
+    <div id="chart">
+
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        $(document).ready(function () {
+            var options = {
+                chart: {
+                    height: 350,
+                    type: 'bar',
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                series: [],
+                title: {
+                    text: 'Bar Chart Employee\'s Gender',
+                },
+                noData: {
+                    text: 'No data found.'
+                }
+            }
+
+            var chart = new ApexCharts(
+                document.querySelector("#chart"),
+                options
+            );
+
+            chart.render();
+            
+            var url = `https://localhost:44320/api/Employee/gender/0`;
+
+            $.getJSON(url, function (response) {
+                chart.updateSeries([{
+                    name: 'Gender',
+                    data: response
+                }])
+            });
+
+            $(".dropdown").change(function () {
+                var element = document.getElementById("filterId")
+                var selected = element.options[element.selectedIndex].value
+                var urlSelected = `https://localhost:44320/api/Employee/gender/${selected}`;
+                
+                $.getJSON(urlSelected, function (response) {
+                    chart.updateSeries([{
+                        name: 'Gender',
+                        data: response
+                    }])
+                });
+            })
+
+            $.ajax({
+                url: "https://localhost:44320/api/Employee/tahun",
+                datatype: "JSON",
+                type: "Get",
+                success: function (data) {
+                    debugger;
+                    for (var i = 0; i < data.length; i++) {
+                        var opt = new Option(data[i].tahun);
+                        $("#filterId").append(opt);
+                    }
+                }
+            });
+
+        })
+    </script>
+}

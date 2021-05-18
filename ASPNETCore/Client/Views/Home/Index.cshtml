@@ -3,54 +3,77 @@
 }
 <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" />
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+
+    <button type="button" class="btn btn-success my-3" data-toggle="modal" data-target="#add">
+        <i class="fas fa-plus-square"></i>
+        Add Data
+    </button>
+
+    <table id="EmployeesTable" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Birth Date</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
 </div>
 
-<table id="PlanetsTable" class="display" style="width:100%">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Diameter</th>
-            <th>Terrain</th>
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+<!-- Modal Add-->
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="add">Register New Employee</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" required>
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" required>
+                        <label for="birthdate" class="form-label">Birth Date</label>
+                        <input type="date" class="form-control" id="birthdate" required><br />
+                        <label for="male">Male</label>
+                        <input type="radio" id="male" name="gender" value="Pria" required><br />
+                        <label for="female">Female</label>
+                        <input type="radio" id="female" name="gender" value="Wanita" required><br />
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" id="phone" required>
+                        <label for="employee">Employee</label>
+                        <input type="radio" id="employee" name="role" value="1" required><br />
+                        <label for="admin">Admin</label>
+                        <input type="radio" id="admin" name="role" value="2" required><br />
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" onclick="insert()">Save changes</button>
+                        </div>
+                    </div>
 
-<table id="EmployeesTable" class="display" style="width:100%">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Birth Date</th>
-            <th>Gender</th>
-            <th>Email</th>
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 @section scripts{
-    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-
-    <script>
-        $("#PlanetsTable").DataTable({
-            ajax: {
-                url: "https://swapi.dev/api/planets/",
-                dataSrc: "results"
-            },
-            columns: [
-                { "data": "name" },
-                { "data": "diameter" },
-                { "data": "terrain" }
-            ]
-        });
-    </script>
 
     <script>
         $("#EmployeesTable").DataTable({
@@ -59,73 +82,73 @@
                 dataSrc: ""
             },
             columns: [
-                { "data": "id" },
                 { "data": "name" },
                 { "data": "birthDate" },
                 { "data": "gender" },
-                { "data": "email" }
+                { "data": "email" },
+                {
+                    "data": null,
+                    "defaultContent": `<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#update"><i class="fas fa-pen"></i>  Update</button>  <button type="button" class="btn btn-danger" onclick="functiondelete()"><i class="far fa-minus-square"></i>  Delete</button>`,
+                    "orderable": false,
+                    "searchable": false
+                }
             ]
         });
     </script>
 
-
-    @*<script>
-        $(document).ready(function () {
-            $.ajax({
-                url: "https://swapi.dev/api/planets/",
-                type: "GET"
-            }).done((result) => {
-                console.log(result.results)
-                let planets = result.results.map((planet) => {
-                    return {
-                        name: planet.name,
-                        diameter: planet.diameter,
-                        terrain: planet.terrain
+    <script>
+        function functiondelete() {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    console.log(willDelete)
+                    if (willDelete) {
+                        swal("Poof! Your imaginary file has been deleted!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Your imaginary file is safe!");
                     }
-                })
-                $('#PlanetsTable').DataTable({
-                    "aaData": planets,
-                    columns: [
-                        {"data": "name"},
-                        {"data": "diameter"},
-                        {"data": "terrain"}
-                    ]
-                })
-                console.log(planets)
-                // success
-            }).fail((error) => {
-                //fail
-                console.log(error)
-            })
-        });
-    </script>*@
+                });
+        }
+    </script>
 
-    @*<script>
-        $(document).ready(function () {
+    <script>
+
+        let insert = () => {
+            let emp = new Object();
+
+            emp.name = $("#name").val();
+            emp.email = $("#email").val();
+            emp.password = $("#password").val();
+            emp.birthDate = $("#birthdate").val();
+            emp.gender = $('input[name="gender"]:checked').val();
+            emp.phone = $("#phone").val();
+            emp.roleId = parseInt($('input[name="role"]:checked').val());
+                        
+
             $.ajax({
-                url: "https://localhost:44320/api/Employee",
-                type: "GET"
-            }).done((result) => {
-                console.log(result.results)
-                let employees = result.map((employee) => {
-                    return employee;
-                })
-                $('#EmployeesTable').DataTable({
-                    "aaData": employees,
-                    columns: [
-                        {"data": "id"},
-                        {"data": "name"},
-                        {"data": "birthDate"},
-                        {"data": "gender"},
-                        {"data": "email"}
-                    ]
-                })
-                console.log(employees)
-                // success
-            }).fail((error) => {
-                //fail
-                console.log(error)
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                url: "https://localhost:44320/api/Account/Register",
+                type: "POST",
+                data: JSON.stringify(emp)
+            }).done(result => {
+                console.log(result)
+                alert("berhasil")
+            }).fail(result => {
+                console.log(result)
+                alert(JSON.stringify(result))
             })
-        });
-    </script>*@
+
+        }
+    </script>
+
 }

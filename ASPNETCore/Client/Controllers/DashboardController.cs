@@ -8,7 +8,7 @@ namespace Client.Controllers
 {
     public class DashboardController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Chart()
         {
             return View();
         }
