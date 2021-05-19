@@ -37,3 +37,4 @@ C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\Client\obj\Debug\ne
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\Client\obj\Debug\netcoreapp3.1\Client.csproj.CopyComplete
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\Client\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs
 C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\Client\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Chart.cshtml.g.cs
+C:\Users\alfat\source\repos\ASPNETCore\ASPNETCore\ASPNETCore\Client\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

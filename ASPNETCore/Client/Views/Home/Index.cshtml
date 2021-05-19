@@ -5,14 +5,14 @@
 
 <div class="container">
 
-    <button type="button" class="btn btn-success my-3" data-toggle="modal" data-target="#add">
+    <button type="button" class="btn btn-success my-3" data-toggle="modal" data-target="#add" data-placement="top" title="Add Data">
         <i class="fas fa-plus-square"></i>
-        Add Data
     </button>
 
     <table id="EmployeesTable" class="display" style="width:100%">
         <thead>
             <tr>
+                <th>No</th>
                 <th>Name</th>
                 <th>Birth Date</th>
                 <th>Gender</th>
@@ -31,39 +31,32 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="add">Register New Employee</h5>
+                <h5 class="modal-title" id="add">Data Employee</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="post">
+                
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" required>
                         <label for="email" class="form-label">Email</label>
                         <input type="text" class="form-control" id="email" required>
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" required>
+                        
                         <label for="birthdate" class="form-label">Birth Date</label>
                         <input type="date" class="form-control" id="birthdate" required><br />
                         <label for="male">Male</label>
                         <input type="radio" id="male" name="gender" value="Pria" required><br />
                         <label for="female">Female</label>
                         <input type="radio" id="female" name="gender" value="Wanita" required><br />
-                        <label for="phone" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control" id="phone" required>
-                        <label for="employee">Employee</label>
-                        <input type="radio" id="employee" name="role" value="1" required><br />
-                        <label for="admin">Admin</label>
-                        <input type="radio" id="admin" name="role" value="2" required><br />
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary" onclick="insert()">Save changes</button>
                         </div>
                     </div>
 
-                </form>
+                
             </div>
 
         </div>
@@ -76,79 +69,134 @@
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 
     <script>
-        $("#EmployeesTable").DataTable({
-            ajax: {
-                url: "https://localhost:44320/api/Employee",
-                dataSrc: ""
-            },
-            columns: [
-                { "data": "name" },
-                { "data": "birthDate" },
-                { "data": "gender" },
-                { "data": "email" },
-                {
-                    "data": null,
-                    "defaultContent": `<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#update"><i class="fas fa-pen"></i>  Update</button>  <button type="button" class="btn btn-danger" onclick="functiondelete()"><i class="far fa-minus-square"></i>  Delete</button>`,
-                    "orderable": false,
-                    "searchable": false
-                }
-            ]
-        });
-    </script>
+        $(document).ready(function () {
+            $("#EmployeesTable").DataTable({
+                ajax: {
+                    url: "https://localhost:44320/api/Employee",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        "data": null,
+                        "render": (data, type, row, meta) => {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
+                    { "data": "name" },
+                    {
+                        "render": function (data, type, row) {
+                            var date = moment(row["birthDate"]).format("DD MMMM YYYY");
+                            return date;
+                        }
+                    },
+                    { "data": "gender" },
+                    { "data": "email" },
+                    {
+                        "data": null,
+                        "render": function (data, type, row) {
+                            return `<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#add" data-placement="top" title="Update Data" onclick="update(${row["id"]})"><i class="fas fa-pen"></i> </button>  <button type="button" class="btn btn-danger" onclick="Delete(${row["id"]})" data-placement="top" title="Delete Data"><i class="far fa-minus-square"></i></button>`;
+                        },
+                        "orderable": false,
+                        "searchable": false
+                    }
+                ]
+            });
+        })
 
-    <script>
-        function functiondelete() {
+        let Delete = (Id) => {
             swal({
                 title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this imaginary file!",
+                text: "Once deleted, you will not be able to recover this data!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
                 .then((willDelete) => {
-                    console.log(willDelete)
                     if (willDelete) {
-                        swal("Poof! Your imaginary file has been deleted!", {
-                            icon: "success",
-                        });
+                        $.ajax({
+                            url: `/Employee/Delete/${Id}`,
+                            type: "DELETE"
+                        }).done((result) => {
+                            if (result == 200) {
+                                swal({
+                                    title: "Success",
+                                    text: "Data succsess deleted",
+                                    icon: "success",
+                                    button: "Ok"
+                                }).then(() => { location.reload() })
+                            }
+                        }).fail((error) => {
+                            console.log(error);
+                            swal("Failed Deleted Data", " ", "error");
+                        })
                     } else {
-                        swal("Your imaginary file is safe!");
+                        swal("Your data is safe!");
                     }
+
                 });
         }
-    </script>
-
-    <script>
 
         let insert = () => {
             let emp = new Object();
 
             emp.name = $("#name").val();
-            emp.email = $("#email").val();
-            emp.password = $("#password").val();
             emp.birthDate = $("#birthdate").val();
             emp.gender = $('input[name="gender"]:checked').val();
-            emp.phone = $("#phone").val();
-            emp.roleId = parseInt($('input[name="role"]:checked').val());
-                        
+            emp.email = $("#email").val();
+
 
             $.ajax({
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                url: "https://localhost:44320/api/Account/Register",
+                url: '/Employee/AddEmployee',
                 type: "POST",
-                data: JSON.stringify(emp)
+                data: emp
             }).done(result => {
-                console.log(result)
-                alert("berhasil")
+                if (result == 200) {
+                    swal({
+                        title: "Good job!",
+                        text: "You clicked the button!",
+                        icon: "success",
+                        button: "Aww yiss!",
+                    }).then(() => { location.reload() })
+                }
             }).fail(result => {
-                console.log(result)
-                alert(JSON.stringify(result))
+                alert("failed")
             })
+        }
 
+        let getById = id => {
+            console.log("mulai");
+            $.ajax({
+                url: `/Employee/GetById/${id}`,
+                type: "GET"
+            }).done(result => {
+                
+                return result;
+            }).fail(result => {
+                return result;
+            })
+        }
+
+        let update = id => {
+            $.ajax({
+                url: `/Employee/GetById/${id}`,
+                type: "GET"
+            }).done(result => {
+                console.log(result);
+                $("#name").val(result.name);
+                $("#birthdate").val(result.birthDate);
+                $("#gender").val(result.gender);
+                $("#email").val(result.email);
+                return result;
+            }).fail(result => {
+                return result;
+            })
+            
+            
+            
+            
+           
         }
     </script>
 
+    
 }

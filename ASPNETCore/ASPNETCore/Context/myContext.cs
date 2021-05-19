@@ -85,7 +85,8 @@ namespace ASPNETCore.Context
             //Employee-Employeerole
             modelBuilder.Entity<EmployeeRole>()
                 .HasOne(EmployeeRole => EmployeeRole.Employee)
-                .WithMany(Employee => Employee.EmployeeRoles);
+                .WithMany(Employee => Employee.EmployeeRoles)
+                .OnDelete(DeleteBehavior.Cascade);
 
             //Employeerole-Role
             modelBuilder.Entity<EmployeeRole>()

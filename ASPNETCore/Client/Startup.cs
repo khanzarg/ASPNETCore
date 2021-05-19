@@ -32,6 +32,7 @@ namespace Client
                     });
             });
 
+
             services.AddControllersWithViews();
         }
 
