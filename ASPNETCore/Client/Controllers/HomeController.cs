@@ -1,4 +1,5 @@
 ﻿using ASPNETCore.Models;
+using ASPNETCore.ViewModels;
 using Client.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -7,9 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
 
 namespace Client.Controllers
 {
@@ -40,18 +44,25 @@ namespace Client.Controllers
 
         //public async Task<IActionResult> Index()
         //{
-        //    List<Employee> employeeList = new List<Employee>();
+        //    List<Register> registerList = new List<Register>();
         //    using (var httpClient = new HttpClient())
         //    {
-        //        using (var response = await httpClient.GetAsync("https://localhost:44324/api/Reservation"))
+        //        using (var response = await httpClient.GetAsync("https://localhost:44320/api/Employee"))
         //        {
         //            string apiResponse = await response.Content.ReadAsStringAsync();
-        //            employeeList = JsonConvert.DeserializeObject<List<Employee>>(apiResponse);
+        //            registerList = JsonConvert.DeserializeObject<List<Register>>(apiResponse);
         //        }
         //    }
-        //    return View(employeeList);
+        //    return View(registerList);
         //}
-
+        //[HttpPost]
+        //public HttpStatusCode Register(Register register)
+        //{
+        //    var httpClient = new HttpClient();
+        //    StringContent content = new StringContent(JsonConvert.SerializeObject(register), Encoding.UTF8, "application/json");
+        //    var result = httpClient.PostAsync("https://localhost:44320/api/Account/register/", content).Result;
+        //    return result.StatusCode;
+        //}
 
     }
 }
