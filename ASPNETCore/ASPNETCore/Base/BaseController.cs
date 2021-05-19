@@ -88,7 +88,7 @@ namespace ASPNETCore.Base
             }
             
         }
-        [HttpPut("{id}")]
+        [HttpPut]
         public ActionResult Put(Entity entity)
         {
             try

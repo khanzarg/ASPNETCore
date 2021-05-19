@@ -1,4 +1,5 @@
-﻿using Client.View_Models;
+﻿using ASPNETCore.Models;
+using Client.View_Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -29,14 +30,25 @@ namespace Client.Controllers
             return result.StatusCode;
         }
 
+        //[HttpGet]
+        //public ActionResult GetById(int id)
+        //{
+        //    var client = new HttpClient();
+        //    var response = client.GetAsync("https://localhost:44320/api/employee/" + id).Result;
+        //    var apiResponse = response.Content.ReadAsStringAsync();
+        //    var jsn = JsonConvert.DeserializeObject<object>(apiResponse.ToString());
+        //    return View(jsn);
+        //}
         [HttpGet]
-        public ActionResult Edit(int id)
+        public JsonResult GetById(int id)
         {
             var client = new HttpClient();
-            var response = client.GetAsync("https://localhost:44320/api/employee/" + id).Result;
-            var apiResponse = response.Content.ReadAsStringAsync();
-            var jsn = JsonConvert.DeserializeObject<object>(apiResponse.ToString());
-            return View(jsn);
+            var responseTask = client.GetAsync("https://localhost:44320/api/employee/" + id);
+            responseTask.Wait();
+            var result = responseTask.Result;
+            var apiResponse = result.Content.ReadAsStringAsync();
+
+            return Json(apiResponse.Result);
         }
 
         [HttpDelete]
@@ -54,7 +66,9 @@ namespace Client.Controllers
         {
             var client = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(employee), Encoding.UTF8, "application/json");
-            var result = client.PutAsync("https://localhost:44320/api/employee", content).Result;
+            var response = client.PutAsync("https://localhost:44320/api/employee/", content);
+            response.Wait();
+            var result = response.Result;
             return result.StatusCode;
         }
     }

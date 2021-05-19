@@ -52,7 +52,7 @@
                     <label for="birthdate" class="form-label">Birth Date</label>
                     <input type="date" class="form-control" id="birthDate" placeholder="Enter your birth date">
                     @*<input type="text" class="form-control" id="phone" placeholder="Phone">
-        <input type="text" class="form-control" id="roleId" placeholder="RoleId">*@
+                    <input type="text" class="form-control" id="roleId" placeholder="RoleId">*@
                 </div>
                     <button type="submit" class="btn btn-primary" onclick="Insert()">Submit</button>
 
@@ -62,6 +62,7 @@
 </div>
 
 <!--Modal Update-->
+<div id="editView">
 <div class="modal fade" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
      aria-labelledby="update" aria-hidden="true">
     <div class="modal-dialog">
@@ -70,21 +71,20 @@
                 <h5 class="modal-title" id="update">Editting Data</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="mb-3">
-                        @* tambahin id dan di hidden, modal kurang proper (disarankan ada 1) *@
-                        <label for="update" class="form-label">Edit Name</label>
-                        <input type="text" class="form-control" id="editname">
-                        <label for="update" class="form-label">Edit Email</label>
-                        <input type="email" class="form-control" id="editemail">
-                        <label for="update" class="form-label">Edit Gender</label>
-                        <input type="text" class="form-control" id="editgender">
-                        <label for="update" class="form-label">Edit Birth Date</label>
-                        <input type="date" class="form-control" id="editbirthDate">
-                    </div>
-                    <button type="submit" class="btn btn-primary" onclick="">Submit</button>
-                </form>
+            <div class="mb-3">
+                @* tambahin id dan di hidden, modal kurang proper (disarankan ada 1) *@
+                <label for="update" class="form-label">Id</label>
+                <input type="text" class="form-control" id="editid">
+                <label for="update" class="form-label">Edit Name</label>
+                <input type="text" class="form-control" id="editname">
+                <label for="update" class="form-label">Edit Email</label>
+                <input type="email" class="form-control" id="editemail">
+                <label for="update" class="form-label">Edit Gender</label>
+                <input type="text" class="form-control" id="editgender">
+                <label for="update" class="form-label">Edit Birth Date</label>
+                <input type="date" class="form-control" id="editbirthDate">
+            </div>
+                    <button type="submit" class="btn btn-primary" onclick="Update()">Submit</button>
             </div>
         </div>
     </div>
@@ -119,13 +119,13 @@
                     },
                         { "data": "name" },
                         { "data": "email" },
-                        { "data": "gender" }, //Gender ganti 
+                        { "data": "gender" },
                         { "data": "birthDate" },
                         {
                             "data": null,
                             "render": function (data, type, row)
                             {//kasih parameter
-                                return '<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update" onclick="getById()"><i class="fa fa-edit"></i>Edit Data</button>'
+                                return '<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update" onclick="getId('+ row['id'] +')"><i class="fa fa-edit"></i>Edit Data</button>'
                                     +
                                     ' <button id="deleteTable" class="btn btn-danger" onclick="sAlertDelete('+ row['id'] +')"><i class="fa fa-trash"></i>Delete Data</button>';
                             },
@@ -136,22 +136,9 @@
             })
         })
     </script>
-    
-    <script>
-        let sAlertAdd = () => {
-            swal({
-                title: "Done",
-                text: "Data successfully added.",
-                icon: "success",
-                button: "Ok",
-            }).then(() => {
-                location.reload(true);
-            });  
-        }
-    </script>
 
     <script>
-        let Insert = () => { //after insert, datanya jgn ada lagi, modal di hide
+        let Insert = () => {
             let obj = new Object();
 
             obj.name = $("#name").val();
@@ -164,30 +151,32 @@
             $.ajax({
                 url: "/Employee/Insert",
                 type: "POST",
-                //data: JSON.stringify(obj)
                 data: obj
             }).done((result) => {
-                //console.log(result);
-                if (result == 200) { 
+                if (result == 200) {
                     $("#add").modal("hide");
-                    sAlertAdd();               
+                    sAlertAdd();
                 }
                 else {
                     alert("Not Done");
                 }
-
-
             }).fail((error) => {
                 console.log(error);
                 alert("gagal");
             })
-
-
-            //location.reload(true);
-            //window.history.forward(1);
         }
-    </script>
-    <script>
+
+        let sAlertAdd = () => {
+            swal({
+                title: "Done",
+                text: "Data successfully added.",
+                icon: "success",
+                button: "Ok",
+            }).then(() => {
+                location.reload(true);
+            });
+        }
+
         let Delete = (Id) => {
             $.ajax({
                 url: `Employee/Delete/${Id}`,
@@ -199,8 +188,7 @@
                 alert("Failed to delete data");
             })
         }
-    </script>
-    <script>
+
         let sAlertDelete = (Id) => {
             swal({
                 title: "Are you sure?",
@@ -216,49 +204,62 @@
                             icon: "success",
                         }).then((willReload) => {
                             if (willReload) {
-                                //table.clear();
-                                //table.ajax.reload();
                                 location.reload(true);
                             }
                         });
-
-                        
                     } else {
                         swal("Your data is still save.");
                     }
                 });
         }
-    </script>
-    
-    <script>
-        let Update = (Id) => {
-            let obj = new Object();
 
-            obj.name = $("#editname").val();
-            obj.email = $("#editemail").val();
-            //obj.password = $("#password").val();
-            obj.birthDate = $("#editbirthDate").val();
-            obj.gender = $("#editgender").val();
-            //obj.phone = $("#phone").val();
-            //obj.roleId = parseInt($("#roleId").val());
+        let Update = (data) => {
 
-            console.log(obj);
-            //alert(JSON.stringify(obj));
+            $("#editid").val(data.id);        
+            $("#editname").val(data.name);
+            $("#editemail").val(data.email);
+            $("#editbirthDate").val(data.birthDate);
+            $("#editgender").val(data.gender);
+
+            console.log(data);
 
             $.ajax({
-                url: `/Employee/Update/${Id}`,
+                url: `/Employee/Update/${data.id}`,
                 type: "Put",
-                data: obj
+                data: data
             }).done((result) => {
                 console.log(result);
-                alert("Data updated.");
+                if (result == 200) {
+                    alert("Data updated.");
+                }
+                else {
+                    alert("status code: " + result);
+                }
 
             }).fail((error) => {
                 console.log(error);
                 alert("Data can't be updated.");
             })
         }
+
+        let getId = (Id) => {
+            $.ajax({
+                type: "GET",
+                url: `/Employee/GetById/${Id}`,
+                success: (data) => {
+                    $('#editView').html(data);
+                    $('#update').modal();
+                    //Update(data);
+                    console.log(data);
+                },
+                error: (data) => {
+                    console.log(data);
+                }
+            })
+        }
     </script>
+    
+   
     @*<script>
         let getById = () => {
             //Edit -> modal -> ada isi dari data sebelumnya -> diganti -> submit -> method Update()
