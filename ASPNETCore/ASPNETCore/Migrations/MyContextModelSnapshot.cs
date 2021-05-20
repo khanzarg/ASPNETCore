@@ -110,7 +110,7 @@ namespace ASPNETCore.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
@@ -119,6 +119,10 @@ namespace ASPNETCore.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique()
+                        .HasFilter("[Email] IS NOT NULL");
 
                     b.ToTable("TB_M_Employee");
                 });
@@ -145,6 +149,19 @@ namespace ASPNETCore.Migrations
                     b.ToTable("TB_M_EmployeeRole");
                 });
 
+            modelBuilder.Entity("ASPNETCore.Models.LoginModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LoginModels");
+                });
+
             modelBuilder.Entity("ASPNETCore.Models.Major", b =>
                 {
                     b.Property<int>("Id")
@@ -161,6 +178,24 @@ namespace ASPNETCore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TB_M_Major");
+                });
+
+            modelBuilder.Entity("ASPNETCore.Models.Parameter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TB_M_Parameter");
                 });
 
             modelBuilder.Entity("ASPNETCore.Models.Province", b =>
@@ -201,9 +236,6 @@ namespace ASPNETCore.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("DistrictId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("District_Id")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -307,11 +339,21 @@ namespace ASPNETCore.Migrations
                 {
                     b.HasOne("ASPNETCore.Models.Employee", "Employee")
                         .WithMany("EmployeeRoles")
-                        .HasForeignKey("EmployeeId");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ASPNETCore.Models.Role", "Role")
                         .WithMany("EmployeeRoles")
                         .HasForeignKey("RoleId");
+                });
+
+            modelBuilder.Entity("ASPNETCore.Models.LoginModel", b =>
+                {
+                    b.HasOne("ASPNETCore.Models.Employee", "Employee")
+                        .WithOne("LoginModel")
+                        .HasForeignKey("ASPNETCore.Models.LoginModel", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ASPNETCore.Models.SubDistrict", b =>

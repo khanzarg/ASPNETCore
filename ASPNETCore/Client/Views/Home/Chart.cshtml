@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Chart";
+}
+
+<div class="justify-content-center">
+    <select class="form-select" id="dd">
+        <option value="0" selected="selected">All</option>
+    </select>
+    <div id="chart"></div>
+</div>
+
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        var url = `https://localhost:44320/api/employee/gender/${0}`
+
+        $(document).ready(function () {
+            //chart
+            var options = {
+                chart: {
+                    height: 350,
+                    type: 'bar',
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                series: [],
+                title: {
+                    text: 'Gender Ratio',
+                },
+                noData: {
+                    text: 'Loading...'
+                }
+            }
+
+            var chart = new ApexCharts(
+                document.querySelector("#chart"),
+                options
+            );
+
+            chart.render();
+
+            $.getJSON(url, function (response) {
+                chart.updateSeries([{
+                    name: 'Gender',
+                    data: response
+                }])
+            });
+
+            $(".form-select").change(function () {
+                var e = document.getElementById("dd")
+                var selected = e.options[e.selectedIndex].value
+                var urlSelected = `https://localhost:44320/api/employee/gender/${selected}`
+                console.log(urlSelected)
+
+                $.getJSON(urlSelected, function (response) {
+                    chart.updateSeries([{
+                        name: 'Gender',
+                        data: response
+                    }])
+                });
+            })
+
+            $.getJSON("https://localhost:44320/api/employee/tahun", (data) => {
+                for (var i = 0; i < data.length; i++) {
+                    var opt = new Option(data[i].tahun);
+                    $("#dd").append(opt);
+                }
+            })
+
+            //$.ajax({
+            //    url: "https://localhost:44320/api/employee/tahun",
+            //    datatype: "JSON",
+            //    type: "Get",
+            //    success: function (data) {
+            //        debugger;
+            //        for (var i = 0; i < data.length; i++) {
+            //            var opt = new Option(data[i].tahun);
+            //            $("#dd").append(opt);
+            //        }
+            //    }
+            //});
+        })
+    </script>
+
+}

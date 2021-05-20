@@ -1,4 +1,8 @@
-﻿using ASPNETCore.Repositories.Interface;
+﻿using ASPNETCore.Handlers;
+using ASPNETCore.Repositories.Data;
+using ASPNETCore.Repositories.Interface;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +14,7 @@ namespace ASPNETCore.Base
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyPolicy")]
     public class BaseController<Entity, Repository, TId> : ControllerBase
         where Entity : class
         where Repository : IGenericRepository<Entity, TId>
@@ -26,6 +31,7 @@ namespace ASPNETCore.Base
             try
             {
                 var get = repository.GetAll();
+                //var jsonData = new { data = get };
                 return Ok(get);
             }
             catch(Exception e)
@@ -34,6 +40,7 @@ namespace ASPNETCore.Base
             }
         }
 
+        
         [HttpGet("{id}")]
         public ActionResult Get(TId id)
         {
@@ -76,12 +83,12 @@ namespace ASPNETCore.Base
             }
             
         }
-        [HttpPut("{id}")]
-        public ActionResult Put(TId Id, Entity entity)
+        [HttpPut]
+        public ActionResult Put(Entity entity)
         {
             try
             {
-                var result = repository.Put(Id, entity) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
+                var result = repository.Put(entity) > 0 ? (ActionResult)Ok("Data has been successfully updated.") : BadRequest("Data can't be updated.");
                 return result;
             }
             catch (Exception e)

@@ -23,6 +23,7 @@ namespace ASPNETCore.Models
         public Education Education { get; set; }
 
         public Contact Contact { get; set;}
+        public LoginModel LoginModel { get; set; }
 
         public ICollection<EmployeeRole> EmployeeRoles { get; set; }
 

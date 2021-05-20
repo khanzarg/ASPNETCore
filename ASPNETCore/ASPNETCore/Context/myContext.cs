@@ -9,9 +9,9 @@ namespace ASPNETCore.Context
 {
     public class MyContext : DbContext
     {
-        public MyContext()
-        {
-        }
+        //public MyContext()
+        //{
+        //}
 
         public MyContext(DbContextOptions<MyContext> options) : base(options)
         { }
@@ -29,6 +29,9 @@ namespace ASPNETCore.Context
         public DbSet<Major> Majors { get; set; }
         public DbSet<University> Universities { get; set; }
         public DbSet<Role> Roles { get; set; }
+
+        public DbSet<Parameter> Parameters { get; set; }
+        public DbSet<LoginModel> LoginModels { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //University-Education
@@ -59,6 +62,11 @@ namespace ASPNETCore.Context
                 .WithOne(education => education.Employee)
                 .HasForeignKey<Education>(education => education.Id);
 
+            //Employee email unique
+            modelBuilder.Entity<Employee>()
+                .HasIndex(employee => employee.Email)
+                .IsUnique();
+
             // Address
             modelBuilder.Entity<Address>()
                 .HasOne(address => address.Territory)
@@ -83,12 +91,18 @@ namespace ASPNETCore.Context
             //Employee-Employeerole
             modelBuilder.Entity<EmployeeRole>()
                 .HasOne(EmployeeRole => EmployeeRole.Employee)
-                .WithMany(Employee => Employee.EmployeeRoles);
+                .WithMany(Employee => Employee.EmployeeRoles)
+                .OnDelete(DeleteBehavior.Cascade);
 
             //Employeerole-Role
             modelBuilder.Entity<EmployeeRole>()
                 .HasOne(EmployeeRole => EmployeeRole.Role)
                 .WithMany(Role => Role.EmployeeRoles);
+
+            modelBuilder.Entity<LoginModel>()
+                .HasOne(LoginModel => LoginModel.Employee)
+                .WithOne(Employee => Employee.LoginModel)
+                .HasForeignKey<LoginModel>(loginModel => loginModel.Id);
         }
     }
 }

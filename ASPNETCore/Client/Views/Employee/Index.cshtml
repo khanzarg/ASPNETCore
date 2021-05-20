@@ -1,0 +1,380 @@
+﻿@{
+    ViewData["Title"] = "Employee Data";
+}
+
+<div>
+    <h1>Employee Data</h1>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+
+    <div>
+        <span type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" onclick="cleanModal()">
+            <a data-toggle="tooltip" data-placement="top" title="Add Employee">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </a>
+        </span>
+    </div>
+
+    <div class="my-3">
+        <table id="tbl_data" class="display">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>BirthDate</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    
+    <!-- INSERT Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Employee Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="employeeForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="id" name="id">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
+                        </div>
+                        <fieldset class="form-group">
+                            <label for="gender">Gender</label>
+                            @*<label for="gender" class="error"></label>*@
+                            <div id="radioGender">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="pria" value="Pria">
+                                    <label class="form-check-label" for="pria">
+                                        Pria
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="wanita" value="Wanita">
+                                    <label class="form-check-label" for="wanita">
+                                        Wanita
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            <label for="name">Birthdate</label>
+                            <input type="date" class="form-control" id="birthdate" name="birthdate">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- END INSERT Modal -->
+    <!-- EDIT Modal -->
+    <div id="editView">
+
+    </div>
+    <!-- END EDIT Modal -->
+</div>
+
+
+@section scripts{
+
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <script>
+        //DATATABLE INIT
+        //let i = 1;
+        
+        //DATATABLE
+        let table = $('#tbl_data').DataTable({
+            ajax: {
+                url: "https://localhost:44320/api/employee",
+                dataSrc: ""
+            },
+            columns: [
+                //{ "data": "id" },
+                {
+                    //"data": null
+                    "render": (data, type, row, meta) => {
+                        return meta.row + meta.settings._iDisplayStart + 1;
+                    }
+                },
+                { "data": "name" },
+                {
+                    "data": "birthDate",
+                    "render": (birthDate) => {
+                        let date = moment(birthDate)
+                        return date.format('DD MMMM YYYY');
+                    }
+                },
+                { "data": "gender" },
+                { "data": "email" },
+                {
+                    'data': 'id',
+                    "render": function (id) {
+                        return `<a class="popup btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit Employee" id="btnEdit" onclick="Edit(${id})"><i class= "fa fa-pencil-square-o"></i></a> | <button class="popup btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Employee" id="btnDelete" onclick="Delete(${id})"><i class="fa fa-trash"></i></a>`;
+                    }
+                }
+            ],
+            columnDefs: [
+                {
+                    targets: [3, 5],
+                    sortable: false,
+                    searchable: false
+                }
+            ],
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    autoFilter: true,
+                    sheetName: 'Employee Sheet',
+                    title: 'Data Employee',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4],
+                        modifier: { order: 'index' }
+                    }
+                }
+            ]
+        })
+        //END DATATABLE
+
+
+        
+
+        //DOCUMENT.READY
+        $(document).ready(function () {
+
+            //DATATABLE
+            table.on('order.dt search.dt', function () {
+                table.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
+            //END DATATABLE
+            
+            $('#employeeForm').validate({
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    email: {
+                        required: true,
+                        minlength: 5
+                    },
+                    gender: {
+                        required: true
+                    },
+                    birthdate: {
+                        required: true
+                    }
+                },
+                messages: {
+                    name: "Please input a name",
+                    email: {
+                        required: "Please input an email",
+                        email: "Please input a valid email address"
+                    },
+                    gender: "  Please pick a gender"
+                },
+                errorPlacement:
+                    function (error, element) {
+                        if (element.is(":radio")) {
+                            error.appendTo('#radioGender');
+                        }
+                        else {
+                            error.insertAfter(element);
+                        }
+                    },
+                submitHandler: function (form) {
+                    var User = new Object()
+                    User.Id = $('#id').val()
+                    User.Name = $('#name').val()
+                    User.Email = $('#email').val()
+                    User.Gender = $("input[type='radio'][name='gender']:checked").val();
+                    User.BirthDate = $('#birthdate').val()
+                    console.log(User)
+                    if (User.Id == "") {
+                        console.log(User)
+                        AddData(User)
+                    } else {
+                        console.log("UPDATE")
+                        Update(User)
+                    }
+                    
+                    return false;  // blocks regular submit since you have ajax
+                }
+            })
+
+            //ON SUBMIT
+            $('#btnSubmit').click(function () {
+                $('#employeeForm').submit()
+            })
+            //END ON SUBMIT
+            
+        })
+        //END DOCUMENT.READY
+
+
+        //RANDOM
+        //END RANDOM
+
+
+        //INSERT
+        const AddData = (User) => {
+            $.ajax({
+                type: "POST",
+                url: "Employee/AddEmployee",
+                data: User,
+
+                success: (data) => {
+                    if (data == 200) {
+                        $("#addModal").modal('hide');
+                        swal({
+                            title: "Success!",
+                            text: "Data added to database!",
+                            icon: "success",
+                        }
+                        ).then(() => {
+                            table.ajax.reload()
+                        })
+                    } else {
+                        swal("Failed!", "Input data failed!", "error")
+                    }
+                },
+                error: (data) => {
+                    swal("Failed!", "Input data failed!", "error")
+                }
+            })
+        }
+        //END INSERT
+
+        //DELETE
+        const Delete = (id) => {
+            swal("Are you sure you want to delete this data?", {
+                buttons: {
+                    cancel: "NO",
+                    catch: {
+                        text: "YES",
+                        value: "confirm",
+                    },
+                },
+            }).then((value) => {
+                switch (value) {
+                    case "confirm":
+                        $.ajax({
+                            type: "DELETE",
+                            url: `Employee/Delete/${id}`,
+                            success: (data) => {
+                                console.log(data)
+                                if (data == 200) {
+                                    swal("Deleted!", "data has been deleted!", "success")
+                                        .then(() => {
+                                            table.ajax.reload()
+                                        })
+                                } else {
+                                    swal("failed!", "An error occured when deleting data", "error")
+                                }
+                            },
+                            error: (data) => {
+                                swal("failed!", "An error occured when deleting data", "error")
+                                console.log(data)
+                            }
+                        })
+
+                        break
+
+                    default:
+                        swal("Cancelled")
+                }
+            })
+        }
+        //END DELETE
+
+        //EDIT (show modal)
+        const Edit = (id) => {
+            $.ajax({
+                type: "GET",
+                url: `Employee/Edit/${id}`,
+                success: (data) => {
+                    console.log(data)
+                    let myModal = $('#addModal')
+                    $('#id').val(data.id)
+                    $('#name').val(data.name)
+                    $('#email').val(data.email)
+                    $(`input[name='gender'][value='${data.gender}']`).prop('checked', true)
+                    const date = moment(data.birthDate).format('YYYY-MM-DD')
+                    $('#birthdate').val(date)
+                    myModal.modal('show')
+                },
+                error: (data) => {
+                    console.log(data)
+                }
+            })
+        }
+        //END EDIT
+
+        //UPDATE
+        const Update = (User) => {
+            $.ajax({
+                type: "POST",
+                url: "Employee/Update",
+                data: User,
+
+                success: (data) => {
+                    if (data == 200) {
+                        $("#addModal").modal('hide');
+                        swal({
+                            title: "Success!",
+                            text: "Data has been edited successfully!",
+                            icon: "success",
+                        }
+                        ).then(() => {
+                            table.ajax.reload()
+                        })
+                    } else {
+                        swal("Failed!", "Edit data failed!", "error")
+                    }
+                },
+                error: (data) => {
+                    swal("Failed!", "Edit data failed!", "error")
+                }
+            })
+        }
+
+        const cleanModal = () => {
+            $('#id').val('')
+            $('#name').val('')
+            $('#email').val('')
+            $("input[name='gender']").prop('checked', false)
+            $('#birthdate').val('')
+        }
+
+    </script>
+
+}
