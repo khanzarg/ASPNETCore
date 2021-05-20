@@ -1,0 +1,204 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container">
+    <label for="year">Years</label>
+    <select class="form-control" id="year">
+        <option value="all">ALL</option>
+    </select>
+    <div id="chart">
+    </div>
+</div>
+
+@section scripts {
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        let urlEmployee = "https://localhost:44320/api/Employee/";
+        let url = 'https://my-json-server.typicode.com/apexcharts/apexcharts.js/yearly';
+        $.ajax({
+            url: urlEmployee,
+            type: "GET",
+        }).done((result) => {
+
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+
+            let all = result.map((r) => {
+                return r;
+            });
+
+            let allDateBirth = all.map((r) => {
+                let day = parseInt(r.birthDate.substr(6, 9));
+                let month = parseInt(r.birthDate.substr(5, 7));
+                let year = parseInt(r.birthDate.substr(0, 4));
+
+                r.birthDate = day + '/' + month + '/' + year
+                return r.birthDate
+            });
+
+            let birthYears = all.map((r) => {
+                r.birthDate = parseInt(r.birthDate.substr(4, 8));
+                return {
+                    gender : r.gender,
+                    year : r.birthDate
+                }
+            });
+
+            console.log(allDateBirth)
+            console.log(birthYears)
+            //minimum dan maksimum tahun
+            let allYears = birthYears.map(r => {
+                return r.year;
+            }).sort();
+
+            let minYears = allYears[0];
+            let maxYears = allYears[allYears.length-1];
+            let years = [];
+            // dapetin seluruh tahun
+            for (let i = minYears; i <= maxYears; i++) {
+               years.push(i)
+            }
+        
+            function populate(selector) {
+                years.forEach((item, index,arr) => {
+                    $(selector).append(`<option value="${item}">${item}</option>`)
+                })
+            }
+       
+            let selected = "";
+            console.log("option " + $("#year").val());
+            $("#year").change(function () {
+                selected = $(this).children("option:selected").val();
+                console.log(selected);
+            })
+            populate('#year');
+            console.log(years);
+
+            //data pria
+            let pria = birthYears.filter((r) => {
+                return (r.gender == "pria")
+            }).map((r) => {
+                return r.year
+            }).sort();
+
+            //data wanita
+            let wanita = birthYears.filter((r) => {
+                return (r.gender == "wanita")
+            }).map((r) => {
+                return r.year
+            }).sort();
+
+
+            console.log(pria)
+            console.log(wanita)
+
+            //dari youtube https://www.youtube.com/watch?v=P3gJr_Rd80g
+            const count = (arr, val) => {
+                return arr.reduce((acc, elem) => {
+                    return (val === elem ? acc + 1 : acc)
+                }, 0)
+            }
+
+            let chartPria = [];
+            let chartWanita = [];
+            let chartPriaO = [];
+            let chartWanitaO = [];
+
+            for (let i = 0; i < years.length; i++)
+            {
+                let resultPria = count(pria, years[i]);
+                let resultWanita = count(wanita, years[i]);
+                chartPria.push(resultPria);
+                chartWanita.push(resultWanita);
+            }
+
+            console.log(chartPria)
+            console.log(chartWanita)
+            var options = {
+                series: [{
+                    name: 'Pria',
+                    data: chartPria
+                }, {
+                    name: 'Wanita',
+                    data: chartWanita
+                }],
+                chart: {
+                    selection: {
+                        enabled: true,
+                        type: 'x',
+                    },
+                    type: 'bar',
+                    height: 350,
+                    toolbar: {
+                        show: true
+                    },
+                    zoom: {
+                        enabled: true,
+                        autoScaleYaxis: true,
+                    },
+                },
+                colors: ["#247BA0","#FF1654"],
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        legend: {
+                            position: 'bottom',
+                            offsetX: -10,
+                            offsetY: 0
+                        }
+                    }
+                }],
+                plotOptions: {
+                    bar: {
+                        borderRadius: 8,
+                        columnWidth: '100%',
+                        horizontal: false,
+                    },
+                },
+                stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ['transparent']
+                },
+                labels: allDateBirth,
+                xaxis: {
+                    type: 'datetime',
+                    //categories: years,
+                },
+                yaxis: {
+                    title: {
+                        text: 'Jumlah'
+                    }
+                },
+                legend: {
+                    position: 'right',
+                    offsetY: 40
+                },
+                fill: {
+                    opacity: 1
+                },
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+
+
+        }).fail((error) => {
+            //failed
+            console.log("request gagal");
+        });
+    });
+
+</script>
+
+}

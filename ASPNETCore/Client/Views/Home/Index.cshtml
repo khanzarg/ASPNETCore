@@ -1,0 +1,424 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Employee</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container">
+    <!-- Button trigger modal -->
+    <button onclick="ModalDynamic('register')" class="btn btn-primary mb-2 bg-primary" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Register">
+        <i class="fa fa-plus"></i>
+    </button>
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="name">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-form-label">Email:</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group" id="passwordCol">
+                        <label for="password" class="col-form-label">Password:</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender" class="col-form-label mr-2">Gender:</label>
+                        <div class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="pria" value="pria">
+                            <label class="form-check-label" for="pria">
+                                Pria
+                            </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="wanita" value="wanita">
+                            <label class="form-check-label" for="wanita">
+                                Wanita
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date" class="col-form-label">Date</label>
+                        <input class="form-control" type="date" id="date">
+                    </div>
+                    <div class="form-group" id="phoneCol">
+                        <label for="phone" class="col-form-label">phone:</label>
+                        <input type="number" class="form-control" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="role" class="col-form-label mr-2">Role:</label>
+                        <div class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="role" id="admin" value="1">
+                            <label class="form-check-label" for="admin">
+                                Admin
+                            </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="role" id="employee" value="2">
+                            <label class="form-check-label" for="employee">
+                                Employee
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-placement="top" title="Close">Close</button>
+                        <button id="submit" type="submit" class="btn btn-primary" onclick="insert()" data-placement="top" title="Submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Birthday</th>
+                <th>Gender</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+@section scripts {
+
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            TableDua;
+
+        });
+
+        let ClearModal = () => {
+            $("#name").val("");
+            $("#email").val("");
+            $("#date").val("");
+            $("#password").val("");
+            $("#pria").prop("checked", false);
+            $("#wanita").prop("checked", false);
+            $("#admin").prop("checked", false);
+            $("#employee").prop("checked", false);
+      
+        }
+
+        //untuk tombol modal
+        let ModalDynamic = (param) => {
+            let name = null;
+            if (param == "register") {
+                name = "Register";
+                $("#phoneCol").show();
+                $("#passwordCol").show();
+                ClearModal();
+                $("#submit").attr("onclick","Insert()");
+            } else {
+                name = "Edit";
+                ReadById(param);
+                $("#submit").attr("onclick", `Update(${param})`);
+            }
+
+            $("#exampleModal").modal('show');
+            $("#exampleModalLabel").text(name);
+        }
+
+        let TableDua = 
+            $('#example').DataTable({
+                ajax: {
+                    url : "Home/GetEmployee",
+                    dataSrc : ""
+                },
+                dom: 'Bfrtip',
+                className : "mt-5 mb-5",
+                buttons: [
+                    {
+                        extend: 'collection',
+                        className: "btn btn-success",
+                        text: 'Export',
+                        buttons: [
+                            {
+                                extend: "excel", className: "btn btn-outline-success",
+                               
+                            },
+                            {
+                                extend: "pdf", className: "btn btn-outline-danger"
+                            },
+                        ],
+                    },
+                ],
+                columns: [
+                    {
+                        data: null,
+                        render: (data, type, row, meta) => {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+
+                    },
+                    { data: 'name' },
+                    { data: 'email' },
+                    {
+                        data: 'birthDate',
+                        render: function (data, type, row) {
+                            data = moment(data, "YYYY-MM-DD").format("DD MMMM YYYY");
+                            return data;
+                        }
+                    },
+                    { data: 'gender' },
+                    {
+                        data: null,
+                        render: function (row) {
+                            return '<button onclick="ModalDynamic(' + row['id'] + ')" class="btn btn-primary" style="margin-right : 5px;" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Close"><i class="fa fa-edit"></i></button>' +
+                                '<button id="deleteTable" class="btn btn-danger" style="margin-left : 5px;" onclick="Delete(' + row['id'] + ')" data-target="#modalDelete" data-placement="top" title="Close"><i class="fa fa-trash"></i></button>';
+                        },
+                        orderable: false,
+                        searchable: false
+                    },
+                ]
+            });
+
+        let TableRender = (result) => {
+            let table = $('#example').DataTable({
+                "data": result,
+                columns: [
+                    {
+                        data: null,
+                        render: (data, type, row, meta) => {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+
+                    },
+                    { data: 'name' },
+                    { data: 'email' },
+                    { data: 'birthDate' },
+                    { data: 'gender' },
+                    {
+                        data: null,
+                        render: function (row) {
+                            return '<button onclick="ModalDynamic(' + row['id'] + ')" class="btn btn-primary" style="margin-right : 5px;" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Close"><i class="fa fa-edit"></i></button>' +
+                                '<button id="deleteTable" class="btn btn-danger" style="margin-left : 5px;" onclick="Delete(' + row['id'] + ')" data-target="#modalDelete" data-placement="top" title="Close"><i class="fa fa-trash"></i></button>';
+                        },
+                        orderable: false,
+                        searchable: false
+                    },
+                ]
+            });
+        }
+        let ReadData = () => {
+            $.ajax({
+                url: "Home/GetEmployee",
+                type: "GET",
+            }).done((result) => {
+                TableRender(result)
+            }).fail((error) => {
+                //failed
+                console.log("request gagal");
+            });
+        }
+
+        let Insert = () => {
+
+            let user = new Object();
+            user.Name = $("#name").val();
+            user.Email = $("#email").val();
+            user.Password = $("#password").val();
+            user.BirthDate = $("#date").val();
+            user.Gender = $('input[name="gender"]:checked').val();
+            user.Phone = $("#phone").val();
+            user.RoleId = parseInt($('input[name="role"]:checked').val());
+            $.ajax({
+                type: "POST",
+                url: "Home/Create",
+                data: user,
+            }).done(result => {
+                if (result == 200) {
+                    swal("Insert Berhasil", {
+                        icon: "success",
+                        buttons: false,
+                        timer : 1500
+                    });
+                    $('#exampleModal').modal('hide')
+                    Reload();
+                } else {
+                    swal("Insert Gagal Harap periksa data", {
+                        icon: "error",
+                        buttons: false,
+                        timer: 2000
+                    });
+                    $('#exampleModal').modal('show')
+                }
+
+
+            }).fail(result => {
+                swal("Insert Gagal", {
+                    icon: "failed",
+                    buttons: false,
+                    timer: 1500
+                });
+                $('#exampleModal').modal('hide')
+                Reload();
+            })
+
+        }
+
+        let Delete = (Id) => {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        ajaxDelete(Id);
+                      
+                    } else {
+                        swal("Your imaginary file is safe!");
+                    }
+                });
+        }
+
+        let ajaxDelete = (Id) => {
+
+            $.ajax({
+                type: "DELETE",
+                url: `Home/Delete/${Id}`
+            }).done(result => {
+                if (result == 200) {
+                    swal("Poof! Your imaginary file has been deleted!", {
+                        icon: "success",
+                        buttons: false,
+                        timer: 1500
+                    });
+                    Reload();
+                } else {
+                    swal("Delete Failed", {
+                        icon: "warning",
+                        buttons: false,
+                        timer: 1500
+                    });
+                }
+            }).fail(result => {
+                console.log("Gagal");
+            })
+        }
+
+        let ReadById = (Id) => {
+            $.ajax({
+                url: `Home/GetEmployeeById/${Id}`,
+                type: "GET",
+            }).done((result) => {   
+                let data = JSON.parse(result);
+                console.log(data);
+                let d = new Date();
+                let year = d.getFullYear(data.birthDate);
+                let month = ("0" + d.getMonth(data.birthDate)).slice(-2);
+                let day = d.getDate(data.birthDate)
+               
+                $("#name").val(data.name);
+                $("#email").val(data.email);
+                $("#date").val(`${year}-${month}-${day}`);
+
+                $("#phoneCol").hide();
+                $("#passwordCol").hide();
+
+                if (data.gender.toLowerCase() == "pria") {
+                    $("#pria").prop("checked", true)
+                } else {
+                    $("#wanita").prop("checked", true)
+                }
+
+                $("#phone").text(parseInt(data.phone));
+                if (data.roleId == 1) {
+                    $("#admin").prop("checked", true)
+                } else {
+                    $("#employee").prop("checked", true)
+                }
+
+
+            }).fail((error) => {
+                //failed
+                alert("request gagal");
+            });
+        }
+
+        let Update = (Id) =>{
+            let user = new Object();
+            user.Id = Id;
+            user.Name = $("#name").val();
+            user.Email = $("#email").val();
+            user.BirthDate = $("#date").val();
+            user.Gender = $('input[name="gender"]:checked').val();
+            user.RoleId = parseInt($('input[name="role"]:checked').val());
+            $.ajax({
+                type: "PUT",
+                url: "Home/Update",
+                data: user,
+            }).done(result => {
+                if (result == 200) {
+                    swal("Update Berhasil", {
+                        icon: "success",
+                        buttons: false,
+                        timer: 1500
+                    });
+                    $('#exampleModal').modal('hide')
+                    Reload();
+                } else {
+                    swal("Update Gagal Harap periksa data", {
+                        icon: "error",
+                        buttons: false,
+                        timer: 2000
+                    });
+                    $('#exampleModal').modal('show')
+                }
+
+            }).fail(result => {
+                swal("Insert Gagal", {
+                    icon: "warning",
+                    buttons: false,
+                });
+                $('#exampleModal').modal('hide')
+                Reload();
+            })
+
+        }
+
+        let Reload = () => {
+            let reload = setInterval(TableDua.ajax.reload(null, false), 2000);
+            clearInterval(reload);
+        }
+    </script>
+}

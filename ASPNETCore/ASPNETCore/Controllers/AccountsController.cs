@@ -25,9 +25,11 @@ using Dapper;
 using System.Data;
 using Microsoft.Data.SqlClient;
 using ASPNETCore.Repositories;
+using Microsoft.AspNetCore.Cors;
 
 namespace ASPNETCore.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class AccountsController  : BaseController<Account, AccountRepository, int>
@@ -46,7 +48,7 @@ namespace ASPNETCore.Controllers
             this.myContext = myContext;
         }
 
-        [HttpPost("register")]
+        [HttpPost("Register")]
         public ActionResult Register(Register register)
         {
             try
@@ -117,6 +119,22 @@ namespace ASPNETCore.Controllers
             }
         }
 
+        [HttpDelete("Delete/{id}")]
+        public ActionResult DeleteAccount(int id)
+        {
+            try
+            {
+                var dbparams = new DynamicParameters();
+                dbparams.Add("Id", id, DbType.Int32);
+                var result = Task.FromResult(dapper.Execute("[dbo].[SP_DeleteAccount]", dbparams, commandType: CommandType.StoredProcedure));
+                return Ok(new { Status = "Success", Message = "User has been Delete successfully" });
+
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
 
         [HttpPut("change-password")]
         public ActionResult ChangePassword(ChangePassword changePassword)
@@ -135,7 +153,7 @@ namespace ASPNETCore.Controllers
             }
             return Conflict(new { Status = "Failed", Message = "Old Password is not Correct" });
         }
-
+        [DisableCors]
         [HttpPost("forgot-password")]
         public ActionResult ForgotPassword(string email)
         {

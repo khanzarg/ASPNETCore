@@ -24,6 +24,7 @@ namespace ASPNETCore
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -110,11 +111,18 @@ namespace ASPNETCore
                 });
             });
 
-            //services.AddApplicationInsightsTelemetry(Configuration);
-            //services.AddMvc();
-            //services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
-            //services.AddScoped(typeof(IGenericRepository<>), typeof(GeneralRepository<>));
-        }
+            //CORS
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("https://test-cors.org", "https://localhost:44333")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    });
+                });
+            }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -138,6 +146,9 @@ namespace ASPNETCore
 
             app.UseRouting();
 
+            //CORST
+            //app.UseCors(MyAllowSpecificOrigins);
+            app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

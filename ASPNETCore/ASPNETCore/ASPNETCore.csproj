@@ -21,6 +21,8 @@
     <Compile Remove="Migrations\20210505041054_Employee-Password-OneToOne.Designer.cs" />
     <Compile Remove="Migrations\20210505041706_Employee-Password-OneToOne.cs" />
     <Compile Remove="Migrations\20210505041706_Employee-Password-OneToOne.Designer.cs" />
+    <Compile Remove="Migrations\20210519150419_OnDeleteEmployee.cs" />
+    <Compile Remove="Migrations\20210519150419_OnDeleteEmployee.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,10 +40,6 @@
     <PackageReference Include="MimeKit" Version="2.11.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 

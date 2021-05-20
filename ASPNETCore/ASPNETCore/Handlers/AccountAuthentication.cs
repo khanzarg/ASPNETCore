@@ -32,17 +32,17 @@ namespace ASPNETCore.Handlers
             return account;
         }
 
-        public Account GetAccount(int id)
-        {
-            var employee = myContext.Employees.SingleOrDefault(employee => employee.Id == id);
-            var account = myContext.Accounts.SingleOrDefault(account => account.Id == employee.Id);
-            return account;
-        }
+        //public Account GetAccount(int id)
+        //{
+        //    var employee = myContext.Employees.SingleOrDefault(employee => employee.Id == id);
+        //    var account = myContext.Accounts.SingleOrDefault(account => account.Id == employee.Id);
+        //    return account;
+        //}
 
         public bool CheckEmail(string email)
         {
-            var account = GetAccount(email);
-            if(account.Employee.Email.Contains(email))
+            var employee = myContext.Employees.SingleOrDefault(employee => employee.Email == email);
+            if (employee == null)
             {
                 return true;
             }

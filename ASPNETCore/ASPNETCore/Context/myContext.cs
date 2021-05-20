@@ -84,7 +84,8 @@ namespace ASPNETCore.Context
             //Employee-Employeerole
             modelBuilder.Entity<EmployeeRole>()
                 .HasOne(EmployeeRole => EmployeeRole.Employee)
-                .WithMany(Employee => Employee.EmployeeRoles);
+                .WithMany(Employee => Employee.EmployeeRoles)
+                .OnDelete(DeleteBehavior.Cascade);
 
             //Employeerole-Role
             modelBuilder.Entity<EmployeeRole>()
@@ -96,6 +97,7 @@ namespace ASPNETCore.Context
                 .HasOne(account => account.Employee)
                 .WithOne(employee => employee.Account)
                 .HasForeignKey<Account>(account => account.Id);
+
         }
     }
 }

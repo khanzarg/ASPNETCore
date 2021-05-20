@@ -1,0 +1,221 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container">
+    <label for="year">Years</label>
+    <select class="form-control" id="year" >
+        <option value="all">ALL</option>
+    </select>
+    <div id="chart">
+    </div>
+</div>
+
+@section scripts {
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        ajaxReq()
+        // bikin function buat ambil chart
+        // if all parameter tahun
+        // render ulang chart
+
+        $("#year").change(function () {
+            let value = $("option:selected").val()
+            if (value == "all") {
+                ajaxReq()
+            } else {
+                ajaxReq(value)
+            }
+        });
+    
+    });
+
+
+    // function request ajax
+    let ajaxReq = (year) => {
+        let years = [];
+        let test = [];
+        let urlEmployee = "https://localhost:44320/api/Employee/";
+        console.log(year);
+        $.ajax({
+            url: urlEmployee,
+            type: "GET",
+        }).done((result) => {
+            let datas = result.map(r => {
+                return r;
+            });
+
+            let chartDatas = datas.map(r => {
+                // ambil day month year
+                let day = r.birthDate.substr(8, 2);
+                let month = r.birthDate.substr(5, 2);
+                let year = r.birthDate.substr(0, 4);
+
+                // masukkan kedalam array
+                let dateArr = [];
+                dateArr.push(day);
+                dateArr.push(month);
+                dateArr.push(year);
+
+                // gabung dengan slash
+                let date = dateArr.join('/');
+
+                //console.log(dateArr);
+                //console.log(date);
+
+                return {
+                    year: year,
+                    gender: r.gender
+                }
+            }).sort((a, b) => {
+                return a.year - b.year
+            });
+
+            let startYears = parseInt(chartDatas[0].year);
+            let endYears = chartDatas[chartDatas.length - 1].year;
+           
+
+            // dapetin tahun urut dari awal sampai akhir
+            // sesuai data
+            for (let i = startYears; i <= endYears; i++) {
+                years.push(i.toString());
+            }
+
+            //let employeesBirthYear = []
+            //employees.map(employee => {
+            //    if (employeesBirthYear.includes(employee.year)) {
+            //        return false
+            //    } else {
+            //        employeesBirthYear.push(employee.year)
+            //    }
+            //})
+           
+            chartDatas.map(y => {
+                if (test.includes(y.year)) {
+                    return false
+                } else {
+                    test.push(y.year)
+                }
+            })
+
+            console.log(test);        
+
+
+            let pria = chartDatas.filter(r => {
+                return r.gender == "pria"
+            }).map(r => {
+                return r.year
+            })
+
+            console.log(pria)
+            let wanita = chartDatas.filter(r => {
+                return r.gender == "wanita"
+            }).map(r => {
+                return r.year
+            })
+
+            // menghitung jumlah gender pertahun
+            // dari youtube https://www.youtube.com/watch?v=P3gJr_Rd80g
+            let initValue = 0;
+            let count = (arr, val) => {
+                return arr.reduce((acc, elem) => {
+                    return (val === elem ? acc + 1 : acc)
+                }, initValue)
+            }
+
+            // simpan jumlah pria danw anita
+            let countPria = [];
+            let countWanita = [];
+
+            // hitung jumlah pria / wanita dalam pertahun
+            for (let i = 0; i < test.length; i++) {
+                let resultPria = count(pria, test[i]);
+                let resultWanita = count(wanita, test[i]);
+                countPria.push(resultPria);
+                countWanita.push(resultWanita);
+            }
+
+            var options = {
+                series: [{
+                    name: 'Pria',
+                    data: countPria
+                }, {
+                    name: 'Wanita',
+                    data: countWanita
+                }],
+                chart: {
+                    height: 350,
+                    type: 'bar',
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        borderRadius: 7,
+                        columnWidth: '70%',
+                        endingShape: 'rounded'
+                    },
+                },
+                xaxis: {
+                    labels: {
+                        format: 'yyyy',
+                    },
+                    //type: 'datetime',
+                    categories: test
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                title: {
+                    text: 'Ajax Example',
+                },
+                stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ['transparent']
+                },
+                colors: ["#247BA0", "#FF1654"],
+                fill: {
+                    opacity: 1
+                },
+                noData: {
+                    text: 'Loading...'
+                },
+            }
+
+            var chart = new ApexCharts(
+                document.querySelector("#chart"),
+                options
+            );
+
+            chart.render();
+
+            console.log(chartDatas);
+
+        
+            populate('#year', test);
+        }).fail((error) => {
+            //failed
+            console.log("request gagal");
+        });
+    
+    }
+
+    // option selection
+    let populate = (selector, data) => {
+        data.forEach((item) => {
+            $(selector).append(`<option value="${item}">${item}</option>`)
+        })
+    }
+
+</script>
+
+}

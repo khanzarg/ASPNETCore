@@ -28,7 +28,9 @@ namespace ASPNETCore.Repositories
 
         public int Execute(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)
         {
-            throw new NotImplementedException();
+            using IDbConnection db = new SqlConnection(_config.GetConnectionString(Connectionstring));
+            int result = db.Execute(sp, parms, commandType: commandType);
+            return result;
         }
 
         public T Get<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)
