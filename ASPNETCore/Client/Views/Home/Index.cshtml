@@ -5,7 +5,7 @@
 
 <div class="container">
 
-    <button type="button" class="btn btn-success my-3" data-toggle="modal" data-target="#add" data-placement="top" title="Add Data">
+    <button type="button" onclick="dynamicOnClick('register')" class="btn btn-success my-3" data-toggle="modal" data-target="#add" data-placement="top" title="Add Data">
         <i class="fas fa-plus-square"></i>
     </button>
 
@@ -27,23 +27,24 @@
 </div>
 
 <!-- Modal Add-->
-<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="add">Data Employee</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                
+@*<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addlabel">Employee Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
                     <div class="mb-3">
+                        <input type="hidden" class="form-control" id="id" required>
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" required>
                         <label for="email" class="form-label">Email</label>
                         <input type="text" class="form-control" id="email" required>
-                        
+
                         <label for="birthdate" class="form-label">Birth Date</label>
                         <input type="date" class="form-control" id="birthdate" required><br />
                         <label for="male">Male</label>
@@ -52,11 +53,112 @@
                         <input type="radio" id="female" name="gender" value="Wanita" required><br />
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" onclick="insert()">Save changes</button>
+                            <button id="submit" type="submit" class="btn btn-primary" onclick="">Save changes</button>
                         </div>
                     </div>
 
-                
+                </div>
+
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addlabel">Employee Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" novalidate>
+                    <input type="hidden" class="form-control" id="id" required>
+
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" placeholder="Name" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please fill name.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" placeholder="Email" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please fill Email.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="birthdate" class="col-sm-2 col-form-label">Birth Date</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="birthdate" placeholder="Birth Date" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please Choose Birth Date.
+                            </div>
+                        </div>
+                    </div>
+
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="male" value="Pria" required>
+                                    <label class="form-check-label" for="gridRadios1">
+                                        Male
+                                    </label>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please Choose Gender.
+                                    </div>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="female" value="Wanita" required>
+                                    <label class="form-check-label" for="gridRadios2">
+                                        Female
+                                    </label>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please Choose Gender.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="modal-footer">
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button id="submit" type="submit" class="btn btn-primary" onclick="">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
             </div>
 
         </div>
@@ -65,19 +167,40 @@
 
 
 @section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+
 
     <script>
         $(document).ready(function () {
-            $("#EmployeesTable").DataTable({
+            let t = $("#EmployeesTable").DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
                 ajax: {
                     url: "https://localhost:44320/api/Employee",
                     dataSrc: ""
                 },
                 columns: [
                     {
+                        //"data": null,
+                        //"searchable": false,
+                        //"orderable": false,
+                        //"targets": 0
+
+
                         "data": null,
+                        "searchable": false,
+                        "orderable": false,
                         "render": (data, type, row, meta) => {
                             return meta.row + meta.settings._iDisplayStart + 1;
                         }
@@ -85,7 +208,7 @@
                     { "data": "name" },
                     {
                         "render": function (data, type, row) {
-                            var date = moment(row["birthDate"]).format("DD MMMM YYYY");
+                            var date = moment(row['birthDate']).format('DD MMMM YYYY');
                             return date;
                         }
                     },
@@ -94,14 +217,41 @@
                     {
                         "data": null,
                         "render": function (data, type, row) {
-                            return `<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#add" data-placement="top" title="Update Data" onclick="update(${row["id"]})"><i class="fas fa-pen"></i> </button>  <button type="button" class="btn btn-danger" onclick="Delete(${row["id"]})" data-placement="top" title="Delete Data"><i class="far fa-minus-square"></i></button>`;
+                            return `<button type="button" class="btn btn-warning" onclick="dynamicOnClick(${row["id"]})" data-toggle="modal" data-nama="arsya" data-target="#add" data-placement="top" title="Update Data" id="update"><i class="fas fa-pen"></i> </button>  <button type="button" class="btn btn-danger" onclick="Delete(${row["id"]})" data-placement="top" title="Delete Data"><i class="far fa-minus-square"></i></button>`;
                         },
                         "orderable": false,
                         "searchable": false
                     }
-                ]
+                ],
+                "order": [1]
             });
+            t.on('order.dt search.dt', function () {
+                t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
+
+           
         })
+
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+        //(function () {
+        //    'use strict';
+        //    window.addEventListener('load', function () {
+        //        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        //        var forms = document.getElementsByClassName('needs-validation');
+        //        // Loop over them and prevent submission
+        //        var validation = Array.prototype.filter.call(forms, function (form) {
+        //            form.addEventListener('submit', function (event) {
+        //                if (form.checkValidity() === false) {
+        //                    event.preventDefault();
+        //                    event.stopPropagation();
+        //                }
+        //                form.classList.add('was-validated');
+        //            }, false);
+        //        });
+        //    }, false);
+        //})();
 
         let Delete = (Id) => {
             swal({
@@ -137,6 +287,24 @@
         }
 
         let insert = () => {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                let validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+
+            
+
             let emp = new Object();
 
             emp.name = $("#name").val();
@@ -163,40 +331,90 @@
             })
         }
 
+        let clearModal = () => {
+            $("#name").val("");
+            $("#email").val("");
+            $("#birthdate").val("");
+            $("#male").prop("checked", false)
+            $("#female").prop("checked", false)
+        }
+
+        let dynamicOnClick = param => {
+            let name;
+
+            if (param == "register") {
+                name = "Add New Employee";
+                clearModal();
+                $("#submit").attr("onclick", "insert()");
+
+            } else {
+                name = "Edit Employee";
+                getById(param);
+                $("#submit").attr("onclick", `update()`);
+            }
+            $("#addlabel").text(name);
+        }
+
         let getById = id => {
             console.log("mulai");
             $.ajax({
                 url: `/Employee/GetById/${id}`,
                 type: "GET"
             }).done(result => {
-                
-                return result;
+                let jsonResult = JSON.parse(result);
+                let d = new Date();
+                let year = d.getFullYear(jsonResult.birthDate);
+                let month = ("0" + d.getMonth(jsonResult.birthDate)).slice(-2);
+                let day = d.getDate(jsonResult.birthDate)
+                console.log(jsonResult);
+
+                $("#id").val(jsonResult.id);
+                $("#name").val(jsonResult.name);
+                $("#email").val(jsonResult.email);
+                $("#birthdate").val(`${year}-${month}-${day}`);
+                console.log(jsonResult.gender);
+                if (jsonResult.gender.toLowerCase() == "pria") {
+                    $("#male").prop("checked", true)
+                } else {
+                    $("#female").prop("checked", true)
+                }
+
+
             }).fail(result => {
                 return result;
             })
         }
 
-        let update = id => {
+        let update = () => {
+            let emp = new Object();
+            console.log("muali update");
+            emp.id = $("#id").val();
+            emp.name = $("#name").val();
+            emp.birthDate = $("#birthdate").val();
+            emp.gender = $('input[name="gender"]:checked').val();
+            emp.email = $("#email").val();
+
+
             $.ajax({
-                url: `/Employee/GetById/${id}`,
-                type: "GET"
+                url: '/Employee/Update',
+                type: "PUT",
+                data: emp
             }).done(result => {
-                console.log(result);
-                $("#name").val(result.name);
-                $("#birthdate").val(result.birthDate);
-                $("#gender").val(result.gender);
-                $("#email").val(result.email);
-                return result;
+                if (result == 200) {
+                    swal({
+                        title: "Good job!",
+                        text: "You clicked the button!",
+                        icon: "success",
+                        button: "Aww yiss!",
+                    }).then(() => { location.reload() })
+                }
             }).fail(result => {
-                return result;
+                alert("failed")
             })
-            
-            
-            
-            
-           
         }
+
+        
     </script>
 
-    
+
 }

@@ -1,4 +1,5 @@
-﻿using Client.ViewModels;
+﻿using ASPNETCore.Models;
+using Client.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -35,7 +36,7 @@ namespace Client.Controllers
             response.Wait();
             var result = response.Result;
             var apiResponse = result.Content.ReadAsStringAsync();
-            
+
             return Json(apiResponse.Result);
         }
 
@@ -47,13 +48,13 @@ namespace Client.Controllers
             return response.StatusCode;
         }
 
-        [HttpPost]
+        [HttpPut]
         public HttpStatusCode Update(AddEmployeeVM employee)
         {
             var client = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(employee), Encoding.UTF8, "application/json");
-            var result = client.PutAsync("https://localhost:44320/api/employee", content).Result;
-            return result.StatusCode;
+            var result = client.PutAsync("https://localhost:44320/api/employee", content);
+            return result.Result.StatusCode;
         }
     }
 }
