@@ -61,6 +61,11 @@ namespace ASPNETCore.Context
                 .WithOne(education => education.Employee)
                 .HasForeignKey<Education>(education => education.Id);
 
+            //Email should be unique
+            modelBuilder.Entity<Employee>()
+                .HasIndex(employee => employee.Email)
+                .IsUnique();
+
             // Address
             modelBuilder.Entity<Address>()
                 .HasOne(address => address.Territory)

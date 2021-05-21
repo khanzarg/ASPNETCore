@@ -237,20 +237,20 @@
 
             $("#submit").click(function () {
                 let obj = new Object();
-                console.log(obj);
+
                 obj.id = $("#id").val();
                 obj.name = $("#name").val();
                 obj.email = $("#email").val();
                 obj.birthDate = $("#birthDate").val();
                 obj.gender = $("input[type='radio'][name='gender']:checked").val();
 
-                console.log(obj);
+                console.log(JSON.stringify(obj));
                 var i;
                 var emailCheck;
                 var check = 0;
                 for (i = 0; i < obj.email.length; i++) {
                     if (obj.email[i] == "@@") {
-                        check++;
+                        check++;//xxx@gmail.com
                     }
                     if (check > 0) {
                         emailCheck = true;
@@ -261,7 +261,7 @@
                 }
 
                 if (obj.name == "" || obj.email == "" || obj.gender == null || obj.birthDate == "" || emailCheck == false ) {
-
+                    //can't insert / update
                 }
                 else {
                     if (obj.id == "") {
@@ -283,7 +283,16 @@
             swal({
                 title: "No data",
                 text: "Please fill the required field.",
-                icon: "Warning",
+                icon: "warning",
+                button: "Ok",
+                dangerMode: true,
+            });
+        }
+        let sAlertDuplicateEmail = () => {
+            swal({
+                title: "Email has been registered",
+                text: "Your email has already been in database.",
+                icon: "warning",
                 button: "Ok",
                 dangerMode: true,
             });
@@ -299,11 +308,12 @@
                     sAlertAdd();
                 }
                 else {
-                    alert("Not Done");
+                    //alert(result);
+                    sAlertDuplicateEmail();
                 }
             }).fail((error) => {
                 console.log(error);
-                alert("gagal");
+                alert("Internal Error. Something went wrong.");
             })
         }
 
