@@ -5,7 +5,7 @@
 
 <div class="container">
 
-    <button type="button" onclick="dynamicOnClick('register')" class="btn btn-success my-3" data-toggle="modal" data-target="#add" data-placement="top" title="Add Data">
+    <button type="button" onclick="clearModal()" class="btn btn-success my-3" data-toggle="modal" data-target="#add" data-placement="top" title="Add Data">
         <i class="fas fa-plus-square"></i>
     </button>
 
@@ -26,46 +26,6 @@
 
 </div>
 
-<!-- Modal Add-->
-@*<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addlabel">Employee Form</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="mb-3">
-                        <input type="hidden" class="form-control" id="id" required>
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" required>
-                        <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email" required>
-
-                        <label for="birthdate" class="form-label">Birth Date</label>
-                        <input type="date" class="form-control" id="birthdate" required><br />
-                        <label for="male">Male</label>
-                        <input type="radio" id="male" name="gender" value="Pria" required><br />
-                        <label for="female">Female</label>
-                        <input type="radio" id="female" name="gender" value="Wanita" required><br />
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button id="submit" type="submit" class="btn btn-primary" onclick="">Save changes</button>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>*@
-
-
-
-
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -76,13 +36,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="needs-validation" novalidate>
-                    <input type="hidden" class="form-control" id="id" required>
+                <form id="formdata" class="needs-validation">
+                    <input type="hidden" class="form-control" id="id">
 
                     <div class="form-group row">
                         <label for="name" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="name" placeholder="Name" required>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -95,7 +55,7 @@
                     <div class="form-group row">
                         <label for="email" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="email" placeholder="Email" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -108,7 +68,7 @@
                     <div class="form-group row">
                         <label for="birthdate" class="col-sm-2 col-form-label">Birth Date</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" id="birthdate" placeholder="Birth Date" required>
+                            <input type="date" class="form-control" id="birthdate" name="birthdate" placeholder="Birth Date" required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -120,11 +80,11 @@
 
                     <fieldset class="form-group">
                         <div class="row">
-                            <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                            <label class="col-form-label col-sm-2 pt-0">Gender</label>
                             <div class="col-sm-10">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="gender" id="male" value="Pria" required>
-                                    <label class="form-check-label" for="gridRadios1">
+                                    <label class="form-check-label" for="male">
                                         Male
                                     </label>
                                     <div class="valid-feedback">
@@ -136,7 +96,7 @@
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="gender" id="female" value="Wanita" required>
-                                    <label class="form-check-label" for="gridRadios2">
+                                    <label class="form-check-label" for="female">
                                         Female
                                     </label>
                                     <div class="valid-feedback">
@@ -153,7 +113,7 @@
                     <div class="modal-footer">
                         <div class="form-group row">
                             <div class="col-sm-10">
-                                <button id="submit" type="submit" class="btn btn-primary" onclick="">Save changes</button>
+                                <button id="submit" type="button" class="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                     </div>
@@ -177,10 +137,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 
 
     <script>
         $(document).ready(function () {
+
             let t = $("#EmployeesTable").DataTable({
                 dom: 'Bfrtip',
                 buttons: [
@@ -217,7 +179,7 @@
                     {
                         "data": null,
                         "render": function (data, type, row) {
-                            return `<button type="button" class="btn btn-warning" onclick="dynamicOnClick(${row["id"]})" data-toggle="modal" data-nama="arsya" data-target="#add" data-placement="top" title="Update Data" id="update"><i class="fas fa-pen"></i> </button>  <button type="button" class="btn btn-danger" onclick="Delete(${row["id"]})" data-placement="top" title="Delete Data"><i class="far fa-minus-square"></i></button>`;
+                            return `<button type="button" class="btn btn-warning" onclick="getById(${row["id"]})" data-toggle="modal" data-nama="arsya" data-target="#add" data-placement="top" title="Update Data" id="update"><i class="fas fa-pen"></i> </button>  <button type="button" class="btn btn-danger" onclick="Delete(${row["id"]})" data-placement="top" title="Delete Data"><i class="far fa-minus-square"></i></button>`;
                         },
                         "orderable": false,
                         "searchable": false
@@ -231,27 +193,68 @@
                 });
             }).draw();
 
+            $('#submit').click(function () {
+                $('#formdata').submit()
+            })
+
+            $('#formdata').validate({
+                rules: {
+                    name: {
+                        required: true,
+                    },
+                    email: {
+                        required: true,
+                    },
+                    birthdate: {
+                        required: true,
+                    },
+                    gender: {
+                        required: true,
+                    }
+                },
+                message: {
+                    name: "Please input your name",
+                    birthdate: "Please input your birth date",
+                    gender: "Please choose your gender",
+                    email: "Please input your email"
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                },
+                submitHandler: function (form) {
+                    var emp = new Object()
+                    emp.id = $("#id").val();
+                    emp.name = $("#name").val();
+                    emp.birthDate = $("#birthdate").val();
+                    emp.gender = $('input[name="gender"]:checked').val();
+                    emp.email = $("#email").val();
+                    let name;
+                    if (emp.id == "") {
+                        name = "Add New Employee";
+                        
+                        insert();
+                    } else {
+                        name = "Edit Employee";
+                        
+                        update();
+                    }
+                    $("#addlabel").text(name);
+                    return false;
+                }
+            })
+
            
         })
 
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-        //(function () {
-        //    'use strict';
-        //    window.addEventListener('load', function () {
-        //        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        //        var forms = document.getElementsByClassName('needs-validation');
-        //        // Loop over them and prevent submission
-        //        var validation = Array.prototype.filter.call(forms, function (form) {
-        //            form.addEventListener('submit', function (event) {
-        //                if (form.checkValidity() === false) {
-        //                    event.preventDefault();
-        //                    event.stopPropagation();
-        //                }
-        //                form.classList.add('was-validated');
-        //            }, false);
-        //        });
-        //    }, false);
-        //})();
+        
 
         let Delete = (Id) => {
             swal({
@@ -287,31 +290,14 @@
         }
 
         let insert = () => {
-            'use strict';
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                let validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-
             
-
             let emp = new Object();
 
             emp.name = $("#name").val();
             emp.birthDate = $("#birthdate").val();
             emp.gender = $('input[name="gender"]:checked').val();
             emp.email = $("#email").val();
-
+            console.log("mulai insert");
 
             $.ajax({
                 url: '/Employee/AddEmployee',
@@ -321,10 +307,10 @@
                 if (result == 200) {
                     swal({
                         title: "Good job!",
-                        text: "You clicked the button!",
+                        text: "Data Succesfully Inserted!",
                         icon: "success",
                         button: "Aww yiss!",
-                    }).then(() => { location.reload() })
+                    }).then(() => {location.reload() })
                 }
             }).fail(result => {
                 alert("failed")
@@ -339,21 +325,22 @@
             $("#female").prop("checked", false)
         }
 
-        let dynamicOnClick = param => {
-            let name;
+        //let dynamicOnClick = param => {
+        //    let name;
 
-            if (param == "register") {
-                name = "Add New Employee";
-                clearModal();
-                $("#submit").attr("onclick", "insert()");
+        //    if (param == "register") {
+        //        name = "Add New Employee";
+        //        clearModal();
+        //        console.log("masuk dynamic");
+        //        $("#submit").attr("onclick", `insert()`);
 
-            } else {
-                name = "Edit Employee";
-                getById(param);
-                $("#submit").attr("onclick", `update()`);
-            }
-            $("#addlabel").text(name);
-        }
+        //    } else {
+        //        name = "Edit Employee";
+        //        getById(param);
+        //        $("#submit").attr("onclick", `update()`);
+        //    }
+        //    $("#addlabel").text(name);
+        //}
 
         let getById = id => {
             console.log("mulai");
@@ -415,6 +402,5 @@
 
         
     </script>
-
 
 }
