@@ -1,0 +1,94 @@
+﻿@{
+    var employee = ViewData.Model;
+}
+<!--Modal Update-->
+<div class="modal fade" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="update" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="update">Editting Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @*<div class="mb-3">
+            <label for="editid" class="form-label">Id</label>
+            <input type="text" class="form-control" id="editid" value="@employee.Id">
+            <label for="editname" class="form-label">Edit Name</label>
+            <input type="text" class="form-control" id="editname" value="@employee.Name">
+            <label for="editemail" class="form-label">Edit Email</label>
+            <input type="email" class="form-control" id="editemail" value="@employee.Email">
+            <label for="editgender" class="form-label">Edit Gender</label>
+            <input type="text" class="form-control" id="editgender" value="@employee.Gender">
+            <label for="editbirtDate" class="form-label">Edit Birth Date</label>
+            <input type="date" class="form-control" id="editbirthDate" value="@employee.BirthDate">
+        </div>*@
+                <!-- Modal body -->
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name" class="col-form-label">Name</label>
+                    <input type="text" class="form-control" id="editname" name="name" placeholder="Name" value="@employee.Name">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-form-label">Email</label>
+                    <input type="email" class="form-control" id="editemail" name="email" placeholder="Email" value="@employee.Email">
+                </div>
+                <div class="form-group">
+                    <label for="gender" class="col-form-label">Gender</label>
+                    <input type="text" class="form-control" id="editgender" name="gender" placeholder="Gender" value="@employee.Gender">
+                </div>
+                <div class="form-group">
+                    <label for="birthdate" class="col-form-label">Birth Date</label>
+                    <input type="date" class="form-control" id="editbirthDate" name="birthdate" placeholder="BirthDate" value="@employee.BirthDate">
+                </div>
+                <div class="form-group invisible">
+                    <label for="name" class="col-form-label">Id</label>
+                    <input type="text" class="form-control" id="editid" name="id" placeholder="Id" value="@employee.Id" readonly>
+                </div>
+            </div>
+                <button type="submit" class="btn btn-primary" onclick="Update()">Submit</button>
+            </div>
+        </div>
+    </div>
+<!-- Modal Edit -->
+<!--<div class="modal" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">-->
+
+            <!-- Modal Header -->
+            <!--<div class="modal-header">
+                <h2 class="modal-title">Edit Data</h2>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>-->
+
+            <!-- Modal body -->
+            <!--<div class="modal-body">
+                <div class="form-group">
+                    <label for="name" class="col-form-label">Id</label>
+                    <input type="text" class="form-control" id="editid" name="id" placeholder="Id" value="@employee.Id" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-form-label">Name</label>
+                    <input type="text" class="form-control" id="editname" name="name" placeholder="Name" value="@employee.Name">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-form-label">Email</label>
+                    <input type="email" class="form-control" id="editemail" name="email" placeholder="Email" value="@employee.Email">
+                </div>
+                <div class="form-group">
+                    <label for="gender" class="col-form-label">Gender</label>
+                    <input type="text" class="form-control" id="editgender" name="gender" placeholder="Gender" value="@employee.Gender">
+                </div>
+                <div class="form-group">
+                    <label for="birthdate" class="col-form-label">Birth Date</label>
+                    <input type="date" class="form-control" id="editbirthDate" name="birthdate" placeholder="BirthDate" value="@employee.BirthDate">
+                </div>
+            </div>-->
+
+            <!-- Modal footer -->
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-warning" onclick="Update()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>-->

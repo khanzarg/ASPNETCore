@@ -36,20 +36,30 @@ namespace Client.Controllers
         //    var client = new HttpClient();
         //    var response = client.GetAsync("https://localhost:44320/api/employee/" + id).Result;
         //    var apiResponse = response.Content.ReadAsStringAsync();
-        //    var jsn = JsonConvert.DeserializeObject<object>(apiResponse.ToString());
-        //    return View(jsn);
+        //    var jsn = JsonConvert.DeserializeObject<Employee>(apiResponse.Result);
+        //    return PartialView("GetById", jsn);
         //}
         [HttpGet]
-        public JsonResult GetById(int id)
+        public Employee GetById(int id)
         {
             var client = new HttpClient();
-            var responseTask = client.GetAsync("https://localhost:44320/api/employee/" + id);
-            responseTask.Wait();
-            var result = responseTask.Result;
-            var apiResponse = result.Content.ReadAsStringAsync();
-
-            return Json(apiResponse.Result);
+            var response = client.GetAsync("https://localhost:44320/api/employee/" + id).Result;
+            var apiResponse = response.Content.ReadAsStringAsync();
+            var jsn = JsonConvert.DeserializeObject<Employee>(apiResponse.Result);
+            return jsn;
         }
+
+        //[HttpGet]
+        //public JsonResult GetById(int id)
+        //{
+        //    var client = new HttpClient();
+        //    var responseTask = client.GetAsync("https://localhost:44320/api/employee/" + id);
+        //    responseTask.Wait();
+        //    var result = responseTask.Result;
+        //    var apiResponse = result.Content.ReadAsStringAsync();
+
+        //    return Json(apiResponse.Result);
+        //}
 
         [HttpDelete]
         public HttpStatusCode Delete(int id)

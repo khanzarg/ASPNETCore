@@ -344,7 +344,8 @@ namespace ASPNETCore.Migrations
                 {
                     b.HasOne("ASPNETCore.Models.Employee", "Employee")
                         .WithMany("EmployeeRoles")
-                        .HasForeignKey("EmployeeId");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ASPNETCore.Models.Role", "Role")
                         .WithMany("EmployeeRoles")

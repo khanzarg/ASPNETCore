@@ -3,105 +3,119 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Table Employee</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<div class="my-3">
-    <!--Tombol Add-->
-    <button type="button" class="btn btn-success my-3" data-bs-toggle='modal' data-bs-target="#add">
-        <i class="fa fa-plus"></i>
-        Add Data
-    </button>
-    <table id="tb_API" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Gender</th>
-                <th>Birth Date</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-    </table>
+<div class="container">
+    <div class="my-3">
+        <!--Tombol Add-->
+        <button type="button" class="btn btn-success my-3" data-bs-toggle='modal' data-bs-target="#add" data-toggle="tooltip" data-placement="top" title="Add Data" onclick="clearModal()">
+            <i class="fa fa-plus"></i>
+        </button>
+        <!--Table-->
+        <table id="tb_API" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Birth Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        </table>
 
+    </div>
 </div>
 
-<!--Modal Add-->
-<div class="modal fade" id="add" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-     aria-labelledby="add" aria-hidden="true">
+
+<!--Modal Post & Put-->
+<div class="modal fade" id="add" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="add" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="add">Register Account</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="add">Enter your data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> X </button>
             </div>
             <div class="modal-body">
-
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                    @*<input type="password" class="form-control" id="password" placeholder="Password">*@
-                    <label for="gender" class="form-label">Gender</label>
-                    <input type="text" class="form-control" id="gender" placeholder="Enter your gender">
-                    <label for="birthdate" class="form-label">Birth Date</label>
-                    <input type="date" class="form-control" id="birthDate" placeholder="Enter your birth date">
-                    @*<input type="text" class="form-control" id="phone" placeholder="Phone">
-                    <input type="text" class="form-control" id="roleId" placeholder="RoleId">*@
-                </div>
-                    <button type="submit" class="btn btn-primary" onclick="Insert()">Submit</button>
-
+                <form id="formSubmit">
+                    <div class="mb-3">
+                        <!--Id-->
+                        <input type="hidden" class="form-control" id="id" name="id">
+                        <!--Name-->
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <div class="col-md-12">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" required>
+                            </div>
+                        </div>
+                        <!--Email-->
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <div class="col-md-12">
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <!--Gender-->
+                        <div class="form-group">
+                            <label for="gender" class="form-label">Gender</label>
+                            <div class="col-md-12">
+                                <input type="radio" id="male" name="gender" value="Pria" required>
+                                <label for="Pria">Pria</label><br>
+                                <input type="radio" id="female" name="gender" value="Wanita" required>
+                                <label for="Wanita">Wanita</label><br>
+                            </div>
+                        </div>
+                        <!--Birth Date-->
+                        <div class="form-group">
+                            <label for="birthdate" class="form-label">Birth Date</label>
+                            <div class="col-md-12">
+                                <input type="date" name="birthDate" class="form-control" id="birthDate" placeholder="Enter your birth date" required>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
-<!--Modal Update-->
 <div id="editView">
-<div class="modal fade" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-     aria-labelledby="update" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="update">Editting Data</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="mb-3">
-                @* tambahin id dan di hidden, modal kurang proper (disarankan ada 1) *@
-                <label for="update" class="form-label">Id</label>
-                <input type="text" class="form-control" id="editid">
-                <label for="update" class="form-label">Edit Name</label>
-                <input type="text" class="form-control" id="editname">
-                <label for="update" class="form-label">Edit Email</label>
-                <input type="email" class="form-control" id="editemail">
-                <label for="update" class="form-label">Edit Gender</label>
-                <input type="text" class="form-control" id="editgender">
-                <label for="update" class="form-label">Edit Birth Date</label>
-                <input type="date" class="form-control" id="editbirthDate">
-            </div>
-                    <button type="submit" class="btn btn-primary" onclick="Update()">Submit</button>
-            </div>
-        </div>
-    </div>
+
 </div>
 
 
 
 @section scripts{
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    @*<script src="https://code.jquery.com/jquery-3.5.1.js"></script>*@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @* Export to Excel, pdf, etc. *@
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.colVis.min.js"></script>
+
     <script>
         let table = null;
-        let count = 0;
         $(document).ready(function () {
+            //Prevent reload form
+            $("#formSubmit").submit(function (e) {
+                e.preventDefault();
+            });
             //table
             table = $('#tb_API').DataTable({
                 ajax: {
@@ -112,42 +126,169 @@
                 columns: [
                     {
                         "data": null,
-                        "render": function () {
-                            count++;
-                            return count;
+                        "render": function (data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                        /*"targets": 0*/
+                    },
+
+                    { "data": "name" },
+                    { "data": "email" },
+                    {
+                        "data": "gender",
+                        "orderable": false,
+                        "searchable": false
+                    },
+                    {
+                        "data": "birthDate",
+                        render: function (data, type, row) {
+                            let date = moment(row.birthDate).format('DD MMMM YYYY');
+                            return date;
+                        },
+                        "orderable": false
+                    },
+                    {
+                        //"data": null,
+                        "render": function (data, type, row) {
+                            return '<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update" onclick="getId(' + row.id + ')" data-toggle="tooltip" data-placement="top" title="Edit Data"><i class="fa fa-edit"></i></button>'
+                                +
+                                ' <button id="deleteTable" class="btn btn-danger" onclick="sAlertDelete(' + row['id'] + ')" data-toggle="tooltip" data-placement="top" title="Delete Data"><i class="fa fa-trash"></i></button>';
+                        },
+                        "orderable": false,
+                        "searchable": false
+                    },
+                ],
+                "dom": 'Bfrtip',
+                "buttons": [
+                    {
+                        extend: 'copy',
+                        className: 'btn btn-dark rounded-0',
+                        text: '<i class="far fa-copy"></i> Copy',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4],
+                            modifier: {
+                                columns: 'visible',
+                                order: 'index'
+                            }
                         }
                     },
-                        { "data": "name" },
-                        { "data": "email" },
-                        { "data": "gender" },
-                        { "data": "birthDate" },
-                        {
-                            "data": null,
-                            "render": function (data, type, row)
-                            {//kasih parameter
-                                return '<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update" onclick="getId('+ row['id'] +')"><i class="fa fa-edit"></i>Edit Data</button>'
-                                    +
-                                    ' <button id="deleteTable" class="btn btn-danger" onclick="sAlertDelete('+ row['id'] +')"><i class="fa fa-trash"></i>Delete Data</button>';
-                            },
-                            "orderable": false,
-                            "searchable": false
-                        },
-                    ]
+                    {
+                        extend: 'excel',
+                        className: 'btn btn-dark rounded-0',
+                        text: '<i class="far fa-file-excel"></i> Excel',
+                        //text: '<i class="bi bi-file-earmark-excel"></i> Excel',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4],
+                            modifier: {
+                                columns: 'visible',
+                                order: 'index'
+                            }
+                        }
+
+                        //text: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-spreadsheet-fill" viewBox="0 0 16 16">
+                        //    < path d="M6 12v-2h3v2H6z" />
+                        //    <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM3 9h10v1h-3v2h3v1h-3v2H9v-2H6v2H5v-2H3v-1h2v-2H3V9z" /></svg>`,
+
+                    },
+                    {
+                        extend: 'pdf',
+                        className: 'btn btn-dark rounded-0',
+                        text: '<i class="far fa-file-pdf"></i> Pdf',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4],
+                            modifier: {
+                                columns: 'visible',
+                                order: 'index'
+                            }
+                        }
+                    },
+                    {
+                        extend: 'csv',
+                        className: 'btn btn-dark rounded-0',
+                        text: '<i class="fas fa-file-csv"></i> CSV',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4],
+                            modifier: {
+                                columns: 'visible',
+                                order: 'index'
+                            }
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        className: 'btn btn-dark rounded-0',
+                        text: '<i class="fas fa-print"></i> Print',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4],
+                            modifier: {
+                                columns: 'visible',
+                                order: 'index'
+                            }
+                        }
+                    }
+                ],
+                "order": [[1, 'asc']],
+            });
+            table.on('order.dt search.dt', function () {
+                table.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
+
+            $("#submit").click(function () {
+                let obj = new Object();
+                console.log(obj);
+                obj.id = $("#id").val();
+                obj.name = $("#name").val();
+                obj.email = $("#email").val();
+                obj.birthDate = $("#birthDate").val();
+                obj.gender = $("input[type='radio'][name='gender']:checked").val();
+
+                console.log(obj);
+                var i;
+                var emailCheck;
+                var check = 0;
+                for (i = 0; i < obj.email.length; i++) {
+                    if (obj.email[i] == "@@") {
+                        check++;
+                    }
+                    if (check > 0) {
+                        emailCheck = true;
+                    }
+                    else {
+                        emailCheck = false;
+                    }
+                }
+
+                if (obj.name == "" || obj.email == "" || obj.gender == null || obj.birthDate == "" || emailCheck == false ) {
+
+                }
+                else {
+                    if (obj.id == "") {
+                        Insert(obj);
+                    }
+                    else {
+                        Update(obj);
+                    }
+                }
+
             })
         })
+
     </script>
 
     <script>
-        let Insert = () => {
-            let obj = new Object();
 
-            obj.name = $("#name").val();
-            obj.email = $("#email").val();
-            //obj.password = $("#password").val();
-            obj.birthDate = $("#birthDate").val();
-            obj.gender = $("#gender").val();
-            //obj.phone = $("#phone").val();
-            //obj.roleId = parseInt($("#roleId").val());
+        let sAlertNull = () => {
+            swal({
+                title: "No data",
+                text: "Please fill the required field.",
+                icon: "Warning",
+                button: "Ok",
+                dangerMode: true,
+            });
+        }
+        let Insert = (obj) => {
             $.ajax({
                 url: "/Employee/Insert",
                 type: "POST",
@@ -213,24 +354,52 @@
                 });
         }
 
-        let Update = (data) => {
+        let sAlertPut = () => {
+            swal({
+                title: "Done",
+                text: "Data successfully Updated.",
+                icon: "success",
+                button: "Ok",
+            }).then(() => {
+                location.reload(true);
+            });
+        }
 
-            $("#editid").val(data.id);        
-            $("#editname").val(data.name);
-            $("#editemail").val(data.email);
-            $("#editbirthDate").val(data.birthDate);
-            $("#editgender").val(data.gender);
-
-            console.log(data);
-
+        let getId = (Id) => {
             $.ajax({
-                url: `/Employee/Update/${data.id}`,
-                type: "Put",
-                data: data
+                type: "GET",
+                url: `/Employee/GetById/${Id}`,
+                success: (data) => {
+                    console.log(data);
+
+                    let myModal = $("#add");
+
+                    $("#id").val(data.id);
+                    $("#name").val(data.name);
+                    $("#email").val(data.email);
+                    $(`input[name = 'gender'][value='${data.gender}']`).prop("checked", true);
+                    let dateGet = moment(data.birthDate).format("YYYY-MM-DD");
+                    $("#birthDate").val(dateGet);
+
+                    myModal.modal("show");
+
+                },
+                error: (data) => {
+                    console.log("Error " + data);
+                }
+            })
+        }
+
+        let Update = (obj) => {
+            $.ajax({
+                url: "/Employee/Update",
+                type: "PUT",
+                data: obj
             }).done((result) => {
                 console.log(result);
                 if (result == 200) {
-                    alert("Data updated.");
+                    //alert("Data updated.");
+                    sAlertPut();
                 }
                 else {
                     alert("status code: " + result);
@@ -242,30 +411,14 @@
             })
         }
 
-        let getId = (Id) => {
-            $.ajax({
-                type: "GET",
-                url: `/Employee/GetById/${Id}`,
-                success: (data) => {
-                    $('#editView').html(data);
-                    $('#update').modal();
-                    //Update(data);
-                    console.log(data);
-                },
-                error: (data) => {
-                    console.log(data);
-                }
-            })
+        let clearModal = () => {
+            $("#id").val("");
+            $("#name").val("");
+            $("#email").val("");
+            $("input[name='gender']").prop('checked', false);
+            $("#birthDate").val("");
         }
+
     </script>
-    
-   
-    @*<script>
-        let getById = () => {
-            //Edit -> modal -> ada isi dari data sebelumnya -> diganti -> submit -> method Update()
-        }
-    </script>*@
-    
-    
 
 }
